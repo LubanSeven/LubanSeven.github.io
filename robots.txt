@@ -1,0 +1,18 @@
+# hexo robots.txt
+
+User-agent: *
+
+Allow: /archives/
+ 
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /lib/
+Disallow: /about/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+#sitemap
+Sitemap: http://www.maliaoblog.cn/sitemap.xml
+Sitemap: http://www.maliaoblog.cn/baidusitemap.xml
