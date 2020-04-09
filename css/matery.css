@@ -295,7 +295,7 @@ header .nav-transparent {
 }
 
 header nav .brand-span {
-    font-size: 1.45rem;
+    font-size: 1.6rem;
 }
 
 header .brand-logo .logo-img {
@@ -305,7 +305,7 @@ header .brand-logo .logo-img {
 }
 
 header .brand-logo .logo-span {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 /*修改顶部 logo 的文字垂直对齐为 top，避免默认 middle 看起来偏下*/
@@ -350,7 +350,7 @@ header .side-nav .menu-list li {
 header .side-nav .menu-list a {
     height: 50px;
     line-height: 50px;
-    color: #34495e !important;
+    color: #44495e !important;
 }
 
 .mobile-menu-list a i {
