@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo,matery,优化,bug问题">
+    <meta name="keywords" content="Hello World, 码里奥">
     <meta name="description" content="生活是变强的理由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>matery主题优化问题 | 码里奥</title>
+    <title>Hello World | 码里奥</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -265,12 +265,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">matery主题优化问题</h1>
+                    <h1 class="description center-align post-title">Hello World</h1>
                 </div>
             </div>
         </div>
@@ -395,18 +395,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/LubanSeven.github.io/tags/%E4%BC%98%E5%8C%96/">
-                                <span class="chip bg-color">优化</span>
-                            </a>
-                        
-                            <a href="/LubanSeven.github.io/tags/bug%E9%97%AE%E9%A2%98/">
-                                <span class="chip bg-color">bug问题</span>
+                            <a href="/LubanSeven.github.io/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
+                                <span class="chip bg-color">碎碎念</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/LubanSeven.github.io/categories/%E7%BC%96%E7%A8%8B/" class="post-category">
+                                编程
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -415,7 +420,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-09
+                    2020-03-25
                 </div>
                 
 
@@ -424,14 +429,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    963
+                    62
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -442,29 +447,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="matery主题优化时解析出bug"><a href="#matery主题优化时解析出bug" class="headerlink" title="matery主题优化时解析出bug"></a>matery主题优化时解析出bug</h1><ul>
-<li><p>matery是个好的主题这个我就不详细地说了，但是优化也难</p>
-</li>
-<li><p>越好的主题、越丰富的主题，插件越多，配置越多，就容易出错</p>
-</li>
-<li><p>最要命的是这种静态网页的部署还要用最原始的方法进行，先在命令行生成静态文件，然后发送给要命的github</p>
-</li>
-<li><p>总之bug数不胜数，大部分出错的原因基本都一致，无非就是在yml文件里乱弄出的bug</p>
-</li>
-<li><p>但是我优化主题时碰上了难得的bug，就分享给大家，省的大家走弯路</p>
-<h2 id="page-ForEach-is-not-a-function后接一大片路径"><a href="#page-ForEach-is-not-a-function后接一大片路径" class="headerlink" title="page.*.ForEach is not a function后接一大片路径"></a>page.*.ForEach is not a function后接一大片路径</h2></li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20200409184120112.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="page bug"><br>这里的*就是图中的categorioes,我叫他page bug。就光看那么多行根本摸不着头脑，想着是肯定是配置出了问题，于是就打开配置文件查看。其实这个问题很少见，一般都不是config配置文件的问题。弄了半天，谁也没想到是页面文件categorioes里的index.md文件有问题。我的配置如下：<br><img src="https://img-blog.csdnimg.cn/2020040918524995.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="index.md配置"><br>一般都很少进入里面配置什么的，但是为了优化主题，让它更好看，就进入里面瞎搞乱改，网上也没什么指导如何优化配置的好文章，所以自然会遇到稀奇bug。上面的配置就出错了，出在categorioes的属性的配置，用这个主题，categories文件(需要事先new一个才有)好像不准添加属性，换成小写c也不行，之后做了如下更改。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200409190637167.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="删除属性后"><br>去掉那个C后，那个bug就没了，一切顺畅生成页面。四不四很无语，就这个鬼东西弄了一整天，不是说，就是这个静态页面配置太苛刻了，用md和yml去写，缩进不对都是要出错的。这给广大怀着博客梦的IT客破了一大盆冷水，太难了！<img src="https://img-blog.csdnimg.cn/20200409202700413.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="🆗"></p>
-<p>我还试了在其他页面文件中的md文件里设置categories属性，结果都🆗。。。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200409191736240.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="tags文件里md文件配置了没问题"><br>tags文件里md文件配置了没问题,我是说categorioes属性，图片里没有，配置tags属性也没事(没打双引号都没事)。</p>
-<pre><code>那到底是什么样的优化造成的魔王级的bug呢？</code></pre><p>hexo主题本来就不会自带页面的配置优化，需要自己弄，就matery来说吧，除了归档页面，其他的页面都不会出现和用这个主题的人一样相似布局，所以接下来就告诉大家怎么弄。</p>
-<pre><code>就是在index.md文件里配置，只需添加如下几行：
-在categories里：type: &#39;categories&#39;
-                layout: &#39;categories&#39;        (注意：后空格)
-其他类推</code></pre><p>这样在各个页面就有自己配置了，如下</p>
-<p><img src="https://img-blog.csdnimg.cn/20200409195433492.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="配置了friendst页面"><br>这是弄好了友链页面后的效果，能看到基本上是有个排版了。但框框内却出现了乱码，很巧的是出现乱码的地方都是汉字该出现的地方。所以大家应该知道了，又是编码的问题。这次我们还用notepad++更改编码友链的josn格式,如果没有notepad++或不知道如何更改编码格式，请参考<a href="https://blog.csdn.net/Gobullin/article/details/105349236" target="_blank" rel="noopener">批处理文件编码出错</a>原来友链的josn的编码格式为Ansi,我们需要utf-8格式。欧克，行了，如下：<img src="https://img-blog.csdnimg.cn/20200409200717571.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="乱码解决"></p>
-<h3 id="谈谈hexo"><a href="#谈谈hexo" class="headerlink" title="谈谈hexo"></a>谈谈hexo</h3><p>hexo这样的博客虽然用了很流行的框架，但部署起来还是很费劲，就是用上去很费劲，powerful的博客框架还是太少了，什么都追求免费服务，哪有这么样的好事，这就导致了开发出优质的框架的人太少了。现在大牛的程序员都快是古董，做个IT技术更倾向于商业化，应用型。以上就是分享，另附<a href="https://www.maliaoblog.cn" target="_blank" rel="noopener">个人博客</a></p>
+                <p>Welcome to Hexo! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
 
             </div>
             <hr/>
@@ -490,7 +477,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/LubanSeven/LubanSeven.github.io/LubanSeven.github.io/2020/0409/">https://github.com/LubanSeven/LubanSeven.github.io/LubanSeven.github.io/2020/0409/</a>
+                    <a href="https://github.com/LubanSeven/LubanSeven.github.io/LubanSeven.github.io/2020/0325/">https://github.com/LubanSeven/LubanSeven.github.io/LubanSeven.github.io/2020/0325/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -528,12 +515,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/LubanSeven.github.io/tags/%E4%BC%98%E5%8C%96/">
-                                    <span class="chip bg-color">优化</span>
-                                </a>
-                            
-                                <a href="/LubanSeven.github.io/tags/bug%E9%97%AE%E9%A2%98/">
-                                    <span class="chip bg-color">bug问题</span>
+                                <a href="/LubanSeven.github.io/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
+                                    <span class="chip bg-color">碎碎念</span>
                                 </a>
                             
                         </div>
@@ -964,53 +947,46 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/LubanSeven.github.io/2020/0409/">
+                <a href="/LubanSeven.github.io/2020/0327/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="matery主题优化问题">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="致访客">
                         
-                        <span class="card-title">matery主题优化问题</span>
+                        <span class="card-title">致访客</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            matery主题优化时解析出bug
-matery是个好的主题这个我就不详细地说了，但是优化也难
-
-越好的主题、越丰富的主题，插件越多，配置越多，就容易出错
-
-最要命的是这种静态网页的部署还要用最原始的方法进行，先在命令行生成静态文件，然后发
+                            这是经过多天努力的结果，这个站点就界面来说，不怎么酷炫。但是是我一直想做的东西–建一个与众不同的个人网站，每天可以像发微博一样自由地推送我写好的博客文章。对于www.maliaoblog.cn，我很珍惜能拥有它，还是经过自己的不断尝试，一点
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            码里奥
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/LubanSeven.github.io/categories/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/" class="post-category">
+                                    程序人生
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/LubanSeven.github.io/tags/%E4%BC%98%E5%8C%96/">
-                        <span class="chip bg-color">优化</span>
-                    </a>
-                    
-                    <a href="/LubanSeven.github.io/tags/bug%E9%97%AE%E9%A2%98/">
-                        <span class="chip bg-color">bug问题</span>
+                    <a href="/LubanSeven.github.io/tags/%E5%8D%9A%E5%AE%A2%E7%AE%80%E4%BB%8B/">
+                        <span class="chip bg-color">博客简介</span>
                     </a>
                     
                 </div>
@@ -1021,45 +997,46 @@ matery是个好的主题这个我就不详细地说了，但是优化也难
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/LubanSeven.github.io/2020/0406/">
+                <a href="/LubanSeven.github.io/2020/0325/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="解决执行批处理文件后出现的问题">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">解决执行批处理文件后出现的问题</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            执行批处理文件后出现的乱码问题用windows批处理总是很放便的，特便是在抢时间的情况下用批处理开启程序，运行大量命令等等。但对于刚接触的新手来说，可能是一件费劲的事！有时候还会遇到问题，比如今天要讲的执行批处理文件后出现的乱码问题。如下图
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/LubanSeven.github.io/categories/windows/" class="post-category">
-                                    windows
+                            <a href="/LubanSeven.github.io/categories/%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    编程
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/LubanSeven.github.io/tags/%E9%97%AE%E9%A2%98/">
-                        <span class="chip bg-color">问题</span>
+                    <a href="/LubanSeven.github.io/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
+                        <span class="chip bg-color">碎碎念</span>
                     </a>
                     
                 </div>
