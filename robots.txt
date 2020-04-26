@@ -5,7 +5,6 @@ User-agent: *
 Allow: /archives/
 Allow: /tags/
 Allow: /categorioes/
-Allow: /
  
 Disallow: /vendors/
 Disallow: /js/
