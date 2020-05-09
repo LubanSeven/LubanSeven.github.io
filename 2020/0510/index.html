@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="站点地图, 技术博客,码里奥,coder小码,maliao">
+    <meta name="keywords" content="c,tiobe,疫情">
     <meta name="description" content="生活是变强的理由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>站点地图 | 码里奥</title>
+    <title>疫情之下c又崛起！ | 码里奥</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">站点地图</h1>
+                    <h1 class="description center-align post-title">疫情之下c又崛起！</h1>
                 </div>
             </div>
         </div>
@@ -286,19 +286,130 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+        
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before{
+        position: fixed!important;/*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%96%AB%E6%83%85/">
+                                <span class="chip bg-color">疫情</span>
+                            </a>
+                        
+                            <a href="/tags/c/">
+                                <span class="chip bg-color">c</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -310,7 +421,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-27
+                    2020-05-10
                 </div>
                 
 
@@ -319,14 +430,14 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    733
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -342,7 +453,23 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <blockquote>
+<p>已经5月份了，国内的疫情也渐渐的好转，人们也把目光放在了经济发展和工作上，拿着漫长的疫情期间，编程界有什么波动呢？</p>
+</blockquote>
+<p>据tiobe官网5月份最新数据显示，C语言在疫情结束后悄悄地登上排行第一位，这是继2015java霸着冠军宝座以来，c语言重新闪耀它的魅力。来看看数据：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200510071549355.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="5月排行"></p>
+<p>从上面看出，c已经超过java1%，相差并不大，也就是说，java仍有其可用之处，短期内并不会被时代抛弃。同时也不意味着c能继续禅位。其中可以看到，以大数据、嵌入式为方向的语言如python、R有了明显的排名提升，这说明，在未来大数据、云计算及嵌入式的科技发展将占据一定的主导地位，并且将应用到人工智能领域，推动人工智能的进一步发展。</p>
+<hr>
+<p><strong>再来看看官网的解读</strong>：</p>
+<p>Java和C在4月已经非常接近，但是本月C再次超越Java。C上一次成为第一名是在2015年。我们只能猜测C为什么再次成为第一名。原因之一可能是冠状病毒。这听起来很愚蠢，但是某些编程语言确实可以从这种情况中受益。例子是数据科学领域的Python和R，因为每个人都在寻找该病毒的解毒剂。但是嵌入式软件语言（例如C和C ++）也越来越流行，因为它们被用于医疗设备的软件中。另一方面，值得一提的是，Rust实际上已经接近前20名（一个月内从第27位上升到第21位）。Paul Jansen(保罗·詹森) TIOBE Software首席执行官 TIOBE编程社区索引是编程语言受欢迎程度的指标。索引每月更新一次。评级基于全球熟练的工程师，课程和第三方供应商的数量。<br><img src="https://img-blog.csdnimg.cn/20200510071720384.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="趋势"><br>诸如Google，Bing，Yahoo！，Wikipedia，Amazon，YouTube和Baidu等流行的搜索引擎用于计算评分。</p>
+<blockquote>
+<p> 重要的是要注意，TIOBE索引与最佳编程语言或大多数代码行所用的语言无关。该索引可用于检查您的编程技能是否仍然是最新的，或用于在开始构建新软件系统时就应采用哪种编程语言做出战略决策。TIOBE索引的定义可以在这里找到。</p>
+</blockquote>
+<p>看来官网已经为我们解释的非常好了，只不过有些话很罗嗦。我就不再跟着啰嗦一遍了，总之，c从疫情中发挥了很大的作用，这足以让看不上c的人开开眼。c还是很有作为的！只不过之前没发现而已。大家又在使用或学习哪种语言呢？</p>
+<hr>
+<p>最后：<br><a href="https://blog.csdn.net/Gobullin" target="_blank" rel="noopener">博客CSDN</a>：coder小码<br>公众号‘<strong>小码之光</strong>’：<br><img src="https://img-blog.csdnimg.cn/20200510071951248.jpg#pic_center" alt="小码之光"></p>
+<hr>
+
             </div>
             <hr/>
 
@@ -357,7 +484,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">码里奥</a>
+                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">coder小码</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -367,7 +494,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn/sitemap/index.html">https://www.maliaoblog.cn/sitemap/index.html</a>
+                    <a href="https://www.maliaoblog.cn/2020/0510/">https://www.maliaoblog.cn/2020/0510/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -380,7 +507,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://www.maliaoblog.cn" target="_blank">码里奥</a>
+                    <a href="https://www.maliaoblog.cn" target="_blank">coder小码</a>
                     !
                 </span>
             </div>
@@ -404,7 +531,15 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%96%AB%E6%83%85/">
+                                    <span class="chip bg-color">疫情</span>
+                                </a>
+                            
+                                <a href="/tags/c/">
+                                    <span class="chip bg-color">c</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -838,34 +973,49 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/sitemap/index.html">
+                <a href="/2020/0510/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="站点地图">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="疫情之下c又崛起！">
                         
-                        <span class="card-title">站点地图</span>
+                        <span class="card-title">疫情之下c又崛起！</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
+已经5月份了，国内的疫情也渐渐的好转，人们也把目光放在了经济发展和工作上，拿着漫长的疫情期间，编程界有什么波动呢？
+
+据tiobe官网5月份最新数据显示，C语言在疫情结束后悄悄地登上排行第一位，这是继2015java霸着冠军宝座以来，c语
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            码里奥
+                            coder小码
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%96%AB%E6%83%85/">
+                        <span class="chip bg-color">疫情</span>
+                    </a>
+                    
+                    <a href="/tags/c/">
+                        <span class="chip bg-color">c</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -873,37 +1023,50 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/sitemap/index.html">
+                <a href="/2020/0509/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="站点地图">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="java equals()函数与‘=='">
                         
-                        <span class="card-title">站点地图</span>
+                        <span class="card-title">java equals()函数与‘=='</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            java equals()函数与‘==’
+
+谈到java的字符串比较函数equals(),就不得不说它真真的用途啦！虽然只是java里面一个简单的知识点，还是有必要扯扯它，因为有许多学习java的小伙伴在比较字符串上纠结与equals()和
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            码里奥
+                            coder小码
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/equals/">
+                        <span class="chip bg-color">equals</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -976,6 +1139,100 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
 
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 

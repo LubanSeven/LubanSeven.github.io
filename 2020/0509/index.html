@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="站点地图, 技术博客,码里奥,coder小码,maliao">
+    <meta name="keywords" content="java">
     <meta name="description" content="生活是变强的理由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>站点地图 | 码里奥</title>
+    <title>java equals()函数与‘==&#39; | 码里奥</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">站点地图</h1>
+                    <h1 class="description center-align post-title">java equals()函数与‘==&#39;</h1>
                 </div>
             </div>
         </div>
@@ -286,19 +286,130 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+        
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before{
+        position: fixed!important;/*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
+                            <a href="/tags/equals/">
+                                <span class="chip bg-color">equals</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -310,7 +421,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-27
+                    2020-05-09
                 </div>
                 
 
@@ -319,7 +430,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    485
                 </div>
                 
 
@@ -342,7 +453,33 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="java-equals-函数与‘-’"><a href="#java-equals-函数与‘-’" class="headerlink" title="java equals()函数与‘==’"></a>java equals()函数与‘==’</h3><hr>
+<blockquote>
+<p>谈到java的字符串比较函数equals(),就不得不说它真真的用途啦！虽然只是java里面一个简单的知识点，还是有必要扯扯它，因为有许多学习java的小伙伴在比较字符串上纠结与equals()和‘==’的选择。</p>
+</blockquote>
+<hr>
+<h4 id="equals-函数"><a href="#equals-函数" class="headerlink" title="equals()函数"></a>equals()函数</h4><p>函数原型：</p>
+<blockquote>
+<p>public boolean equals(Object anObject)</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200509203330784.PNG#pic_center" alt="equals()"></p>
+<p>函数用来比较<strong>字符串内容</strong>的相等，可以是字符串的变量String a = “coder小码”,字符串对象String a = new String(“coder小码”)之间或和同类型的字符串比较，只要是String就行。返回值是布尔值，true \ false,与类型是String或String对象没有关系，只要字符串内容一致，就返回true,否则false。</p>
+<h6 id="字符对象比较"><a href="#字符对象比较" class="headerlink" title="字符对象比较"></a>字符对象比较</h6><p><img src="https://img-blog.csdnimg.cn/20200509204232153.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="字符对象的比较"></p>
+<h6 id="字符对象与字符String比较"><a href="#字符对象与字符String比较" class="headerlink" title="字符对象与字符String比较"></a>字符对象与字符String比较</h6><p><img src="https://img-blog.csdnimg.cn/20200509204448284.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="字符对象与字符String比较"></p>
+<h6 id="字符String之间比较"><a href="#字符String之间比较" class="headerlink" title="字符String之间比较"></a>字符String之间比较</h6><p><img src="https://img-blog.csdnimg.cn/20200509204724918.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="字符String之间比较"></p>
+<hr>
+<h4 id="‘-’关系运算符的运用"><a href="#‘-’关系运算符的运用" class="headerlink" title="‘==’关系运算符的运用"></a>‘==’关系运算符的运用</h4><p>在编写代码的过程中我们经常用到‘==’ 运算符，那 它实质比较的是什么呢？其实也不很高深莫测，实质上是在比较引用指向的内存地址的，只要指向的内存地址相同，即可判断为true。</p>
+<p>说到这里可能会有疑惑了，难道还比内存不成？咋回事啊？咱们先看看几个小例子：</p>
+<h6 id="对象间的比较"><a href="#对象间的比较" class="headerlink" title="对象间的比较"></a>对象间的比较</h6><p><img src="https://img-blog.csdnimg.cn/20200509205936508.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="对象间的比较"></p>
+<h6 id="字符间的比较"><a href="#字符间的比较" class="headerlink" title="字符间的比较"></a>字符间的比较</h6><p><img src="https://img-blog.csdnimg.cn/20200509210051416.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="字符间的比较"></p>
+<h6 id="字符与字符对象的比较"><a href="#字符与字符对象的比较" class="headerlink" title="字符与字符对象的比较"></a>字符与字符对象的比较</h6><p><img src="https://img-blog.csdnimg.cn/20200509210147114.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="字符与字符对象的比较"></p>
+<h6 id="整型间比较"><a href="#整型间比较" class="headerlink" title="整型间比较"></a>整型间比较</h6><p><img src="https://img-blog.csdnimg.cn/20200509210230950.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="整型间比较"></p>
+<hr>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>以上代码例子可以说明equals()只是用来比较字符串内容的，不涉及字符串值的地址，而‘==’用法就广泛一点，还能用来比较整形(不止整形和字符)，但实质上是比较是不是来自同一个地址，是就返回true，否则false。好啦，以上就是今天的内容，欢迎在下面留言哦！每一点都是知识的积累，希望学习躺赢，学习愉快！</p>
+<hr>
+<p>最后：<br><a href="https://blog.csdn.net/Gobullin" target="_blank" rel="noopener">博客CSDN</a>：coder小码<br>公众号‘<strong>小码之光</strong>’：<br><img src="https://img-blog.csdnimg.cn/20200509211320148.jpg#pic_center" alt="小码之光"></p>
+<hr>
+
             </div>
             <hr/>
 
@@ -357,7 +494,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">码里奥</a>
+                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">coder小码</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -367,7 +504,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn/sitemap/index.html">https://www.maliaoblog.cn/sitemap/index.html</a>
+                    <a href="https://www.maliaoblog.cn/2020/0509/">https://www.maliaoblog.cn/2020/0509/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -380,7 +517,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://www.maliaoblog.cn" target="_blank">码里奥</a>
+                    <a href="https://www.maliaoblog.cn" target="_blank">coder小码</a>
                     !
                 </span>
             </div>
@@ -404,7 +541,15 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
+                                </a>
+                            
+                                <a href="/tags/equals/">
+                                    <span class="chip bg-color">equals</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -833,39 +978,52 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/sitemap/index.html">
+                <a href="/2020/0510/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="站点地图">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="疫情之下c又崛起！">
                         
-                        <span class="card-title">站点地图</span>
+                        <span class="card-title">疫情之下c又崛起！</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
+已经5月份了，国内的疫情也渐渐的好转，人们也把目光放在了经济发展和工作上，拿着漫长的疫情期间，编程界有什么波动呢？
+
+据tiobe官网5月份最新数据显示，C语言在疫情结束后悄悄地登上排行第一位，这是继2015java霸着冠军宝座以来，c语
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            码里奥
+                            coder小码
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%96%AB%E6%83%85/">
+                        <span class="chip bg-color">疫情</span>
+                    </a>
+                    
+                    <a href="/tags/c/">
+                        <span class="chip bg-color">c</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -873,37 +1031,50 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/sitemap/index.html">
+                <a href="/2020/0506/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="站点地图">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="IDEA启动加速与java编译">
                         
-                        <span class="card-title">站点地图</span>
+                        <span class="card-title">IDEA启动加速与java编译</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            IJ IDEA启动加速与java编译1.启动加速2.java编译
+
+01 启动加速忽然有一天IDEA说：你打开它“有点慢”，然后说：consider reducing the num of folder under antivirus pr
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            码里奥
+                            coder小码
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/idea/">
+                        <span class="chip bg-color">idea</span>
+                    </a>
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -976,6 +1147,100 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
 
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
