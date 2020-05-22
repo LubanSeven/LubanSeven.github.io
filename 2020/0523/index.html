@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="idea,java">
+    <meta name="keywords" content="SQLserver,数据库">
     <meta name="description" content="生活是变强的理由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>IDEA启动加速与java编译 | 码里奥</title>
+    <title>SQL server连接本地数据库的两个问题 | 码里奥</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">IDEA启动加速与java编译</h1>
+                    <h1 class="description center-align post-title">SQL server连接本地数据库的两个问题</h1>
                 </div>
             </div>
         </div>
@@ -401,12 +401,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/idea/">
-                                <span class="chip bg-color">idea</span>
-                            </a>
-                        
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
+                            <a href="/tags/SQLserver/">
+                                <span class="chip bg-color">SQLserver</span>
                             </a>
                         
                     </div>
@@ -421,7 +417,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-06
+                    2020-05-23
                 </div>
                 
 
@@ -430,14 +426,14 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -453,50 +449,49 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="IJ-IDEA启动加速与java编译"><a href="#IJ-IDEA启动加速与java编译" class="headerlink" title="IJ IDEA启动加速与java编译"></a>IJ IDEA启动加速与java编译</h4><p>1.<strong>启动加速</strong><br>2.<strong>java编译</strong></p>
+                <h4 id="SQL-Server连接本地数据库时的异常"><a href="#SQL-Server连接本地数据库时的异常" class="headerlink" title="SQL Server连接本地数据库时的异常"></a>SQL Server连接本地数据库时的异常</h4><p> 作者：coder小码</p>
 <hr>
-<h5 id="01-启动加速"><a href="#01-启动加速" class="headerlink" title="01 启动加速"></a>01 启动加速</h5><p><img src="https://img-blog.csdnimg.cn/20200504113321417.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="tips"><br>忽然有一天IDEA说：你打开它“有点慢”，然后说：consider reducing the num of folder under antivirus protection. 这很有效！</p>
-<p> 可能用IDEA的伙伴都会遇到这样的问题，这只是一个提示。那他说这很有效，到底个怎么有效呢？<em>consider reducing the num of folder under antivirus protection</em> 意思翻译过来 就是：考虑在病毒防护中排除启动器打开的文件。那具体咋弄？先看看官方解释：<br> <img src="https://img-blog.csdnimg.cn/20200504114120578.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70" alt="jetbrain"><br>再翻译一下：</p>
-<blockquote>
-<p>某些防病毒软件可能会干扰IDE的构建过程，从而导致构建的运行速度大大降低。 在IDE中运行构建时，会在计算机上创建许多类文件。<br>如果您的防病毒软件启用了实时扫描，则防病毒软件可以在每次创建文件时强制停止构建过程，而防病毒软件会扫描该文件。</p>
-<p>如果您使用的是Windows Defender，则IDE会自动检查您是否启用了实时扫描，以及是否将扫描配置为处理IDE写入大量文件的目录。</p>
-<p>IDE提供了一种可能性，可以从自动扫描中排除那些目录（此功能在2019.2+ IDE版本中可用）。</p>
-<p>如果您希望手动执行必要的配置，则可以按照以下步骤进行：</p>
-<pre><code> 点击开始按钮
-
- 输入“ Windows安全性”
-
- 点击“病毒和威胁防护”
-
- 点击“病毒和威胁防护设置”下的“管理设置”
-
- 如果需要，请向下滚动，然后单击“添加或删除排除项”
-
- 对于通知中显示的每个文件夹，请按+按钮，从菜单中选择“文件夹”，然后选择该文件夹。</code></pre></blockquote>
-<p> 官方都非常详细地解释了一番，打开IDEA慢的原因受到电脑自带的杀毒软件的影响，使IDEA不能构建文件。</p>
+<p>最近想学点SQL server,几个月前下过，可中间电脑换过机名，重装过系统(电脑不是键盘一下没反应就是鼠标没反应)，充分暴露出windows的不稳定。这告诉我们：要早点和windows离婚吧，换一个漂亮又好用点的linux系统(关键是免费开源)，如果有钱可以跟风mac。哈哈！所以呢，系统里的环境变量全部没了，除了操作系统本身的变量外。经验告诉我们：换系统就是换血，把C盘的除系统外的渣渣都清除了，还好是其他盘的东西还在，不过又得手动配置她们的变量了。。。</p>
 <hr>
-<h5 id="02-java编译"><a href="#02-java编译" class="headerlink" title="02 java编译"></a>02 java编译</h5><p>有些刚玩IDEA的小伙伴在创建java文件后不知如何编译，大家都知道点击RUN编译运行就可以了，但那是编译带运行输出结果，如果是没有主函数main()呢，只是想编译呢？</p>
-<p> 接下来我们介绍三种编译方式：</p>
-<blockquote>
-<p> Compile、Make和Build的区别</p>
-</blockquote>
-<p>针对开发工具，一般都有Compile、Make和Build三个菜单项，完成的功能的都差不多，但是又有区别。编译，是将源代码转换为可执行代码的过程。编译需要指定源文件和编译输出的文件路径（输出目录）。Java的编译会将java编译为class 文件，将非java的文件（一般成为资源文件、比如图片、xml、txt、poperties等文件）原封不动的复制到编译输出目录，并保持源文件夹的目 录层次关系。</p>
-<p>在Java的集成开发环境中，比如Eclipse、IDEA中，有常常有三种与编译相关的选项<strong>Compile、Make、Build</strong>三个选项。这三个选项最基本的功能都是完成编译过程。但又有很大的区别：</p>
-<blockquote>
-<p>1、Compile：只编译选定的目标，不管之前是否已经编译过。</p>
-</blockquote>
-<blockquote>
-<p>2、Make：编译选定的目标，但是Make只编译上次编译变化过的文件，减少重复劳动，节省时间。（具体怎么检查未变化，这个就不用考虑了，IDE自己内部会搞定这些的）</p>
-</blockquote>
-<blockquote>
-<p>3、Build：是对整个工程进行彻底的重新编译，而不管是否已经编译过。Build过程往往会生成发布包，这个具体要看对IDE的配置了，Build在实际中应用很少，因为开发时候基本上不用，发布生产时候一般都用ANT等工具来发布。Build因为要全部编译，还要执行打包等额外工 作，因此时间较长。</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20200504115100594.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="编译"><br>·</p>
+<h5 id="01-SQL-SERVER初探"><a href="#01-SQL-SERVER初探" class="headerlink" title="01 SQL SERVER初探"></a>01 SQL SERVER初探</h5><p>初入SQL SERVER的可能不知道有两种版本分类的SQL SERVER，那现在就普及一下。第一种是MSSQL SERVER,全称是Microsoft SQL Sever，开发版，目前的大型网站一般使用Oracle或者MSSQL，JSP.PHP.ASP都可以。一般是企业级的商务网站使用的。全功能SQL数据库服务器，从2017版开始，横跨任何平台，完全免费。第二种是Express ，商业免费，有对应的限制一般都用这个。是SQL SERVER的简洁版，可以这样说。</p>
+<p> 但开始我也不懂啊，也没人叫我怎么玩哈，所以最近发现SQL不见了，就急忙下个SQL server2019最新版的玩一下。不行的是下载了6个多G，连带管理工具一起下(都是开热点的流量啊！啊啊！)，N久后，才下完！然后安装！！！N久。</p>
+<p>起初是发现从前的2017版的没有了，主要是SSMS没有，SSMS是SQL SERVER Management Studio,SQL SERVER管理工具，用来管理数据库的，而我们下的是SQL SERVER的一个下载工具罢了。没SSMS还是玩不起来。</p>
 <hr>
-<p>··················································END························································</p>
-<p>以后编译不用迷迷糊糊的去编译啦！对于IEAD的启动Tips，有些人可能会厌烦，但作为一款风靡全球的智能开发软件，还是对新入门的小鸟有很大帮助的，用习惯了，就想说：“<strong>真香</strong>！”</p>
+<h5 id="02-第一个问题：配置管理器无法连接到-WMI-提供程序"><a href="#02-第一个问题：配置管理器无法连接到-WMI-提供程序" class="headerlink" title="02  第一个问题：配置管理器无法连接到 WMI 提供程序"></a>02  第一个问题：配置管理器无法连接到 WMI 提供程序</h5><p> 这个<strong>问题</strong>我记住你了，化成灰我都认得你！！</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200521170345860.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="配置管理器异常">弄了我一整晚，网上都查遍了，每个有效的方法。现在给大家清楚讲一遍，按上面的说，WMI,（Windows Management Instrumentation 即windows 管理规范）是一项核<br>心的 Windows 管理技术；<strong>用户可以使用 WMI 管理本地和远程计算机</strong>。简单点，就是管本地和远程计算机的一个东西。有点内味了！！也就是说要这个服务来帮助SQL配置管理器管理计算机的，那怎么管呢？</p>
+<p>有两种解决方法：要么是没权限，弄权限；要么是服务器真的不能访问了，解决服务器。很明显，连自己的本地的机子，还说无法访问，那就是没权限啦。查查了半天，说要弄一个NETWORK SERVICE的权限，也弄了没反应，估计还不够吧！之后又有其他办法，说进如：”C:\Program Files (x86)\Microsoft SQL Server”里面，我的是这样的，里面是90‘100’120‘的数字文件夹(跟系统打交道的)，不是真正的SQL SERVER文件夹(有界面的那个)。</p>
+<p>其中有一个shared文件夹里有150\Shared\sqlmgmproviderxpsp2up.mof这个文件。<br><img src="https://img-blog.csdnimg.cn/2020052117542694.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="sql~mof"></p>
+<p>我的是150/，可能不一样。之后在命令行输入：</p>
+<blockquote>
+<p>mofcomp “C:\Program Files(x86)\Microsoft<br>SQLServer\150\Shared\sqlmgmproviderxpsp2up.mof”</p>
+</blockquote>
+<p>结果：<br><img src="https://img-blog.csdnimg.cn/20200521173114764.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="将本地数据放到SQL储存库中"><br>将本地数据放到SQL储存库中了，就表示能访问到。那mof是个什么东西呢！</p>
+<p><img src="https://img-blog.csdnimg.cn/20200521173617862.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="mof"></p>
+<p> 反正就是微软瞎造的东西，跟配置有关。不管了！可以正常打开配置管理器，但是里面项目为空，啥也看不到呀！正常是这样的：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200521174143779.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="正常"></p>
+<p>但是右边什么也没有，而且，SSMS还是连不上本地的数据库实例。</p>
 <hr>
-<p> 最后写作不易：关注我吧(小码之光)<br><a href="https://www.maliaoblog.cn">博客</a>：<a href="http://www.maliaoblog.cn">www.maliaoblog.cn</a><br><img src="https://img-blog.csdnimg.cn/20200504120421301.jpg#pic_center" alt="小码之光"></p>
+<h5 id="第二个问题：系统找不到指定的文件"><a href="#第二个问题：系统找不到指定的文件" class="headerlink" title="第二个问题：系统找不到指定的文件"></a>第二个问题：系统找不到指定的文件</h5><p>GUI是这样的：<br><img src="https://img-blog.csdnimg.cn/20200521174341368.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="系统找不到指定的文件"><br>本来是输入个本机名字就行了，可就是死活连不上。SSMS: 想玩我？没门！这个时候，还是用的2017的SQL配置管理器，2019的SQLEXPRESS，连2019的配置管理器都没有，当然弄不了了。那之前的努力都白搭，花了我N久弄完！</p>
+<p>其实挺简单的，一步解决上面两个问题，还能使用最新的2019SQL SERVER。对啦，就是重新安装，不用开浏览器上什么官网，直接follow me。哈哈！</p>
+<p>找到SQL SERBER的安装目录，就是那个有安装的SQL server2019：</p>
+<hr>
+<p> D盘文件夹：<br> <img src="https://img-blog.csdnimg.cn/20200521180118799.PNG#pic_center" alt="SQL文件"></p>
+<p>sqlserver文件夹里是这样的：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200521181435401.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="新的本地实例MSSQL1.5"></p>
+<p>之后一路默认安装：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200521180336817.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="SQL 安装中心"></p>
+<hr>
+<p>安装期间会同时实例化本地的数据库，以windows管理员的身份管理，完成后就能看到开始菜单里有2019配置管理器了：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200521180652720.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="开始菜单"></p>
+<p>sercice服务里也会有SQL服务，之前是没有的，即使解决了第一个问题后。估计这就是第二个问题没解决的原因吧！没SQL server服务，就没得玩喽！</p>
+<p><img src="https://img-blog.csdnimg.cn/20200521180951615.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="SQLsever服务"></p>
+<hr>
+<p>所以最后献上玩美结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200521181319650.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="连上了本地"></p>
+<p>哈哈，如果要用Network service权限解决的话请参考<a href="https://blog.csdn.net/qq_17532383/article/details/45542605?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159005588419724811810680%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=159005588419724811810680&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v25-7-45542605.nonecase&utm_term=sql%E6%97%A0%E6%B3%95WMI" target="_blank" rel="noopener">另一篇</a><br>最后祝大家玩的愉快！！</p>
+<hr>
+<p>最后附上：<a href="https://blog.csdn.net/Gobullin" target="_blank" rel="noopener">小码csdn</a><br><a href="https://www.cnblogs.com/coderma" target="_blank" rel="noopener">博客园</a><br>微信公众号：小码之光</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200427213721746.jpg#pic_center" alt="小码之光"></p>
 <hr>
 
             </div>
@@ -523,7 +518,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn/2020/0506/">https://www.maliaoblog.cn/2020/0506/</a>
+                    <a href="https://www.maliaoblog.cn/2020/0523/">https://www.maliaoblog.cn/2020/0523/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -561,12 +556,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/idea/">
-                                    <span class="chip bg-color">idea</span>
-                                </a>
-                            
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
+                                <a href="/tags/SQLserver/">
+                                    <span class="chip bg-color">SQLserver</span>
                                 </a>
                             
                         </div>
@@ -737,7 +728,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         repo: 'comments',
         owner: 'LubanSeven',
         admin: "LubanSeven",
-        id: '2020-05-06T09-17-56',
+        id: '2020-05-23T05-46-14',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -761,31 +752,32 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/0509/">
+                <a href="/2020/0523/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="java equals()函数与‘=='">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="SQL server连接本地数据库的两个问题">
                         
-                        <span class="card-title">java equals()函数与‘=='</span>
+                        <span class="card-title">SQL server连接本地数据库的两个问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            java equals()函数与‘==’
+                            SQL Server连接本地数据库时的异常 作者：coder小码
 
-谈到java的字符串比较函数equals(),就不得不说它真真的用途啦！虽然只是java里面一个简单的知识点，还是有必要扯扯它，因为有许多学习java的小伙伴在比较字符串上纠结与equals()和
+最近想学点SQL server,几个月前下过，可中间电脑换过机名，重装过系统(电脑不是键盘一下没反应就是鼠标没反应)，充分暴露出windows的不稳定。这告诉我们：要早点和
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -794,15 +786,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/equals/">
-                        <span class="chip bg-color">equals</span>
+                    <a href="/tags/SQLserver/">
+                        <span class="chip bg-color">SQLserver</span>
                     </a>
                     
                 </div>
@@ -816,32 +805,31 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/0504/">
+                <a href="/2020/0514/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="消息轰炸">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="小码moneykeeper">
                         
-                        <span class="card-title">消息轰炸</span>
+                        <span class="card-title">小码moneykeeper</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            消息轰炸器(c语言版) C语言学着学着都感觉没啥用，但是事情没有你想的那样枯燥！C还是很有作为的，比如简单的QQ消息轰炸，原理其实很简单！如有需要或了解可关注下面的微信公众号：小码之光，回复消息轰炸即可获得源码和轰炸器及使用说明。
+                            纯c小项目，小码资金管理工具moneykeeper作者：coderxm公众号：小码之光
 
-
-话不
+ 你小码哥回来啦！最近闷得慌，又在学java(自学，想走这条路，哎，一个人找到所爱的真的很难,说不定哪天真的挂了，就来不及了)，慢慢地觉得特别吃力了，
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            小码
+                            coder小码
                             
                         </span>
                     </div>
@@ -849,8 +837,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/c/">
-                        <span class="chip bg-color">c</span>
+                    <a href="/tags/moneykeeper/">
+                        <span class="chip bg-color">moneykeeper</span>
                     </a>
                     
                 </div>
