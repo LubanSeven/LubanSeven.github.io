@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ubantu,linux,virtualbox,虚拟机">
+    <meta name="keywords" content="java,c++">
     <meta name="description" content="生活是变强的理由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>virtualbox虚拟机安装 | 码里奥</title>
+    <title>相比c++,java在基础语法上的改变 | 码里奥</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">virtualbox虚拟机安装</h1>
+                    <h1 class="description center-align post-title">相比c++,java在基础语法上的改变</h1>
                 </div>
             </div>
         </div>
@@ -401,12 +401,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ubantu/">
-                                <span class="chip bg-color">ubantu</span>
-                            </a>
-                        
-                            <a href="/tags/virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA/">
-                                <span class="chip bg-color">virtualbox虚拟机</span>
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
                             </a>
                         
                     </div>
@@ -421,7 +417,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-25
+                    2020-05-28
                 </div>
                 
 
@@ -430,14 +426,14 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    647
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    9 分
                 </div>
                 
 
@@ -453,41 +449,88 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="用虚拟机virtualbox安装ubantu桌面系统"><a href="#用虚拟机virtualbox安装ubantu桌面系统" class="headerlink" title="用虚拟机virtualbox安装ubantu桌面系统"></a>用虚拟机virtualbox安装ubantu桌面系统</h4><ul>
-<li>下载ubantu镜像</li>
-<li>下载安装虚拟机</li>
-<li>新建一个虚拟电脑Linux01</li>
-<li>安装ubantu镜像</li>
-<li>（网络设置）</li>
+                <p>此篇给Java初学者的一点参考，算是入门吧，对有c/c++基础的同学来说，更是帮助他们尽快理解Java更深层次(面向对象，集合，泛型，多线程与并发)的强力剂，如有缺漏敬请补正！转载需注明出处！</p>
+<h5 id="文章目录："><a href="#文章目录：" class="headerlink" title="文章目录："></a>文章目录：</h5><ol>
+<li>运行机制</li>
+<li>基本数据与特殊类型</li>
+<li>字符集与数值表达</li>
+<li>文档注释</li>
+<li>连字符+与输出</li>
+<li>switch语句</li>
+<li>foreach循环</li>
+<li>数组类型</li>
+</ol>
+<hr>
+<h4 id="01-Java运行机制"><a href="#01-Java运行机制" class="headerlink" title="01 Java运行机制"></a>01 Java运行机制</h4><p>在运行机制上，Java不同于任何一门语言，Java编写好的源代码文件并不是经过编译后就能立马执行的。不像c/c++一样，编译后就是.exe了，双击就可以运行，但是Java有它巧妙的地方。先说明一下，任何的编程语言的源码都需要经过编译变成二进制代码，才能被执行，无论c/c++还是Java。在Windows上把c/c++源码经过gCC/g++编译后能运行，但在Linux或其他平台，要有相应的源码编译器为源码进行编译，也就是说，想要在其他平台上运行，得把c/c++源码在编译一遍才能运行。看起来也还行的样子，不就是在编译一次嘛！有多大麻烦呢？对程序员来说不算是什么难事，但对用户来说就是难事，或者说，用起来就是个麻烦事。谁还会辛辛苦苦又编译一次源码，然后让它在机子上跑，万一出问题还得重来！</p>
+<p>起初Java就是为解决这个问题而设计出来的，最早是被sun公司用于嵌入式的设备开发，理念是“write once,run anywhere!”，设计出来后并不很火，那时候c++本身就可以跨平台，所以也没Java什么事儿了。但是之后发现真的可以做到 “  run anywhere ” , 并且由于网页端互联网浪潮的掀起，Java在web上大显身手，这才有了今天的Java，然而sun公司在09年被Oracle收购，之后江湖上再也没了sun公司的身影。那Java又是怎么解决跨平台的问题呢?</p>
+<p>先要了解Java文件，源码文件以.java为后缀，经过编译后不直接生成可执行文件，而是生成.class字节码文件(16进制)，这个文件不是让平台的操作系统读的，是让JVM (java virtual machine)java虚拟机读的，平台上的虚拟机识别后会相应生成能让机子跑起来的二进制文件，就能执行了。其中的原理比较复杂，就不过多陈述啦！</p>
+<p>那有人就不快乐啦：就这？</p>
+<p>当然不是，继续讲。想简单跑一个”hello 妹纸！”需要咋做啊？</p>
+<p>首先上[Oracle的官网]，下载jdk1.8版本，就是常说的Java8。jdk(java development kits大概就这样)，顾名思义：Java开发包，有SE(standard     environment)   ,  EE (enterprise environment),ME(micro environment),即标准版，企业版，微型版。我们要学的是SE，到了工作岗位，可能就要EE了，ME现在基本少的接触，就不用学了，毕竟jdk都14了！里面大致分为javac编译器，运行器java.exe，JRE(java runtime environment) java 运行环境，java基础类库，和其他支持。其中JRE里面有JVM(负责解释字节码)，和其他环境支持。如果在windows上编译”coder小 码.java “源文件，就变成”coder小码.class”,想要在另一台装linux的机子上运行，只需要在这台机子上装JRE就行了，JVM解释”coder小码.class”文件后执行它就行了。</p>
+<hr>
+<h4 id="02-基本与特殊数据类型"><a href="#02-基本与特殊数据类型" class="headerlink" title="02 基本与特殊数据类型"></a>02 基本与特殊数据类型</h4><p>Java相较于原始的c语言，多出了两个基本数据类型，byte字节(1个字节)，和boolean布尔(true/false)基本类型,总共8种；其他为引用(reference)类型，多出了String字符串类型，Array数组类型，null类型(唯一值null)，等等。原来的char字符类型变成了两个字节，可以支持中文字符，一个char,一个汉字。</p>
+<p>保留字(目前未使用但以后会使用):const ; goto也是关键字。</p>
+<p>直接量：true,false,null.虽然不是关键字，但依然不能用来做标识符。</p>
+<p>标识符：增加了$标识开头(中英字母，下划线)，同样不能数字打头，其后才能接任意字符，中日英皆可。</p>
+<hr>
+<h4 id="03-字符集与数值表达"><a href="#03-字符集与数值表达" class="headerlink" title="03 字符集与数值表达"></a>03 字符集与数值表达</h4><p>上面大家可能就有点疑问了，咋就这么越来越开放了！中日字符都来了！没错，Java换了字符支持，使用unicode字符集，几乎支持所有字符，改变了以往编程语言只支持英文标识符的情况，现在读取一个char就相当于读取了一个汉字了。unicode就是这么杠！</p>
+<p>数值表达：Java在整数上又动手动脚的，增加了对二进制整数的表达，比如。</p>
+<pre><code>int binary = 0b10000001;</code></pre><p>上面为一个负数，需要换算成原码为-128。另外为防止程序员出意外看走眼，还可以写成：</p>
+<pre><code>int binary  = 0b1000_0001;</code></pre><p>用下划线可以分隔整型和浮点型。</p>
+<hr>
+<h4 id="04-文档注释"><a href="#04-文档注释" class="headerlink" title="04 文档注释"></a>04 文档注释</h4><p>注释除了以前常用的单多行注释，Java还增加了文档注释。Java为开发者提供了大量的基础类，同时也提供了<a href="https://www.oracle.com/technetwork/java/javase/downoads/" target="_blank" rel="noopener">API帮助文档</a>，介绍各个API、方法、包、类的使用方法，原型。如果编写很大的Java程序，可以利用javadoc工具将源码的文档注释提取出来变成API文档，例：</p>
+<pre><code>/**两个*
+*Description
+*&lt;h1&gt;javadoc&lt;/h1&gt;
+*Copyright 2009
+*@author coder小码
+*@version 1.0
+*/</code></pre><p>可以在类，方法，public\protected变量前加注释。进入目录，终端输入：</p>
+<pre><code>javadoc -d D://coder/ -windowtitle API文档 -author -version *.java</code></pre><p>上面的命令用于生成Java文档，-d 存放目录 ，-windowtitle 窗口标题，-author -version,加上作者和版本信息，从当前目录下所有Java源文件中提取注释。之后就生成了和官方一样专业的API文档了！</p>
+<hr>
+<h4 id="05-连字符‘-’与输出"><a href="#05-连字符‘-’与输出" class="headerlink" title="05 连字符‘+’与输出"></a>05 连字符‘+’与输出</h4><p>和c++一样，Java也有连字符，可以将字符串拼接到一起，但同时又能做算术运算，这就涉及到了运算符的重载和基本数据类型的装拆箱了。</p>
+<pre><code>String coder = &quot;小码&quot;+&quot;coder&quot;;
+String coder2 = &quot;coder小码&quot;+321；
+System.out.println(coder);
+System.out.println(coder2);</code></pre><p>输出为：“小码coder”,“coder小码321”。</p>
+<p>将+看作是一个方法，既可以把数字作为参数，又可以把字符做参数，而方法名却没有变，算是隐式的重载一个“+”方法。</p>
+<h5 id="输入输出："><a href="#输入输出：" class="headerlink" title="输入输出："></a>输入输出：</h5><p>Java里主要有3种输出方式，或者说方法吧！上面的算一种：println(变量),即直接输出变量值，还带换行！第二种：printf(“%s”,string),这种再熟悉不过了，需要搭配格式符输出；第三种：print(变量)，同样直接输出值，只不过不带换行！以上都在lang包的System类下的out方法，返回PrintStream输出流类下的println()方法。</p>
+<hr>
+<h4 id="06-switch语句"><a href="#06-switch语句" class="headerlink" title="06 switch语句"></a>06 switch语句</h4><p>Java7增强了switch语句,原来从switch(expression)，表达式只能是byte , short , int , char四种，后来增加了枚举类型enum和String类型，但是不能为true/false布尔型 。相比c/c++的switch语句，多了byte,char(可以是单个中文字符)。需要注意的是：可以是String类型，而不是StringBuffer或StringBuilder字符串类型，即使都是字符串类型。</p>
+<pre><code>String coder = &quot;coder小码&quot;;
+switch (coder){
+    case &quot;点赞&quot;:
+        System.out.println(coder);
+        break;
+    case &quot;收藏&quot;:
+        System.out.println(coder);
+        break;
+    case &quot;coder小码&quot;:
+        System.out.println(coder);
+        break;
+    default:
+        System.out.println(coder);
+}</code></pre><hr>
+<h4 id="07-foreach循环"><a href="#07-foreach循环" class="headerlink" title="07 foreach循环"></a>07 foreach循环</h4><p>foreach循环是从Java5之后开始加入的，python语法里也有foreach循环，使用它进行遍历操作非常方便。那方便在哪呢？</p>
+<ul>
+<li>无需获得要遍历对象的长度，即不需要知道数组或集合多大</li>
+<li>无需根据索引(下标)访问数组或集合(collection)的元素</li>
 </ul>
+<p>foreach语法如下：</p>
+<pre><code>for(元素类型 循环变量: 数组或集合){
+    //要执行的代码块
+    System.out.println(循环变量);
+}</code></pre><p>从上面看出，foreach的循环将数组或集合中的元素临时赋值给了循环变量，后逐个输出，并没有改变数组的元素，即foreach虽好，但不能改变数组或集合的内容 或值。如果在循环内给循环变量进行赋值，同样不能改变其内容，反而将想要获得的数组的元素修改替换了。</p>
 <hr>
-<h5 id="01-下载ubantu镜像"><a href="#01-下载ubantu镜像" class="headerlink" title="01 下载ubantu镜像"></a>01 下载ubantu镜像</h5><p>要想在虚拟机里玩ubantu，就要先准备好该系统的iso镜像文件，那么我们就直接到了官网去了</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425111147300.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="官网"><br>可是我们点击下载后速度又慢了，比github还慢，原因就不说了。所以当然有更快的方法啦！不一定非要去国外的官网下载，国内的各大高校和巨头都有镜像站提供免费的镜像下载，这里就给大家推荐一番。</p>
-<h6 id="阿里云开发者社区镜像站"><a href="#阿里云开发者社区镜像站" class="headerlink" title="阿里云开发者社区镜像站"></a><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener">阿里云开发者社区镜像站</a></h6><p><img src="https://img-blog.csdnimg.cn/20200425111743145.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="阿里镜像站"><br>第一个就是ubantu,这里可以下server或desktop都可以，反正又快又免费！哈哈</p>
-<h6 id="浙大镜像站"><a href="#浙大镜像站" class="headerlink" title="浙大镜像站"></a><a href="http://mirrors.zju.edu.cn/" target="_blank" rel="noopener">浙大镜像站</a></h6><p> 为什么选择浙江大学的镜像站呢？国内有很多这样的镜像站啊。。。。当然是快啦，相比较其他大学的站点，算是比较好了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425112624418.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="浙大镜像站"></p>
-<p> 我是在阿里云下的，起初弄不清server和desktop版，就先下了server版，结果就是疑惑了半天，也没出现漂亮的界面。<br> <img src="https://img-blog.csdnimg.cn/20200425112906835.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="命令行"></p>
+<h4 id="08-数组类型"><a href="#08-数组类型" class="headerlink" title="08  数组类型"></a>08  数组类型</h4><p>在Java里数组类型有很大变化，以前在c/c++里，数组名就相当于一个指针，指向数组内存首地址。在Java中不是没有指针，只是指针这种概念被弱化了，很少提到，反而多出了引用这种类型，而数组就属于引用类型。</p>
+<h5 id="数组的定义有两种方式："><a href="#数组的定义有两种方式：" class="headerlink" title="数组的定义有两种方式："></a>数组的定义有两种方式：</h5><pre><code>int[] coder;
+或int coder[];</code></pre><p>很明显，在引入引用的概念并支持unicode字符集后，选择第一种方式才符合Java的语法，不是说第二种就错了，而是第二种可读性太差，很容易看成是定义了一个int类型的以“coder[]”为变量名的数据，而第一种方式，int[]本身就是一种引用类型，而coder就是一个妥妥的引用变量。</p>
+<h5 id="数组的初始化的3种方式："><a href="#数组的初始化的3种方式：" class="headerlink" title="数组的初始化的3种方式："></a>数组的初始化的3种方式：</h5><pre><code>第一种：coder = new int[] {3,2,1};
+第二种：coder = new int[3];
+第三种：int[] coder = {3,2,1};</code></pre><p>经典又常用的三种初始化方式，先说前两种吧。前两种都是在已经定义了数组的情况下进行初始化的，我们将第一种称做静态初始化，即初始化的时候就把元素值填了进去，这个时候数组就定了，长度不再改变。而第二种则可以称动态初始化，只是初始化他的长度，并没有赋值。第三种是第一种的简化，即把数组定义和静态初始化两步合一步。以上就是数组的诞生过程，可能有小伙伴会发牢骚：弄一个数组都这么麻烦，还没c/c++效率高呢！的确，c/c++是效率高，但上面之所以要带一个关键字new，其实是为了给数组分配一个内存并初始化赋值，尽管定义了一个数组变量，但只是引用变量而已，没有真正的存数据的内存，起到的也只是一个指向内存的作用，真正有内存是new一个给它。</p>
 <hr>
-<h5 id="02-安装oracle-virtualbox虚拟机"><a href="#02-安装oracle-virtualbox虚拟机" class="headerlink" title="02 安装oracle virtualbox虚拟机"></a>02 安装oracle virtualbox虚拟机</h5><p>这个就有点难下了，我没在镜像站里找，在网盘下的。(VMware需要许可证)这里大家可以搜一搜，分享<a href="https://pan.baidu.com/s/13mubMuemzTbLApTyxJXQVQ" target="_blank" rel="noopener">VM</a></p>
-<p>提取码：vz1h</p>
-<p>下载好安装包后，打开就行了</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425115703159.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="安装完成"></p>
-<hr>
-<h5 id="03-新建虚拟电脑Linux01"><a href="#03-新建虚拟电脑Linux01" class="headerlink" title="03 新建虚拟电脑Linux01"></a>03 新建虚拟电脑Linux01</h5><p>点击新建，选择要安装的系统，之后就是一路默认。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425120535645.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="新建"><br> 内存最好配置在2G以上</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425120650265.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="内存"></p>
-<hr>
-<h5 id="04-安装ubantu镜像"><a href="#04-安装ubantu镜像" class="headerlink" title="04 安装ubantu镜像"></a>04 安装ubantu镜像</h5><p>虽然已经有一个虚拟电脑了(其实就是占用宿主机的磁盘空间)，这个时候只有硬件上的支持，还没有系统文件的调用。所以咋们进入启动Vbox界面的设置项</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425121253258.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="设置"></p>
-<p>红色箭头那点击进入，再点击注册项，即可从宿主机文件里选择下载好的ubantu镜像文件</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425121517698.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="注册"><br>ok,配置好后，再启动虚拟电脑，就进入ubantu系统安装界面了，而不是命令行。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020042512174573.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="ubantu界面"></p>
-<pre><code> 接下来就是安装了 </code></pre><p><img src="https://img-blog.csdnimg.cn/20200425122022310.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br> 这里可以选择试用或者安装ubantu，安装后启动就直接进入虚拟电脑工作界面了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425122834737.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="ubantu"><br> 界面还是很漂亮的，不过virtualbox是小型机，界面不能全屏，如果可能还是选VMware虚拟机吧，试过，感觉就是香！哈哈！</p>
-<hr>
-<h5 id="05-网络设置"><a href="#05-网络设置" class="headerlink" title="05 网络设置"></a>05 网络设置</h5><p> 这里就不过多讲了，建好后可以配置网络，有自己的cdn节点。推荐<a href="https://www.bilibili.com/video/BV1bA411b7vs" target="_blank" rel="noopener">程序羊</a></p>
-<hr>
-<p>附：<a href="https://blog.csdn.net/Gobullin" target="_blank" rel="noopener">小码csdn</a></p>
+<p>最后附上：<br><a href="https://GitHub.com/coderxm/" target="_blank" rel="noopener">github</a><br><a href="https://www.cnblogs.com/coderma" target="_blank" rel="noopener">博客园</a><br>微信公众号：小码之光</p>
+<p> <img src="https://img-blog.csdnimg.cn/20200427213721746.jpg#pic_center" alt="小码之光"></p>
 
             </div>
             <hr/>
@@ -503,7 +546,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">小码</a>
+                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">coder小码</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -513,7 +556,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn/2020/0425/">https://www.maliaoblog.cn/2020/0425/</a>
+                    <a href="https://www.maliaoblog.cn/2020/0528/">https://www.maliaoblog.cn/2020/0528/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -526,7 +569,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://www.maliaoblog.cn" target="_blank">小码</a>
+                    <a href="https://www.maliaoblog.cn" target="_blank">coder小码</a>
                     !
                 </span>
             </div>
@@ -551,12 +594,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ubantu/">
-                                    <span class="chip bg-color">ubantu</span>
-                                </a>
-                            
-                                <a href="/tags/virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA/">
-                                    <span class="chip bg-color">virtualbox虚拟机</span>
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
                         </div>
@@ -727,7 +766,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         repo: 'comments',
         owner: 'LubanSeven',
         admin: "LubanSeven",
-        id: '2020-04-25T12-43-02',
+        id: '2020-05-28T10-23-55',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -751,44 +790,48 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/0427/">
+                <a href="/2020/0528/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="还要翻墙？试试这个">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="相比c++,java在基础语法上的改变">
                         
-                        <span class="card-title">还要翻墙？试试这个</span>
+                        <span class="card-title">相比c++,java在基础语法上的改变</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            想看看国外的风光吗？疫情期间就像挂在家的咸鱼一样，快发酵了！点开浏览器，可是只能在国内的网站上静静地划过，没有一点新鲜事。可是想上外网又被墙，怎么办？
-
-  哈哈!客官别着急，我这就给您上‘菜’。咱们开了浏览器，最好是火狐的，在设置里的附加
+                            此篇给Java初学者的一点参考，算是入门吧，对有c/c++基础的同学来说，更是帮助他们尽快理解Java更深层次(面向对象，集合，泛型，多线程与并发)的强力剂，如有缺漏敬请补正！转载需注明出处！
+文章目录：
+运行机制
+基本数据与特殊类型
+字符
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            小码
+                            coder小码
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ghelper/">
-                        <span class="chip bg-color">ghelper</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
                 </div>
@@ -802,35 +845,31 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/0421/">
+                <a href="/2020/0523/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="gitpage CDN加速配置与深入">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="SQL server连接本地数据库的两个问题">
                         
-                        <span class="card-title">gitpage CDN加速配置与深入</span>
+                        <span class="card-title">SQL server连接本地数据库的两个问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            github page cdn加速服务深入了解
-CDN介绍
-CDN提供商
-github page cdn加速服务配置
-CDN加速服务深入
+                            SQL Server连接本地数据库时的异常 作者：coder小码
 
-CDN介绍CDN的全称是Content Delivery Network，即内容分发网络。CDN是构
+最近想学点SQL server,几个月前下过，可中间电脑换过机名，重装过系统(电脑不是键盘一下没反应就是鼠标没反应)，充分暴露出windows的不稳定。这告诉我们：要早点和
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            小码
+                            coder小码
                             
                         </span>
                     </div>
@@ -838,8 +877,8 @@ CDN介绍CDN的全称是Content Delivery Network，即内容分发网络。CDN�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/github-page/">
-                        <span class="chip bg-color">github page</span>
+                    <a href="/tags/SQLserver/">
+                        <span class="chip bg-color">SQLserver</span>
                     </a>
                     
                 </div>
