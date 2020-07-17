@@ -2,20 +2,20 @@
 
 User-agent: *
 
+Allow:/
 Allow: /archives/
 Allow: /tags/
 Allow: /categorioes/
 Allow:/about/
 Allow:/index/
-Allow:/
+
  
 Disallow: /vendors/
 Disallow: /js/
 Disallow: /css/
 Disallow: /lib/
-Disallow: /fonts/
-Disallow: /vendors/
-Disallow: /fancybox/
+
+
 
 #sitemap
 Sitemap: http://www.maliaoblog.cn/sitemap.xml
