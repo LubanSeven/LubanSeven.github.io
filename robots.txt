@@ -8,7 +8,9 @@ Allow: /tags/
 Allow: /categorioes/
 Allow:/about/
 Allow:/index/
-
+Allow:/friends/
+Allow:/sitemap/
+Allow:/contact/
  
 Disallow: /vendors/
 Disallow: /js/
