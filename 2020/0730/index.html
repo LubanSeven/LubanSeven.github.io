@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ubantu,linux,virtualbox,虚拟机">
+    <meta name="keywords" content="计算机网络,TCP,IP">
     <meta name="description" content="生活是变强的理由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>virtualbox虚拟机安装 | 码里奥</title>
+    <title>计算机网络-01网络模型 | 码里奥</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">virtualbox虚拟机安装</h1>
+                    <h1 class="description center-align post-title">计算机网络-01网络模型</h1>
                 </div>
             </div>
         </div>
@@ -401,12 +401,16 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ubantu/">
-                                <span class="chip bg-color">ubantu</span>
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
                             </a>
                         
-                            <a href="/tags/virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA/">
-                                <span class="chip bg-color">virtualbox虚拟机</span>
+                            <a href="/tags/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">
+                                <span class="chip bg-color">网络模型</span>
+                            </a>
+                        
+                            <a href="/tags/TCP-IP/">
+                                <span class="chip bg-color">TCP/IP</span>
                             </a>
                         
                     </div>
@@ -417,8 +421,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/linux/" class="post-category">
-                                linux
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                计算机网络
                             </a>
                         
                     </div>
@@ -430,7 +434,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-25
+                    2020-07-30
                 </div>
                 
 
@@ -439,14 +443,14 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    647
+                    4.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    16 分
                 </div>
                 
 
@@ -462,41 +466,107 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="用虚拟机virtualbox安装ubantu桌面系统"><a href="#用虚拟机virtualbox安装ubantu桌面系统" class="headerlink" title="用虚拟机virtualbox安装ubantu桌面系统"></a>用虚拟机virtualbox安装ubantu桌面系统</h4><ul>
-<li>下载ubantu镜像</li>
-<li>下载安装虚拟机</li>
-<li>新建一个虚拟电脑Linux01</li>
-<li>安装ubantu镜像</li>
-<li>（网络设置）</li>
+                <h4 id="计算机网络——01网络模型"><a href="#计算机网络——01网络模型" class="headerlink" title="计算机网络——01网络模型"></a>计算机网络——01网络模型</h4><h5 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h5><ol>
+<li><h6 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h6></li>
+<li><h6 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h6></li>
+<li><h6 id="网络分层"><a href="#网络分层" class="headerlink" title="网络分层"></a>网络分层</h6></li>
+<li><h6 id="TCP确认机制"><a href="#TCP确认机制" class="headerlink" title="TCP确认机制"></a>TCP确认机制</h6></li>
+<li><h6 id="连接与关闭"><a href="#连接与关闭" class="headerlink" title="连接与关闭"></a>连接与关闭</h6></li>
+<li><h6 id="TCP-UDP"><a href="#TCP-UDP" class="headerlink" title="TCP/UDP"></a>TCP/UDP</h6></li>
+<li><h6 id="TCP-ISO面向连接与无连接"><a href="#TCP-ISO面向连接与无连接" class="headerlink" title="TCP/ISO面向连接与无连接"></a>TCP/ISO面向连接与无连接</h6></li>
+<li><h6 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h6></li>
+</ol>
+<h4 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h4><p>计算机网络是指将地理位置不同的具有独立功能的多台计算机及其外部设备，通过通信线路连接起来，在网络操作系统，网络管理软件及网络通信协议的管理和协调下，实现<strong>资源共享和信息传递的计算机系统</strong>。</p>
+<h4 id="二、分类"><a href="#二、分类" class="headerlink" title="二、分类"></a>二、分类</h4><p>地理范围划分是一种大家都认可的通用网络划分标准。按这种标准可以把各种网络类型划分为<strong>局域网、城域网、广域网</strong>三种。最后讲一下互联网！</p>
+<ul>
+<li><p><strong>局域网</strong>：（Local Area Network，LAN）  通常我们常见的“LAN”就是指局域网，这是我们最常见、应用最广的一种网络。所谓局域网，那就是在局部地区范围内的网络，它所覆盖的地区范围较小。局域网在计算机数量配置上没有太多的限制，少的可以只有两台，多的可达几百台。一般来说在企业局域网中，工作站的数量在几十到两百台次左右。在网络所涉及的地理距离上一般来说可以是几米至10公里以内。这种网络的特点就是：连接范围窄、用户数少、配置容易、连接速率高。目前局域网最快的速率要算现今的10G以太网了。IEEE的802标准委员会定义了多种主要的LAN网：以太网（Ethernet）、令牌环网（Token Ring）、光纤分布式接口网络（FDDI）、异步传输模式网（ATM）以及最新的无线局域网（WLAN）。</p>
+</li>
+<li><p><strong>城域网</strong>：（Metropolitan Area Network，MAN）  这种网络一般来说是在一个城市，但不在同一地理小区范围内的计算机互联。这种网络的连接距离可以在10-100公里，它采用的是IEEE802.6标准。MAN与LAN相比扩展的距离更长，连接的计算机数量更多，在地理范围上可以说是LAN网络的延伸。在一个大型城市或都市地区，一个MAN网络通常连接着多个LAN网。如连接政府机构的LAN、医院的LAN、电信的LAN、公司企业的LAN等等。</p>
+</li>
+<li><p><strong>广域网</strong>：(Wide Area Network，WAN）  这种网络也称为远程网，所覆盖的范围比城域网（MAN）更广，它一般是在不同城市之间的LAN或者MAN网络互联，地理范围可从几百公里到几千公里。因为距离较远，信息衰减比较严重，所以这种网络一般是要租用专线，通过IMP（接口信息处理）协议和线路连接起来，构成网状结构。这种城域网因为所连接的用户多，总出口带宽有限，所以用户的终端连接速率一般较低，通常为9.6Kbps-45Mbps 如：邮电部的CHINANET，CHINAPAC，和CHINADDN网。</p>
+</li>
+<li><p><strong>互联网</strong>：（internet）指的是网络之间所串连成的最大网络，这些网络以一组通用的协议相连，形成逻辑上的大型国际网络，始于1969年美国的阿帕网。通常internet泛指互联网，而<strong>Internet</strong>则特指因特网(国际互联网)。因特网于1969年诞生于美国，最初名为“阿帕网”(ARPAnet）是一个军用研究系统 ，采用TCP/IP协议，现在则已发展成为一个覆盖五大洲多个国家的开放型全球计算机网络系统。</p>
+</li>
 </ul>
+<h4 id="三、网络分层"><a href="#三、网络分层" class="headerlink" title="三、网络分层"></a>三、网络分层</h4><p>为什么要分层？在计算机之间通信，主要是为了发送一些数据信息，一台计算机把数据发送出去，首先要让网络识别目的主机，能够找到它；明确目的主机是否连接网络；机子上的应用是否打开准备接收数据以及相应的异常处理。让我们去处理的话，会怎么解决这些问题呢？这里建立了两种模型：</p>
+<p><strong>OSI七层模型</strong>：亦称OSI（Open System Interconnection）。参考模型是国际标准化组织（ISO）制定的一个用于计算机或通信系统间互联的标准体系，一般称为OSI参考模型或七层模型。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200730171144919.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="协议栈"></p>
+<h5 id="应用层"><a href="#应用层" class="headerlink" title="应用层:"></a>应用层:</h5><p>网络服务与最终用户的一个接口。</p>
+<p>协议有：HTTP FTP SMTP SNMP DNS TELNET HTTPS POP3 DHCP</p>
+<h5 id="表示层"><a href="#表示层" class="headerlink" title="表示层:"></a>表示层:</h5><p>数据的表示、安全、压缩。</p>
+<p>格式有，JPEG、ASCll，加密格式等</p>
+<h5 id="会话层"><a href="#会话层" class="headerlink" title="会话层:"></a>会话层:</h5><p>建立、管理、终止会话，对应主机进程，指本地主机与远程主机正在进行的会话</p>
+<h5 id="传输层"><a href="#传输层" class="headerlink" title="传输层:"></a>传输层:</h5><p>定义传输数据的协议<strong>端口号</strong>，以及流控和差错校验。</p>
+<p>协议有：TCP UDP，数据包一旦离开网卡即进入网络传输层</p>
+<h5 id="网络层"><a href="#网络层" class="headerlink" title="网络层:"></a>网络层:</h5><p>网络层的主要工作是定义网络地址、区分网段、子网内MAC寻址、对于不同子网的数据包进行路由</p>
+<p>协议有：ICMP（因特网控制报文协议）  IP（IPV4 IPV6）  ARP地址解析   Routing路由协议</p>
+<h5 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层:"></a>数据链路层:</h5><p>建立逻辑连接、进行硬件地址寻址、差错校验等功能，将比特组合成字节进而组合成帧，用MAC地址访问介质，错误发现但不能纠正。</p>
+<p>协议有：Ethernet  PPP</p>
+<h5 id="物理层"><a href="#物理层" class="headerlink" title="物理层:"></a>物理层:</h5><p>建立、维护、断开物理连接，比特传输。</p>
+<p><strong>TCP/IP模型</strong>：(Transmission Control Protocol / Internet Protocol，传输控制协议/网络互联协议）是一种面向连接的、可靠的、基于<strong>字节流</strong>的传输层通信协议，由IETF国际互联网工程任务组的RFC 793  定义。<br><img src="https://img-blog.csdnimg.cn/20200730171822546.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="基本五层模型"><br>TCP/IP模型合并了前三层为应用层，应用层定义了各种各样的协议来规范数据格式，常见的在HTTP的Header请求头中，分别定义了请求数据格式Accept和响应数据格式Content-Type，有了这个规范以后，当对方接收到请求以后就知道该用什么格式来解析，然后对请求进行处理。而链路层定义了主机的身份，即MAC地址，而网络层定义了IP地址，明确了主机所在的网段，有了这两个地址，数据包就从可以从一个主机发送到另一台主机。但实际上数据包是从一个主机的某个应用程序发出，然后由对方主机的应用程序接收。</p>
+<p>因为数据链路层和物理层的内容相差不多，所以在TCP/IP协议中它们被归并在网络接口层次里。只有四层体系结TCP/IP协议，与有七层体系结构的OSI相比要简单了不少，也正是这样，TCP/IP协议在实际的应用中效率更高，成本更低 。</p>
+<p><strong>ARP协议</strong>（网络层）：</p>
+<p>即地址解析协议，是根据IP地址获取MAC地址的一个网络层协议。其工作原理如下：ARP首先会发起一个请求数据包，数据包的首部包含了目标主机的IP地址，然后这个数据包会在链路层进行再次包装，生成以太网数据包，最终由以太网广播给子网内的所有主机，每一台主机都会接收到这个数据包，并取出标头里的IP地址，然后和自己的IP地址进行比较，如果相同就返回自己的MAC地址，如果不同就丢弃该数据包。ARP接收返回消息，以此确定目标机的MAC地址；与此同时，ARP还会将返回的MAC地址与对应的IP地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源。</p>
+<p><strong>路由协议</strong>：</p>
+<p>首先通过IP协议来判断两台主机是否在同一个子网中，如果在同一个子网，就通过ARP协议查询对应的MAC地址，然后以广播的形式向该子网内的主机发送数据包；如果不在同一个子网，以太网会将该数据包转发给本子网的网关进行路由。网关是互联网上子网与子网之间的桥梁，所以网关会进行多次转发，最终将该数据包转发到目标IP所在的子网中，然后再通过ARP获取目标机MAC，最终也是通过广播形式将数据包发送给接收方。而完成这个路由协议的物理设备就是路由器，它会根据信道情况，选择并设定路由，以最佳路径来转发数据包。 </p>
+<h4 id="四、TCP确认机制"><a href="#四、TCP确认机制" class="headerlink" title="四、TCP确认机制"></a>四、TCP确认机制</h4><p>应用层向TCP层发送用于网间传输的、用8位字节表示的数据流，然后TCP把数据流分区成适当长度的报文段（通常受该计算机连接的网络的数据链路层的最大传输单元（MTU）的限制）。之后TCP把结果包传给IP层，由它来通过网络将包传送给接收端实体的TCP层。TCP为了保证不发生丢包，就给每个包一个序号，同时序号也保证了传送到接收端实体的包的按序接收。然后接收端实体对已成功收到的包发回一个相应的确认（ACK）；如果发送端实体在合理的往返时延（RTT）内未收到确认，那么对应的数据包就被假设为已丢失将会被进行重传。TCP用一个校验和函数来检验数据是否有错误；在发送和接收时都要计算校验和。 </p>
+<ul>
+<li>在数据正确性与合法性上，TCP用一个校验和函数来检验数据是否有错误，在发送和接收时都要计算校验和；同时可以使用MD5认证对数据进行加密。</li>
+<li>在保证可靠性上，采用超时重传和捎带确认机制。</li>
+<li>在流量控制上，采用滑动窗口协议，协议中规定，对于窗口内未经确认的分组需要重传。</li>
+</ul>
+<p>在拥塞控制上，采用TCP拥塞控制算法（也称AIMD算法）。该算法主要包括四个主要部分：</p>
+<p>（1）慢启动</p>
+<p>每当建立一个TCP连接时或一个TCP连接发生超时重传后，该连接便进入慢启动阶段。进入慢启动后，TCP实体将拥塞窗口的大小初始化为一个报文段，此后，每收到一个报文段的确认（ACK），拥塞窗口cwnd（congestion window）按指数增加。当cwnd值超过慢启动阐值或发生报文段丢失重传时，慢启动阶段结束。前者进入拥塞避免阶段，后者重新进入慢启动阶段。</p>
+<p>（2）拥塞避免</p>
+<p>在慢启阶段，当cwnd值超过慢启动阐值后，慢启动过程结束，TCP连接进入拥塞避免阶段。在拥塞避免阶段，每一次发送的cwnd个报文段被完全确认后，才将cwnd值加1。在此阶段，cwnd值线性增加。</p>
+<p>（3）快速重传</p>
+<p>快速重传是对超时重传的改进。当源端收到对同一个报文的三个重复确认时，就确定一个报文段已经丢失，因此立刻重传丢失的报文段，而不必等到重传定时器（RTO）超时。以此减少不必要的等待时间。</p>
+<p>（4）快速恢复</p>
+<p>快速恢复是对丢失恢复机制的改进。在快速重传之后，不经过慢启动过程而直接进入拥塞避免阶段。每当快速重传后，置sshtesrh=cwnd/2、ewnd=ssthresh+3。此后，每收到一个重复确认，将cwnd值加1，直至收到对丢失报文段和其后若干报文段的累积确认后，置cwnd=ssthesrh，进入拥塞避免阶段。</p>
+<h4 id="五、连接与关闭"><a href="#五、连接与关闭" class="headerlink" title="五、连接与关闭"></a>五、连接与关闭</h4><h4 id="建立连接："><a href="#建立连接：" class="headerlink" title="建立连接："></a>建立连接：</h4><p>TCP是因特网中的传输层协议，使用三次握手协议建立连接。当主动方发出SYN同步序列编号数据包连接请求后，等待对方回答</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ia2ltZy5jZG4uYmNlYm9zLmNvbS9waWMvMjkzODFmMzBlOTI0Yjg5OWNiMzJmNjMxNmUwNjFkOTUwYTdiZjZhOQ?x-oss-process=image/format,png" alt="图2 TCP的三次握手"><br>SYN+ACK，并最终对对方的 SYN 执行 ACK 确认。这种建立连接的方法可以防止产生错误的连接，TCP使用的流量控制协议是可变大小的滑动窗口协议。 </p>
+<p>TCP三次握手的过程如下：</p>
+<ol>
+<li>客户端发送SYN（SEQ=x序列号）报文给服务器端，进入SYN_SEND状态。</li>
+<li>服务器端收到SYN报文，回应一个SYN （SEQ=y）+ ACK（ACK=x+1）报文，进入SYN_RECV状态。</li>
+<li>客户端收到服务器端的SYN报文，回应一个ACK（ACK=y+1）报文，进入已连接状态。</li>
+</ol>
+<p>三次握手完成，TCP客户端和服务器端成功地建立连接，可以开始传输数据了。</p>
+<h4 id="连接终止"><a href="#连接终止" class="headerlink" title="连接终止:"></a>连接终止:</h4><p>建立一个连接需要三次握手，而终止一个连接要经过四次挥手，这是由TCP的半关闭（half-close）造成的。如下图所示。 </p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ia2ltZy5jZG4uYmNlYm9zLmNvbS9waWMvYTFlYzA4ZmE1MTNkMjY5NzIxY2M4NzU0NTVmYmIyZmI0MzE2ZDg5OA?x-oss-process=image/format,png" alt="图3 TCP连接的终止"><br>（1） 某个应用进程首先调用close，称该端执行“主动关闭”。该端的TCP于是发送一个FIN结束标志数据包，表示数据发送完毕。</p>
+<p>（2） 接收到这个FIN的对端执行 “被动关闭”（passive close），这个FIN由TCP确认，发送ACK数据包。</p>
+<p><strong>注意</strong>：FIN的接收也作为一个文件结束符（end-of-file）传递给接收端应用进程，放在已排队等候该应用进程接收的任何其他数据之后，因此，FIN的接收意味着接收端应用进程在相应连接上再无额外数据可接收。</p>
+<p>（3） 此时两者之间能够继续互相发送数据包，然而一段时间后，接收到这个文件结束符的应用进程将调用close关闭它的套接字，这导致它的TCP也发送一个FIN。</p>
+<p>（4） 接收这个最终FIN的原发送端TCP（即执行主动关闭的那一端）ACK确认这个FIN。既然每个方向都需要一个FIN和一个ACK，因此通常需要4个分节。</p>
+<p><strong>注意</strong>：<br>当一个进程无论自愿地（调用exit或从main函数返回）还是非自愿地（收到一个终止本进程的信号）终止时，所有打开的描述符都被关闭，这也导致仍然打开的任何TCP连接上也发出一个FIN。无论是客户还是服务器，任何一端都可以执行主动关闭。通常情况是，客户执行主动关闭，但是某些协议，例如，HTTP/1.0却由服务器执行主动关闭。</p>
+<h4 id="六、TCP和UDP"><a href="#六、TCP和UDP" class="headerlink" title="六、TCP和UDP"></a>六、TCP和UDP</h4><ul>
+<li><p>TCP 是面向<strong>连接</strong>的传输控制协议，而UDP 提供了<strong>无连接</strong>的数据报服务；</p>
+</li>
+<li><p>TCP 具有确认机制，确保传输数据的正确性，很少出现丢失或乱序；</p>
+</li>
+<li><p>UDP  在传输数据前不建立连接，不对数据报进行查改，无须等待对方的应答，会出现分组丢失、重复、乱序；</p>
+</li>
+<li><p>UDP 具有较好的<strong>实时性</strong>，工作效率较 TCP 协议高；</p>
+</li>
+<li><p>UDP 段结构比 TCP 的<strong>段结构简单</strong>，因此网络开销也小。</p>
+</li>
+</ul>
+<p>TCP  协议可以保证接收端毫无差错地接收到发送端发出的字节流，为应用程序提供可靠的通信服务。对可靠性要求高的通信系统往往使用 TCP 传输数据，比如  HTTP 运用 TCP 进行数据的传输。</p>
+<h4 id="七、TCP、ISO模型"><a href="#七、TCP、ISO模型" class="headerlink" title="七、TCP、ISO模型"></a>七、TCP、ISO模型</h4><p><strong>面向连接与无连接</strong>，面向连接可以分为三个阶段：</p>
+<ol>
+<li>发出链接，建立连接</li>
+<li>连接成功才开始传输</li>
+<li>数据传输完毕，必须释放连接</li>
+</ol>
+<p>无连接直接进行数据传输。<br><img src="https://img-blog.csdnimg.cn/2020073017151443.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="模型对比"><br>TCP/IP模型减少了会话层，表示层，可以变成经典5层网络模型，TCP/IP协议能够迅速发展起来并成为事实上的标准，是它恰好适应了世界范围内数据通信的需要。它有以下<br>特点：</p>
+<p>（1）协议标准是完全开放的，可以供用户免费使用不收费。<br>（2）独立于网络硬件系统，可以运行在广域网，更适合于互联网。<br>（3）网络地址IP统一分配，网络中每一设备和终端都具有一个唯一MAC物理地址。</p>
+<p><strong>对比</strong>：OSI层次间存在严格的调用关系，两个层通信必须通过下一层，不能越级，而TCP/IP可以越过下一层，直接使用更低层次所提供的服务，因而减少了一些不必要的开销，提高了效率；TCP/IP协议先出现，之后建立模型，而ISO/OSI先建立模型，后有协议。</p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>讲了这么多，那么重点在哪呢？在目录三开始的网络分层到最后的TCP/OSI模型对比，分层就记住TCP/IP经典五层模型和各层的协议就行了，其实四层的更好记住，四层无非是应用的服务层、传输层(弄端口号的)、网络层(弄网络IP地址，获取MAC地址及路由寻找的)，接口层（偏向物理的，定义MAC地址，将比特组装成帧进行发送）。有个概念就行，另外TCP确认机制(拥塞控制机制)需要掌握，以及TCP连接和断开的握手机制，还有TCP\UDP和TCP\ISO模型对比都是重点，需要掌握。</p>
+<p>模型对比，分层就记住TCP/IP经典五层模型和各层的协议就行了，其实四层的更好记住，四层无非是应用的服务层、传输层(弄端口号的)、网络层(弄网络IP地址，获取MAC地址及路由寻找的)，接口层（偏向物理的，定义MAC地址，将比特组装成帧进行发送）。有个概念就行，另外TCP确认机制(拥塞控制机制)需要掌握，以及TCP连接和断开的握手机制，还有TCP\UDP和TCP\ISO模型对比都是重点，需要掌握。</p>
+<p>硬核！肝完了！^  _  ^</p>
 <hr>
-<h5 id="01-下载ubantu镜像"><a href="#01-下载ubantu镜像" class="headerlink" title="01 下载ubantu镜像"></a>01 下载ubantu镜像</h5><p>要想在虚拟机里玩ubantu，就要先准备好该系统的iso镜像文件，那么我们就直接到了官网去了</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425111147300.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="官网"><br>可是我们点击下载后速度又慢了，比github还慢，原因就不说了。所以当然有更快的方法啦！不一定非要去国外的官网下载，国内的各大高校和巨头都有镜像站提供免费的镜像下载，这里就给大家推荐一番。</p>
-<h6 id="阿里云开发者社区镜像站"><a href="#阿里云开发者社区镜像站" class="headerlink" title="阿里云开发者社区镜像站"></a><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener">阿里云开发者社区镜像站</a></h6><p><img src="https://img-blog.csdnimg.cn/20200425111743145.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="阿里镜像站"><br>第一个就是ubantu,这里可以下server或desktop都可以，反正又快又免费！哈哈</p>
-<h6 id="浙大镜像站"><a href="#浙大镜像站" class="headerlink" title="浙大镜像站"></a><a href="http://mirrors.zju.edu.cn/" target="_blank" rel="noopener">浙大镜像站</a></h6><p> 为什么选择浙江大学的镜像站呢？国内有很多这样的镜像站啊。。。。当然是快啦，相比较其他大学的站点，算是比较好了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425112624418.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="浙大镜像站"></p>
-<p> 我是在阿里云下的，起初弄不清server和desktop版，就先下了server版，结果就是疑惑了半天，也没出现漂亮的界面。<br> <img src="https://img-blog.csdnimg.cn/20200425112906835.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="命令行"></p>
-<hr>
-<h5 id="02-安装oracle-virtualbox虚拟机"><a href="#02-安装oracle-virtualbox虚拟机" class="headerlink" title="02 安装oracle virtualbox虚拟机"></a>02 安装oracle virtualbox虚拟机</h5><p>这个就有点难下了，我没在镜像站里找，在网盘下的。(VMware需要许可证)这里大家可以搜一搜，分享<a href="https://pan.baidu.com/s/13mubMuemzTbLApTyxJXQVQ" target="_blank" rel="noopener">VM</a></p>
-<p>提取码：vz1h</p>
-<p>下载好安装包后，打开就行了</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425115703159.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="安装完成"></p>
-<hr>
-<h5 id="03-新建虚拟电脑Linux01"><a href="#03-新建虚拟电脑Linux01" class="headerlink" title="03 新建虚拟电脑Linux01"></a>03 新建虚拟电脑Linux01</h5><p>点击新建，选择要安装的系统，之后就是一路默认。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425120535645.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="新建"><br> 内存最好配置在2G以上</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425120650265.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="内存"></p>
-<hr>
-<h5 id="04-安装ubantu镜像"><a href="#04-安装ubantu镜像" class="headerlink" title="04 安装ubantu镜像"></a>04 安装ubantu镜像</h5><p>虽然已经有一个虚拟电脑了(其实就是占用宿主机的磁盘空间)，这个时候只有硬件上的支持，还没有系统文件的调用。所以咋们进入启动Vbox界面的设置项</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425121253258.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="设置"></p>
-<p>红色箭头那点击进入，再点击注册项，即可从宿主机文件里选择下载好的ubantu镜像文件</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425121517698.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="注册"><br>ok,配置好后，再启动虚拟电脑，就进入ubantu系统安装界面了，而不是命令行。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020042512174573.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="ubantu界面"></p>
-<pre><code> 接下来就是安装了 </code></pre><p><img src="https://img-blog.csdnimg.cn/20200425122022310.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br> 这里可以选择试用或者安装ubantu，安装后启动就直接进入虚拟电脑工作界面了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425122834737.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="ubantu"><br> 界面还是很漂亮的，不过virtualbox是小型机，界面不能全屏，如果可能还是选VMware虚拟机吧，试过，感觉就是香！哈哈！</p>
-<hr>
-<h5 id="05-网络设置"><a href="#05-网络设置" class="headerlink" title="05 网络设置"></a>05 网络设置</h5><p> 这里就不过多讲了，建好后可以配置网络，有自己的cdn节点。推荐<a href="https://www.bilibili.com/video/BV1bA411b7vs" target="_blank" rel="noopener">程序羊</a></p>
-<hr>
-<p>附：<a href="https://blog.csdn.net/Gobullin" target="_blank" rel="noopener">小码csdn</a></p>
+<p>公众号：小码之光（文章全部首发）<br><a href="https://github.com/coderxm" target="_blank" rel="noopener">github</a> coderxm</p>
 
             </div>
             <hr/>
@@ -522,7 +592,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn/2020/0425/">https://www.maliaoblog.cn/2020/0425/</a>
+                    <a href="https://www.maliaoblog.cn/2020/0730/">https://www.maliaoblog.cn/2020/0730/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -560,12 +630,16 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ubantu/">
-                                    <span class="chip bg-color">ubantu</span>
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
                                 </a>
                             
-                                <a href="/tags/virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA/">
-                                    <span class="chip bg-color">virtualbox虚拟机</span>
+                                <a href="/tags/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">
+                                    <span class="chip bg-color">网络模型</span>
+                                </a>
+                            
+                                <a href="/tags/TCP-IP/">
+                                    <span class="chip bg-color">TCP/IP</span>
                                 </a>
                             
                         </div>
@@ -996,48 +1070,66 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/0427/">
+                <a href="/2020/0730/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="还要翻墙？试试这个">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="计算机网络-01网络模型">
                         
-                        <span class="card-title">还要翻墙？试试这个</span>
+                        <span class="card-title">计算机网络-01网络模型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            想看看国外的风光吗？疫情期间就像挂在家的咸鱼一样，快发酵了！点开浏览器，可是只能在国内的网站上静静地划过，没有一点新鲜事。可是想上外网又被墙，怎么办？
+                            计算机网络——01网络模型目录：
+概念
+分类
+网络分层
+TCP确认机制
+连接与关闭
+TCP/UDP
+TCP/ISO面向连接与无连接
+总结
 
-  哈哈!客官别着急，我这就给您上‘菜’。咱们开了浏览器，最好是火狐的，在设置里的附加
+一、概念计算机网络是指将地理位置不同的具有独立功能的多台计算机及其外部设备，通过通信线路连接起来，在
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="post-category">
-                                    碎碎念
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ghelper/">
-                        <span class="chip bg-color">ghelper</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">网络模型</span>
+                    </a>
+                    
+                    <a href="/tags/TCP-IP/">
+                        <span class="chip bg-color">TCP/IP</span>
                     </a>
                     
                 </div>
@@ -1051,37 +1143,31 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/0421/">
+                <a href="/2020/0728/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="gitpage CDN加速配置与深入">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="java中的内部类">
                         
-                        <span class="card-title">gitpage CDN加速配置与深入</span>
+                        <span class="card-title">java中的内部类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            github page cdn加速服务深入了解
-CDN介绍
-CDN提供商
-github page cdn加速服务配置
-CDN加速服务深入
-
-CDN介绍CDN的全称是Content Delivery Network，即内容分发网络。CDN是构
+                            java中的内部类一、内部类及访问特点1:内部类概述:把类定义在其他类的内部，这个类就被称为内部类。    理解：内部类不需要被其他外部类调用，所以内部类定义在外部类里边，连成一块2:内部类访问特点    a:内部类可以直接访问外部类的成员
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E7%AB%99%E8%BF%90%E7%BB%B4/" class="post-category">
-                                    网站运维
+                            <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                             
                             
@@ -1091,8 +1177,12 @@ CDN介绍CDN的全称是Content Delivery Network，即内容分发网络。CDN�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/github-page/">
-                        <span class="chip bg-color">github page</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/">
+                        <span class="chip bg-color">内部类</span>
                     </a>
                     
                 </div>
