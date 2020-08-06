@@ -447,7 +447,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -503,12 +503,11 @@ WIDGET = {FID: 'hxqMR0uSsX'}
   <span class="token key atrule">showToggleBtn</span><span class="token punctuation">:</span> <span class="token boolean important">true </span><span class="token comment" spellcheck="true"># 是否显示切换TOC目录展开收缩的按钮</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="去掉友链下那不必要的一栏空白"><a href="#去掉友链下那不必要的一栏空白" class="headerlink" title="去掉友链下那不必要的一栏空白"></a>去掉友链下那不必要的一栏空白</h4><p>修改前：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200806121702255.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="空白栏"><br>这个也简单，不必过于头疼！因为我已经改好了，直接卖就是了，白给不要钱！</p>
-<pre class="line-numbers language-ejs"><code class="language-ejs"><div class="card">
-   <!--<div class="card-content">
-        <%- page.content %>
-       </div>-->
- </div><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>友链下的那栏不必要的空白着实凸显了它的不必要性，所以我们要去掉它。直接把它的代码给注释掉，找到layout文件夹下的friends.ejs文件。hexo引擎渲染该文件生成html文件，变成了友链页面，其中友链的那一片作为一个模块卡片，valine留言板及空白一栏也是，空白的就是什么也没有，很容易发现，注释即可。</p>
+<pre><code>&lt;div class=&quot;card&quot;&gt;
+   &lt;!--&lt;div class=&quot;card-content&quot;&gt;
+        &lt;%- page.content %&gt;
+       &lt;/div&gt;--&gt;
+ &lt;/div&gt;</code></pre><p>友链下的那栏不必要的空白着实凸显了它的不必要性，所以我们要去掉它。直接把它的代码给注释掉，找到layout文件夹下的friends.ejs文件。hexo引擎渲染该文件生成html文件，变成了友链页面，其中友链的那一片作为一个模块卡片，valine留言板及空白一栏也是，空白的就是什么也没有，很容易发现，注释即可。</p>
 <h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>以后还会继续更新站点，如果想看总体的效果就访问我的网站吧！最近的美化优化了很多，变化也很大！如果想深入了解就上公众号吧，<strong>小码之光</strong>，加群交流也行。后续会持续跟大家讲博客美化。</p>
 <hr>
 <p>公众号：小码之光</p>
@@ -1366,7 +1365,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35k</span>&nbsp;字
+                class="white-color">35.1k</span>&nbsp;字
             
             
             
