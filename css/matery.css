@@ -34,8 +34,8 @@
 }
 
 body {
-    /*background-color: #eaeaea;*/
-    background: linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)) 0% 0% / cover, url("/medias/featureimages/19.jpg"), url("/medias/featureimages/19.jpg") 0px 0px;
+	cursor: url(/cursor.svg),auto;
+    background: linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35) );
     margin: 0;
     color: #34495e;
 }
@@ -263,9 +263,9 @@ mark {
 }
 
 .progress-bar {
-    height: 4px;
+    height: 5px;
     position: fixed;
-    bottom: 0;
+    top: 0;
     z-index: 300;
     background: linear-gradient(to right, #0061cc 0%, #e51a05 100%);
     opacity: 0.8;
@@ -277,6 +277,12 @@ mark {
 
 .pd-header {
     margin-top: -64px;
+}
+header {
+	opacity: 0;
+}
+header:hover{
+	opacity: 1;
 }
 
 header .side-nav {
@@ -300,13 +306,23 @@ header nav .brand-span {
 }
 
 header .brand-logo .logo-img {
-    height: 45px;
+    height: 42px;
     vertical-align: middle;
     padding-bottom: 6px;
 }
-
+header .brand-logo .logo-img:hover{
+	cursor: pointer;
+	transform: rotate(360deg);
+	transition-duration: 1.8s;
+	transition-timing-function:ease;
+}
 header .brand-logo .logo-span {
-    font-size: 2rem;
+    font-size: 1.7rem;
+}
+/*菜单*/
+header .right.nav-menu {
+    position: relative;
+    left: -50px;
 }
 
 /*修改顶部 logo 的文字垂直对齐为 top，避免默认 middle 看起来偏下*/
