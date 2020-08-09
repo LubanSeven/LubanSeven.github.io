@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>hexo-matery主题美化(三)-音乐播放器</title>
+      <link href="/2020/0809/"/>
+      <url>/2020/0809/</url>
+      
+        <content type="html"><![CDATA[<h4 id="hexo-matery主题美化-三-音乐播放器"><a href="#hexo-matery主题美化-三-音乐播放器" class="headerlink" title="hexo-matery主题美化(三)-音乐播放器"></a>hexo-matery主题美化(三)-音乐播放器</h4><h5 id="配置音乐播放器"><a href="#配置音乐播放器" class="headerlink" title="配置音乐播放器"></a>配置音乐播放器</h5><p>要支持音乐播放，在主题的 <code>_config.yml</code> 配置文件中激活music配置即可：</p><pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># Whether to display the musics.</span><span class="token comment" spellcheck="true"># 是否在首页显示音乐.</span><span class="token key atrule">music</span><span class="token punctuation">:</span>  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token key atrule">title</span><span class="token punctuation">:</span> 非吸底模式有效  <span class="token key atrule">show</span><span class="token punctuation">:</span> 听听音乐  <span class="token key atrule">autoHide</span><span class="token punctuation">:</span> <span class="token boolean important">true    </span><span class="token comment" spellcheck="true"># hide automaticaly</span>  <span class="token key atrule">server</span><span class="token punctuation">:</span> tencent   <span class="token comment" spellcheck="true">#require    music platform: netease, tencent, kugou, xiami, baidu</span>  <span class="token key atrule">type</span><span class="token punctuation">:</span> playlist    <span class="token comment" spellcheck="true">#require song, playlist, album, search, artist</span>  <span class="token key atrule">id</span><span class="token punctuation">:</span> <span class="token number">7660234225     </span><span class="token comment" spellcheck="true">#require    song id / playlist id / album id / search keyword</span>  <span class="token key atrule">fixed</span><span class="token punctuation">:</span> <span class="token boolean important">true       </span><span class="token comment" spellcheck="true"># 开启吸底模式</span>  <span class="token key atrule">autoplay</span><span class="token punctuation">:</span> <span class="token boolean important">false   </span><span class="token comment" spellcheck="true"># 是否自动播放</span>  <span class="token key atrule">theme</span><span class="token punctuation">:</span> <span class="token string">'blue'</span>     <span class="token comment" spellcheck="true">#歌词的颜色</span>  <span class="token key atrule">loop</span><span class="token punctuation">:</span> <span class="token string">'all'</span>       <span class="token comment" spellcheck="true"># 音频循环播放, 可选值: 'all', 'one', 'none'</span>  <span class="token key atrule">order</span><span class="token punctuation">:</span> <span class="token string">'random'</span>   <span class="token comment" spellcheck="true"># 音频循环顺序, 可选值: 'list', 'random'</span>  <span class="token key atrule">preload</span><span class="token punctuation">:</span> <span class="token string">'auto'</span>   <span class="token comment" spellcheck="true"># 预加载，可选值: 'none', 'metadata', 'auto'</span>  <span class="token key atrule">volume</span><span class="token punctuation">:</span> <span class="token number">0.7       </span><span class="token comment" spellcheck="true"># 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效</span>  <span class="token key atrule">listFolded</span><span class="token punctuation">:</span> <span class="token boolean important">true  </span><span class="token comment" spellcheck="true"># 列表默认折叠</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p><code>server</code>可选：<code>netease</code>（网易云音乐），<code>tencent</code>（QQ音乐），<code>kugou</code>（酷狗音乐），<code>xiami</code>（虾米音乐），</p><p><code>baidu</code>（百度音乐）。</p><p><code>type</code>可选：<code>song</code>（歌曲），<code>playlist</code>（歌单），<code>album</code>（专辑），<code>search</code>（搜索关键字），<code>artist</code>（歌手）</p><p><code>id</code>获取示例: 打开网易云音乐，选择喜欢的歌单，然后点击分享,生成插件外链</p></blockquote><p>这就是歌单的id，文件里默认设置的歌单其实也还不错。如果以后继续添加歌曲，更新了歌单，我亲自试过，<code>Aplayer</code>插件也会更新，之前的16首现在加了三首有19首。看了一些人的文章，有的人说不会更新，不知道他有没有试过。对了，如果打开博客播放器插件加载不出来，可能是网速的原因，刷新一下就好，也有可能是没配置好，多看看文章就行。</p><p>参考资料：<br><a href="https://www.cnblogs.com/mfrank/p/12830097.html#autoid-0-4-0" target="_blank" rel="noopener">弗兰克的猫-hexo-matery主题配置</a></p><p><a href="https://www.cnblogs.com/fby698/p/12663089.html" target="_blank" rel="noopener">new落花-Aplayer插件</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网站运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> matery主题 </tag>
+            
+            <tag> 音乐播放器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo-matery主题优化(二)</title>
       <link href="/2020/0806/"/>
       <url>/2020/0806/</url>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="互质,公倍数">
+    <meta name="keywords" content="hexo-matery,音乐播放器">
     <meta name="description" content="生活是变强的理由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>互质环与最小公倍数的几种求法 | 码里奥</title>
+    <title>hexo-matery主题美化(三)-音乐播放器 | 码里奥</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">互质环与最小公倍数的几种求法</h1>
+                    <h1 class="description center-align post-title">hexo-matery主题美化(三)-音乐播放器</h1>
                 </div>
             </div>
         </div>
@@ -401,12 +401,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BA%92%E8%B4%A8/">
-                                <span class="chip bg-color">互质</span>
+                            <a href="/tags/matery%E4%B8%BB%E9%A2%98/">
+                                <span class="chip bg-color">matery主题</span>
                             </a>
                         
-                            <a href="/tags/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/">
-                                <span class="chip bg-color">最小公倍数</span>
+                            <a href="/tags/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/">
+                                <span class="chip bg-color">音乐播放器</span>
                             </a>
                         
                     </div>
@@ -417,8 +417,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E7%BD%91%E7%AB%99%E8%BF%90%E7%BB%B4/" class="post-category">
+                                网站运维
                             </a>
                         
                     </div>
@@ -430,7 +430,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-09
+                    2020-08-09
                 </div>
                 
 
@@ -439,14 +439,14 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    449
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -462,66 +462,34 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="互质环-序列-与最小公倍数的几种求法"><a href="#互质环-序列-与最小公倍数的几种求法" class="headerlink" title="互质环(序列)与最小公倍数的几种求法"></a>互质环(序列)与最小公倍数的几种求法</h3><h4 id="题目一：互质环"><a href="#题目一：互质环" class="headerlink" title="题目一：互质环"></a>题目一：互质环</h4><p>现在我们要把1…n这n个数字首尾连接组成一个环，使得相邻元素互质的对数尽可能多，请输出最大对数.</p>
-<h5 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h5><pre><code>一行一个整数n(1≤ n≤ 1000)。</code></pre><h5 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a>输出描述:</h5><pre><code>一行一个整数表示答案。</code></pre><h5 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：</h5><pre><code>4</code></pre><h5 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h5><pre><code>4    例：3 2 1 4</code></pre><p>很显然，又是个把做题的的同学(小白)弄得晕头的题，实质上她还是个数学题，就看你数学学的好不好了，呵呵！既然相邻的两个数要互质(除了公因子1外没有其他公因数)，那从小到大顺序排序怎么样！好，试一下：1 2 3 4，也是两两互质，对数为4。是不是巧合呢？大家都知道相邻两数(整数)互质，那么怎么说明是确实是一定互质呢?</p>
-<h5 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h5><p>转化一下，相邻两数：n-1, n(n&gt;1)，我们用反证法证明一下。</p>
-<pre><code>预设结论：这两数不互质，即有除1以外的公因数k，n-1=x·k，n=y·k；
-那么有n-(n-1)=(y-x)k=1，k=1/(y-x)；
-y,x,k都是整数，k&gt;1,则1&gt;y-x，不符合！所以相邻两数互质！证明就完了。</code></pre><p>所以结论就是输入几个数就输出几个数，就能构造互质环(互质对数最多的，两两互质)。</p>
-<hr>
-<h4 id="题目二：最小公倍数"><a href="#题目二：最小公倍数" class="headerlink" title="题目二：最小公倍数"></a>题目二：最小公倍数</h4><p>有人说求最小公倍数不很简单吗？我想说的是，你是用那种方法求得，而且算法复杂度小，效率高吗？现在我们就现场讨论一波！</p>
-<p>最小公倍数=两整数的乘积÷最大公约数 。 所以该问题可以转化为求最大公约数。而最大公约数有这几种求法：</p>
-<ol>
-<li><h4 id="辗转相除法"><a href="#辗转相除法" class="headerlink" title="辗转相除法 :"></a>辗转相除法 :</h4><p>1.a%b得余数c</p>
-<p>2.如果c = 0,则b为最大公约数</p>
-<p>3.如果c不等于0,则a = b,b = c继续执行步骤1。</p>
-<pre><code>#include&lt;iostream&gt;
-using namespace std;
-long long lcm(long long x, long long y){
-    long long maxs = max(x,y);
-    long long mins = min(x,y);
-    long long t = maxs % mins;
-    while(t != 0){
-        maxs = mins;
-        mins = t;
-        t = maxs % mins;
-    }
-    return x * y/mins;
-}
-int main(){
-    long long x, y;        //x,y很大
-    cin &gt;&gt; x &gt;&gt; y;
-    cout&lt;&lt;lcm(x,y)&lt;&lt;endl;
-    return 0;
-}</code></pre><p>最优算法，t最快接近最大公约数，因为是进行求模运算，所以比相减来得更快。T(n)应该是接近常数级，S(n)的话，由于lcm函数中进行了maxs,mins赋值，空间复杂度降低，和相减法差不多。</p>
-</li>
-</ol>
-<h4 id="2-相减法"><a href="#2-相减法" class="headerlink" title="2 .相减法:"></a>2 .相减法:</h4><p>   两数之差与最大公约数成倍数关系。</p>
-<pre><code>1.若a&gt;b，则a=a-b
-2.若a &lt; b，则b=b-a
-3. 若a=b，则a（或b）即为两数的最大公约数
-4. 若a≠b，则再回去执行1</code></pre><pre><code>#include&lt;stdio.h&gt;
-int main ( )  /* 相减法求最大公约数 */
-{  
-   int m, n, a, b, c;
-   scanf (&quot;%d,%d&quot;, &amp;a, &amp;b);
-   m=a; n=b; 
-     /* a, b不相等，大数减小数，直到相等为止。*/ 
-   while ( a!=b) {
-         if (a&gt;b)  a=a-b;
-         else  b=b-a;
-    }
-   printf(&quot;The largest common divisor:%d\n&quot;, a); //最大公约数
-   printf(&quot;The least common multiple:%d\n&quot;, m*n/a);    //最小公倍数
-}</code></pre><p>T(n)与第一种相比，当两个数比较大时，而且仅相差较小的数，循环需要a=b相等才结束，所以T(n)这时会比较大。</p>
-<h4 id="3-枚举法："><a href="#3-枚举法：" class="headerlink" title="3.枚举法："></a>3.枚举法：</h4><p> 已知1是一个公约数，但是1不是最大公约数，所以可以检测K=2,3,4…..是否为x和y的公约数，直到k大于x或者y，将公约数存储在gcd的变量中,gcd初值设为1</p>
-<pre><code>int gcd = 1;
-for(int k = 2;k &lt;= x&amp;&amp;k &lt;= y;k++){
-    if(x % k == 0&amp;&amp; y % k == 0)
-        gcd = k;
-}</code></pre><p>当问题规模很大时，这个算法最不好，还是从小到大枚举，T(n)就很大了，k需要不断被自加1赋值，还要判断取模等等，循环次数过多。</p>
-<hr>
-<p>今天的算法分享就完了，任务结束，别忘了点赞！hh！</p>
+                <h4 id="hexo-matery主题美化-三-音乐播放器"><a href="#hexo-matery主题美化-三-音乐播放器" class="headerlink" title="hexo-matery主题美化(三)-音乐播放器"></a>hexo-matery主题美化(三)-音乐播放器</h4><h5 id="配置音乐播放器"><a href="#配置音乐播放器" class="headerlink" title="配置音乐播放器"></a>配置音乐播放器</h5><p>要支持音乐播放，在主题的 <code>_config.yml</code> 配置文件中激活music配置即可：</p>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># Whether to display the musics.</span>
+<span class="token comment" spellcheck="true"># 是否在首页显示音乐.</span>
+<span class="token key atrule">music</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">title</span><span class="token punctuation">:</span> 非吸底模式有效
+  <span class="token key atrule">show</span><span class="token punctuation">:</span> 听听音乐
+  <span class="token key atrule">autoHide</span><span class="token punctuation">:</span> <span class="token boolean important">true    </span><span class="token comment" spellcheck="true"># hide automaticaly</span>
+  <span class="token key atrule">server</span><span class="token punctuation">:</span> tencent   <span class="token comment" spellcheck="true">#require    music platform: netease, tencent, kugou, xiami, baidu</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> playlist    <span class="token comment" spellcheck="true">#require song, playlist, album, search, artist</span>
+  <span class="token key atrule">id</span><span class="token punctuation">:</span> <span class="token number">7660234225     </span><span class="token comment" spellcheck="true">#require    song id / playlist id / album id / search keyword</span>
+  <span class="token key atrule">fixed</span><span class="token punctuation">:</span> <span class="token boolean important">true       </span><span class="token comment" spellcheck="true"># 开启吸底模式</span>
+  <span class="token key atrule">autoplay</span><span class="token punctuation">:</span> <span class="token boolean important">false   </span><span class="token comment" spellcheck="true"># 是否自动播放</span>
+  <span class="token key atrule">theme</span><span class="token punctuation">:</span> <span class="token string">'blue'</span>     <span class="token comment" spellcheck="true">#歌词的颜色</span>
+  <span class="token key atrule">loop</span><span class="token punctuation">:</span> <span class="token string">'all'</span>       <span class="token comment" spellcheck="true"># 音频循环播放, 可选值: 'all', 'one', 'none'</span>
+  <span class="token key atrule">order</span><span class="token punctuation">:</span> <span class="token string">'random'</span>   <span class="token comment" spellcheck="true"># 音频循环顺序, 可选值: 'list', 'random'</span>
+  <span class="token key atrule">preload</span><span class="token punctuation">:</span> <span class="token string">'auto'</span>   <span class="token comment" spellcheck="true"># 预加载，可选值: 'none', 'metadata', 'auto'</span>
+  <span class="token key atrule">volume</span><span class="token punctuation">:</span> <span class="token number">0.7       </span><span class="token comment" spellcheck="true"># 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效</span>
+  <span class="token key atrule">listFolded</span><span class="token punctuation">:</span> <span class="token boolean important">true  </span><span class="token comment" spellcheck="true"># 列表默认折叠</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><code>server</code>可选：<code>netease</code>（网易云音乐），<code>tencent</code>（QQ音乐），<code>kugou</code>（酷狗音乐），<code>xiami</code>（虾米音乐），</p>
+<p><code>baidu</code>（百度音乐）。</p>
+<p><code>type</code>可选：<code>song</code>（歌曲），<code>playlist</code>（歌单），<code>album</code>（专辑），<code>search</code>（搜索关键字），<code>artist</code>（歌手）</p>
+<p><code>id</code>获取示例: 打开网易云音乐，选择喜欢的歌单，然后点击分享,生成插件外链</p>
+</blockquote>
+<p>这就是歌单的id，文件里默认设置的歌单其实也还不错。如果以后继续添加歌曲，更新了歌单，我亲自试过，<code>Aplayer</code>插件也会更新，之前的16首现在加了三首有19首。看了一些人的文章，有的人说不会更新，不知道他有没有试过。对了，如果打开博客播放器插件加载不出来，可能是网速的原因，刷新一下就好，也有可能是没配置好，多看看文章就行。</p>
+<p>参考资料：<br><a href="https://www.cnblogs.com/mfrank/p/12830097.html#autoid-0-4-0" target="_blank" rel="noopener">弗兰克的猫-hexo-matery主题配置</a></p>
+<p><a href="https://www.cnblogs.com/fby698/p/12663089.html" target="_blank" rel="noopener">new落花-Aplayer插件</a></p>
 
             </div>
             <hr/>
@@ -537,7 +505,7 @@ for(int k = 2;k &lt;= x&amp;&amp;k &lt;= y;k++){
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">coderxm</a>
+                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">小码</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -547,7 +515,7 @@ for(int k = 2;k &lt;= x&amp;&amp;k &lt;= y;k++){
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn/2020/0709/">https://www.maliaoblog.cn/2020/0709/</a>
+                    <a href="https://www.maliaoblog.cn/2020/0809/">https://www.maliaoblog.cn/2020/0809/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -560,7 +528,7 @@ for(int k = 2;k &lt;= x&amp;&amp;k &lt;= y;k++){
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://www.maliaoblog.cn" target="_blank">coderxm</a>
+                    <a href="https://www.maliaoblog.cn" target="_blank">小码</a>
                     !
                 </span>
             </div>
@@ -585,12 +553,12 @@ for(int k = 2;k &lt;= x&amp;&amp;k &lt;= y;k++){
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BA%92%E8%B4%A8/">
-                                    <span class="chip bg-color">互质</span>
+                                <a href="/tags/matery%E4%B8%BB%E9%A2%98/">
+                                    <span class="chip bg-color">matery主题</span>
                                 </a>
                             
-                                <a href="/tags/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/">
-                                    <span class="chip bg-color">最小公倍数</span>
+                                <a href="/tags/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/">
+                                    <span class="chip bg-color">音乐播放器</span>
                                 </a>
                             
                         </div>
@@ -1021,53 +989,55 @@ for(int k = 2;k &lt;= x&amp;&amp;k &lt;= y;k++){
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/0719/">
+                <a href="/2020/0809/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="opera、google、firefox浏览器的选择">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="hexo-matery主题美化(三)-音乐播放器">
                         
-                        <span class="card-title">opera、google、firefox浏览器的选择</span>
+                        <span class="card-title">hexo-matery主题美化(三)-音乐播放器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            作者：coderxm公众号：小码之光
+                            hexo-matery主题美化(三)-音乐播放器配置音乐播放器要支持音乐播放，在主题的 _config.yml 配置文件中激活music配置即可：
+# Whether to display the musics.
+# 是否在首页显示音乐.
 
-首先介绍：先介绍本人用的最多的浏览器：火狐
-Mozilla Firefox，中文俗称“火狐”，是一个自由及开放源代码的浏览器，使用Gecko排版引擎，支持多种操作系统，如Windows、Mac OS及
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="post-category">
-                                    碎碎念
+                            <a href="/categories/%E7%BD%91%E7%AB%99%E8%BF%90%E7%BB%B4/" class="post-category">
+                                    网站运维
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
-                        <span class="chip bg-color">浏览器</span>
+                    <a href="/tags/matery%E4%B8%BB%E9%A2%98/">
+                        <span class="chip bg-color">matery主题</span>
                     </a>
                     
-                    <a href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">
-                        <span class="chip bg-color">搜索引擎</span>
+                    <a href="/tags/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/">
+                        <span class="chip bg-color">音乐播放器</span>
                     </a>
                     
                 </div>
@@ -1081,32 +1051,38 @@ Mozilla Firefox，中文俗称“火狐”，是一个自由及开放源代码�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/0708/">
+                <a href="/2020/0806/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/13.jpg" class="responsive-img" alt="年轻母牛的故事">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="hexo-matery主题优化(二)">
                         
-                        <span class="card-title">年轻母牛的故事</span>
+                        <span class="card-title">hexo-matery主题优化(二)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            年轻母牛的故事题目是这样的：有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？
-输入​    输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0
+                            hexo-matery主题优化(二)目录：
+hexo搜索
+hexo代码高亮
+消除文章toc目录的那一竖杠杠
+去掉友链下那不必要的一栏空白
+最后
+
+前段时间，我好像写过一篇文章讲hexo-matery主题的配置优化，隔了很久，自己都忘了，应该
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E7%BD%91%E7%AB%99%E8%BF%90%E7%BB%B4/" class="post-category">
+                                    网站运维
                                 </a>
                             
                             
@@ -1116,12 +1092,12 @@ Mozilla Firefox，中文俗称“火狐”，是一个自由及开放源代码�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/matery/">
+                        <span class="chip bg-color">matery</span>
                     </a>
                     
-                    <a href="/tags/%E9%80%92%E6%8E%A8/">
-                        <span class="chip bg-color">递推</span>
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">
+                        <span class="chip bg-color">博客美化</span>
                     </a>
                     
                 </div>
