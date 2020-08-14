@@ -439,14 +439,14 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -507,12 +507,10 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 <li><p>引入样式<br>把<strong>main.css</strong>中的代码粘贴到自定义css中，无需个性化操作</p>
 </li>
 <li><p>引入文件<br>放在侧边栏html文件中，本人已为你添加。建议下载该文件并上传博客园，之后只需修改样式引入即可！</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"https://blog-static.cnblogs.com/files/coderma/main.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<pre><code>&lt;script src=&quot;https://blog-static.cnblogs.com/files/coderma/main.js&quot;&gt;&lt;/script&gt;</code></pre></li>
 <li><p>顶部菜单设置</p>
 <p>将以下链接替换成自己随笔地址，以下代码在<code>main.js</code>中,建议打开该文件查看并修改</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#navList"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'&lt;li>&lt;a id="blog_nav_myyoulian" class="menu"href="https://www.cnblogs.com/coderma/p/1117239.html">友链&lt;/a>&lt;i>&lt;/i>&lt;/li>&lt;li>&lt;a id="blog_nav_myzanshang" class="menu" href="https://www.cnblogs.com/coderma/p/1133477.html">赞赏&lt;/a>&lt;i>&lt;/i>&lt;/li>&lt;li>&lt;a id="blog_nav_myguanyu" class="menu" href="">关于&lt;/a>&lt;/li>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<pre><code>$(&quot;#navList&quot;).append(&#39;&lt;li&gt;&lt;a id=&quot;blog_nav_myyoulian&quot; class=&quot;menu&quot;href=&quot;https://www.cnblogs.com/coderma/p/1117239.html&quot;&gt;友链&lt;/a&gt;&lt;i&gt;&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;a id=&quot;blog_nav_myzanshang&quot; class=&quot;menu&quot; href=&quot;https://www.cnblogs.com/coderma/p/1133477.html&quot;&gt;赞赏&lt;/a&gt;&lt;i&gt;&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;a id=&quot;blog_nav_myguanyu&quot; class=&quot;menu&quot; href=&quot;&quot;&gt;关于&lt;/a&gt;&lt;/li&gt;&#39;);</code></pre></li>
 <li><p>菜单icon设置<br>  就是菜单前的小图标，感兴趣的可以去了解一下<a href="http://fontawesome.dashgame.com/" target="_blank" rel="noopener">Font awesome</a></p>
 <pre class="line-numbers language-javascript"><code class="language-javascript">          <span class="token comment" spellcheck="true">//博客title</span>
           <span class="token comment" spellcheck="true">//去掉rss替换成分类</span>
@@ -534,69 +532,68 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 <li><p>菜单子目录设置</p>
 <p>  菜单子目录，在<strong>关于</strong>菜单下添加了子目录,相应的样式可自行修改添加</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript">  <span class="token keyword">let</span> guanyu <span class="token operator">=</span> <span class="token string">'&lt;ul class="sub-menu">'</span> <span class="token operator">+</span>
-                  <span class="token string">'&lt;li>&lt;a href=" " target="_self">&lt;i class="fa fa-user-o" aria-hidden="true">&lt;/i>博主&lt;/a>&lt;/li>'</span> <span class="token operator">+</span>   <span class="token comment" spellcheck="true">//添加关于文章链接</span>
-                  <span class="token string">'&lt;li>&lt;a id="blog_nav_theme" onclick="changeTheme();" >&lt;i class="iconfont icon-taohua" aria-hidden="true">&lt;/i> 主题&lt;/a>&lt;/li>'</span> <span class="token operator">+</span>  <span class="token comment" spellcheck="true">//主题/暗黑白昼模式</span>
-                  <span class="token string">'&lt;/ul>'</span><span class="token punctuation">;</span>
-          <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#blog_nav_myguanyu'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">after</span><span class="token punctuation">(</span>guanyu<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      <span class="token string">'&lt;li>&lt;a href=" " target="_self">&lt;i class="fa fa-user-o" aria-hidden="true">&lt;/i>博主&lt;/a>&lt;/li>'</span> <span class="token operator">+</span>   <span class="token comment" spellcheck="true">//添加关于文章链接</span>
+      <span class="token string">'&lt;li>&lt;a id="blog_nav_theme" onclick="changeTheme();" >&lt;i class="iconfont icon-taohua" aria-hidden="true">&lt;/i> 主题&lt;/a>&lt;/li>'</span> <span class="token operator">+</span>  <span class="token comment" spellcheck="true">//主题/暗黑白昼模式</span>
+      <span class="token string">'&lt;/ul>'</span><span class="token punctuation">;</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#blog_nav_myguanyu'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">after</span><span class="token punctuation">(</span>guanyu<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>脚本设置</p>
 <p>为了配置方便，我在侧边栏里设置了一些常用参数，可根据下表选择需要开启和配置</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span> 
-  $<span class="token punctuation">.</span><span class="token function">silence</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      profile<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-          enable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-          avatar<span class="token punctuation">:</span> <span class="token string">'https://images.cnblogs.com/cnblogs_com/coderma/1820127/o_200803093536logo.png'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//头像，可修改</span>
-          favicon<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
-          notice<span class="token punctuation">:</span> <span class="token string">'个人博客地址：https://index.maliaoblog.cn/  欢迎大家来踩'</span>   <span class="token comment" spellcheck="true">//通知，可修改</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      catalog<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-          enable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-          move<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-          index<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-          level1<span class="token punctuation">:</span> <span class="token string">'h2'</span><span class="token punctuation">,</span>
-          level2<span class="token punctuation">:</span> <span class="token string">'h3'</span><span class="token punctuation">,</span>
-          level3<span class="token punctuation">:</span> <span class="token string">'h4'</span><span class="token punctuation">,</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      signature<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-          enable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-          home<span class="token punctuation">:</span> <span class="token string">'https://www.cnblogs.com/coderma/'</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">//主页链接，可修改</span>
-          license<span class="token punctuation">:</span> <span class="token string">'CC BY 4.0'</span><span class="token punctuation">,</span>
-          link<span class="token punctuation">:</span> <span class="token string">'https://creativecommons.org/licenses/by/4.0'</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      sponsor<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-          enable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-          paypal<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
-          wechat<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">//赞助，可修改图片链接</span>
-          alipay<span class="token punctuation">:</span> <span class="token string">''</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      github<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-          enable<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-          color<span class="token punctuation">:</span> <span class="token string">'#fff'</span><span class="token punctuation">,</span>
-          fill<span class="token punctuation">:</span> <span class="token string">'#FF85B8'</span><span class="token punctuation">,</span>
-          link<span class="token punctuation">:</span> <span class="token string">'https://github.com/coderxm'</span>  <span class="token comment" spellcheck="true">//可修改</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    topImg<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      homeTopImg<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-    <span class="token string">"https://img2020.cnblogs.com/blog/2027366/202008/2027366-20200807133710823-1221571975.jpg"</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">//主页顶部图片，可修改</span>
-                  <span class="token punctuation">]</span><span class="token punctuation">,</span>
-            notHomeTopImg<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-    <span class="token string">"https://img2020.cnblogs.com/blog/2027366/202008/2027366-20200807132804040-1889645361.jpg"</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">//可修改</span>
-                  <span class="token punctuation">]</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    topInfo<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-          title<span class="token punctuation">:</span> <span class="token string">'Hi,流浪舟'</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">//首页标题（可替换）</span>
-          text<span class="token punctuation">:</span> <span class="token string">"No one choose this life for me But I don't mind it"</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">//首页横幅语句</span>
-          github<span class="token punctuation">:</span> <span class="token string">"https://github.com/coderxm/"</span><span class="token punctuation">,</span>      <span class="token comment" spellcheck="true">//github(替换成相应链接)</span>
-          weibo<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-          telegram<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-          music<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-          twitter<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-          zhihu<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-          mail<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-      <span class="token punctuation">}</span>       
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>参数说明表：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt; 
+  $.silence({
+      profile: {
+          enable: true,
+          avatar: &#39;https://images.cnblogs.com/cnblogs_com/coderma/1820127/o_200803093536logo.png&#39;, //头像，可修改
+          favicon: &#39;&#39;,
+          notice: &#39;个人博客地址：https://index.maliaoblog.cn/  欢迎大家来踩&#39;   //通知，可修改
+      },
+      catalog: {
+          enable: true,
+          move: true,
+          index: true,
+          level1: &#39;h2&#39;,
+          level2: &#39;h3&#39;,
+          level3: &#39;h4&#39;,
+      },
+      signature: {
+          enable: true,
+          home: &#39;https://www.cnblogs.com/coderma/&#39;,  //主页链接，可修改
+          license: &#39;CC BY 4.0&#39;,
+          link: &#39;https://creativecommons.org/licenses/by/4.0&#39;
+      },
+      sponsor: {
+          enable: true,
+          paypal: null,
+          wechat: &#39;&#39;,  //赞助，可修改图片链接
+          alipay: &#39;&#39;
+      },
+      github: {
+          enable: false,
+          color: &#39;#fff&#39;,
+          fill: &#39;#FF85B8&#39;,
+          link: &#39;https://github.com/coderxm&#39;  //可修改
+      },
+    topImg: {
+      homeTopImg: [
+    &quot;https://img2020.cnblogs.com/blog/2027366/202008/2027366-20200807133710823-1221571975.jpg&quot;,   //主页顶部图片，可修改
+                  ],
+            notHomeTopImg: [
+    &quot;https://img2020.cnblogs.com/blog/2027366/202008/2027366-20200807132804040-1889645361.jpg&quot;,  //可修改
+                  ]
+      },
+    topInfo: {
+          title: &#39;Hi,流浪舟&#39;,  //首页标题（可替换）
+          text: &quot;No one choose this life for me But I don&#39;t mind it&quot;,  //首页横幅语句
+          github: &quot;https://github.com/coderxm/&quot;,      //github(替换成相应链接)
+          weibo: &quot;&quot;,
+          telegram: &quot;&quot;,
+          music: &quot;&quot;,
+          twitter: &quot;&quot;,
+          zhihu: &quot;&quot;,
+          mail: &quot;&quot;,
+      }       
+  });
+&lt;/script&gt;</code></pre><p>参数说明表：</p>
 <table>
 <thead>
 <tr>
@@ -837,16 +834,15 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     <span class="token string">'&lt;/div>'</span>
             <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">prepend</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="页面滚动进度条"><a href="#页面滚动进度条" class="headerlink" title="页面滚动进度条"></a>页面滚动进度条</h3><p>页面滚动的时候会在顶部出现一个橙色的进度条，修改颜色到页面css里，找到以下代码修改<code>background</code></p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.scrollCls</span> </span><span class="token punctuation">{</span>
-    <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
-    <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">3</span>px<span class="token punctuation">;</span>
-    <span class="token property">background</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
-    <span class="token property">transiton-property</span><span class="token punctuation">:</span> width,background<span class="token punctuation">;</span>
-    <span class="token property">transition-duration</span><span class="token punctuation">:</span> <span class="token number">1</span>s,<span class="token number">1</span>s<span class="token punctuation">;</span>
-    <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token number">99999</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="首页个人信息"><a href="#首页个人信息" class="headerlink" title="首页个人信息"></a>首页个人信息</h3><ul>
+<pre><code>.scrollCls {
+    position: fixed;
+    top: 0;
+    height: 3px;
+    background: orange;
+    transiton-property: width,background;
+    transition-duration: 1s,1s;
+    z-index: 99999;
+}</code></pre><h3 id="首页个人信息"><a href="#首页个人信息" class="headerlink" title="首页个人信息"></a>首页个人信息</h3><ul>
 <li><p>名称<br>在侧边栏配置中修改<code>topInfo</code>里的<code>title</code></p>
 </li>
 <li><p>座右铭（横幅标题）<br>在侧边栏配置中修改<code>topInfo</code>里的<code>text</code></p>
@@ -1700,7 +1696,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">38.3k</span>&nbsp;字
+                class="white-color">38.4k</span>&nbsp;字
             
             
             
