@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Hexo-matery主题代码高亮和部署问题</title>
+      <link href="/2020/0822/"/>
+      <url>/2020/0822/</url>
+      
+        <content type="html"><![CDATA[<p>作者：流浪舟(原coderxm,这个名字更好一点)</p><blockquote><p>本篇的内容很简单，就是说说这个主题的两个问题。一个是代码高亮失效的问题，另一个是hexo deploy部署问题。</p></blockquote><h4 id="代码高亮失效"><a href="#代码高亮失效" class="headerlink" title="代码高亮失效"></a>代码高亮失效</h4><p>如果大家用的是<code>hexo-prism-plugin</code>代码高亮插件，那就可能遇到这样的问题。该插件的作者在github issue上讨论过，几年前的事。</p><p><img src="https://img-blog.csdnimg.cn/20200822102743931.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="github issue"><br>解决的办法是安装<code>hexo-inject</code>，进入到博客项目目录，命令行输入：</p><pre><code>npm i hexo-inject -s</code></pre><p><img src="https://img-blog.csdnimg.cn/20200822102818808.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="代码高亮"></p><h4 id="hexo博客部署问题"><a href="#hexo博客部署问题" class="headerlink" title="hexo博客部署问题"></a>hexo博客部署问题</h4><p>其实它是个github上传错误，<code>上传项目到github报错：Permission to xxx/xxx.git denied to xxxxxxx.</code>。出现这个问题是因为git权限问题，有两个或多个git账户,git退出后保留上次git 账户信息。</p><h5 id="解决一：重新设置博客仓库账户为全局"><a href="#解决一：重新设置博客仓库账户为全局" class="headerlink" title="解决一：重新设置博客仓库账户为全局"></a>解决一：重新设置博客仓库账户为全局</h5><pre><code>git config --global user.name 博客本地用户名</code></pre><h5 id="解决二：输入github账户密码获取权限去提交"><a href="#解决二：输入github账户密码获取权限去提交" class="headerlink" title="解决二：输入github账户密码获取权限去提交"></a>解决二：输入github账户密码获取权限去提交</h5><pre><code>git push -u xxx master</code></pre><p>公众号：小码之光<br><a href="https://index.maliaoblog.cn/" target="_blank" rel="noopener">个人站点</a>  <a href="https://index.maliaoblog.cn" target="_blank" rel="noopener">https://index.maliaoblog.cn</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网站运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo-inject </tag>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo-matery主题美化(四)</title>
       <link href="/2020/0819/"/>
       <url>/2020/0819/</url>
