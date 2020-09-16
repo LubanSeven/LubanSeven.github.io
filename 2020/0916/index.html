@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="matery,博客美化">
+    <meta name="keywords" content="String,BigDecimal,基础类">
     <meta name="description" content="生活是变强的理由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo-matery主题美化(四) | 流浪舟</title>
+    <title>String与BigDecimal基础类 | 流浪舟</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo-matery主题美化(四)</h1>
+                    <h1 class="description center-align post-title">String与BigDecimal基础类</h1>
                 </div>
             </div>
         </div>
@@ -401,12 +401,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/matery/">
-                                <span class="chip bg-color">matery</span>
+                            <a href="/tags/String/">
+                                <span class="chip bg-color">String</span>
                             </a>
                         
-                            <a href="/tags/%E7%BE%8E%E5%8C%96/">
-                                <span class="chip bg-color">美化</span>
+                            <a href="/tags/BigDecimal/">
+                                <span class="chip bg-color">BigDecimal</span>
                             </a>
                         
                     </div>
@@ -417,8 +417,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%BD%91%E7%AB%99%E8%BF%90%E7%BB%B4/" class="post-category">
-                                网站运维
+                            <a href="/categories/Java/" class="post-category">
+                                Java
                             </a>
                         
                     </div>
@@ -430,7 +430,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-19
+                    2020-09-16
                 </div>
                 
 
@@ -439,14 +439,14 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    667
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 
@@ -462,65 +462,105 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="hexo-matery主题美化-四"><a href="#hexo-matery主题美化-四" class="headerlink" title="hexo-matery主题美化(四)"></a>hexo-matery主题美化(四)</h4><h4 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h4><blockquote>
-<p>前言</p>
-<p>去掉banner的颜色动画</p>
-<p>添加背景壁纸</p>
-<p>修改滑动条</p>
-<p>修改导航栏、页脚及文章卡片标签的颜色</p>
-<p>修改目录样式</p>
-</blockquote>
-<h5 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h5><p>这是最后一篇关于hexo-matery博客美化的文章了，大部分都是前端的东西，所以没啥好讲的，对我来说后端更侧重一点，这些天都没怎么写Java代码了。离前一篇博客美化文章已过去一个星期了，因为我回了趟老家，住了一个星期，心里感觉很复杂。我本身技术并不是很强，每天都要实实在在的学习知识，家里条件不好，以后的路真的难走！加油吧！</p>
-<h5 id="一、去掉banner的颜色动画"><a href="#一、去掉banner的颜色动画" class="headerlink" title="一、去掉banner的颜色动画"></a>一、去掉banner的颜色动画</h5><p>有的同学可能不喜欢banner的颜色遮罩，特别是在banner图片的颜色和动画颜色一样时，表现不出图片的美观。去掉后放一张高清小姐姐大图，博客访问量一下迅速爆炸！听我的准没错，那如何去掉这个烦人的彩色动画呢？跟着我：在theme主题目录下，找到<code>matery.css</code>文件,<code>ctrl+F</code>快捷键查找<code>.bg-cover:after</code>，注释掉即可。</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* .bg-cover:after {
-    -webkit-animation: rainbow 60s infinite;
-    animation: rainbow 60s infinite;
-} */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="二、添加背景壁纸"><a href="#二、添加背景壁纸" class="headerlink" title="二、添加背景壁纸"></a>二、添加背景壁纸</h5><p>同样在matery.css文件下查找body样式,修改如下：</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector">body </span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/* background-color: #eaeaea; */</span>
-    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span><span class="token number">60</span>deg, <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">165</span>, <span class="token number">150</span>, <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token number">5%</span>, <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">228</span>, <span class="token number">255</span>, <span class="token number">0.35</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token number">0%</span> <span class="token number">0%</span> /     cover, <span class="token url">url("https://x.png")</span>, <span class="token url">url("https://x.jpg")</span> <span class="token number">0</span>px <span class="token number">0</span>px<span class="token punctuation">;</span>
-    <span class="token property">background-attachment</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
-    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#7F95D1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如果不想要图片，去掉即可，比如：</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector">body </span><span class="token punctuation">{</span>
-    <span class="token property">cursor</span><span class="token punctuation">:</span><span class="token url">url(/cursor.svg)</span>,auto<span class="token punctuation">;</span>
-    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span><span class="token number">60</span>deg, <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">165</span>, <span class="token number">150</span>, <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token number">5%</span>, <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">228</span>, <span class="token number">255</span>, <span class="token number">0.35</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#34495e</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="三、修改滑动条（没试过，好像没用）"><a href="#三、修改滑动条（没试过，好像没用）" class="headerlink" title="三、修改滑动条（没试过，好像没用）"></a>三、修改滑动条（没试过，好像没用）</h5><p>说是说修改滑动条，但是不需要太麻烦，在matery.css中添加样式即可：</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* 滚动条 */</span>
-<span class="token selector"><span class="token pseudo-element">::-webkit-scrollbar-thumb</span> </span><span class="token punctuation">{</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#FF2A68</span><span class="token punctuation">;</span>
-    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">-webkit-linear-gradient</span><span class="token punctuation">(</span><span class="token number">45</span>deg,<span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">.4</span><span class="token punctuation">)</span> <span class="token number">25%</span>,transparent <span class="token number">25%</span>,transparent <span class="token number">50%</span>,<span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">.4</span><span class="token punctuation">)</span> <span class="token number">50%</span>,<span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">255</span>,<span class="token number">.4</span><span class="token punctuation">)</span> <span class="token number">75%</span>,transparent <span class="token number">75%</span>,transparent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">3</span>em<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector"><span class="token pseudo-element">::-webkit-scrollbar-track</span> </span><span class="token punctuation">{</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#ffcaca</span>ff<span class="token punctuation">;</span>
-    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">3</span>em<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector"><span class="token pseudo-element">::-webkit-scrollbar</span> </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">8</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">15</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="四、修改导航栏、页脚及文章卡片标签的颜色"><a href="#四、修改导航栏、页脚及文章卡片标签的颜色" class="headerlink" title="四、修改导航栏、页脚及文章卡片标签的颜色"></a>四、修改导航栏、页脚及文章卡片标签的颜色</h5><p>同样的操作，在matery.css中找到<code>.bg-color</code>,修改即可：</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.bg-color</span> </span><span class="token punctuation">{</span>
-    <span class="token property">background-image</span><span class="token punctuation">:</span> 
-    <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to right, <span class="token hexcode">#3f1b07</span> <span class="token number">0%</span>, <span class="token hexcode">#3f1b07</span> <span class="token number">100%</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*咖啡色*/</span>
+                <h2 id="String与BigDecimal"><a href="#String与BigDecimal" class="headerlink" title="String与BigDecimal"></a>String与BigDecimal</h2><h4 id="String-StringBuffer-and-StringBuilder"><a href="#String-StringBuffer-and-StringBuilder" class="headerlink" title="String, StringBuffer and StringBuilder"></a>String, StringBuffer and StringBuilder</h4><p>string有11种构造方法</p>
+<p><strong>1. 可变性</strong></p>
+<ul>
+<li>String不可变</li>
+<li>StringBuffer 和 StringBuilder 可变</li>
+</ul>
+<p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用了哪种编码。</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">String</span>
+    <span class="token keyword">implements</span> <span class="token class-name">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>Serializable</span><span class="token punctuation">,</span> Comparable<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">,</span> CharSequence <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/** The value is used for character storage. */</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> value<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/** The identifier of the encoding used to encode the bytes in {@code value}. */</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">byte</span> coder<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>value 数组被声明为 final，这意味着 value 数组初始化之后就不能再引用其它数组。并且 String 内部没有改变 value 数组的方法，因此可以保证 String 不可变。</p>
+<p><strong>2. 线程安全</strong></p>
+<ul>
+<li>String 不可变，因此是线程安全的</li>
+<li>StringBuilder 不是线程安全的</li>
+<li>StringBuffer 是线程安全的，内部使用 synchronized 进行同步</li>
+</ul>
+<h3 id="String-Pool"><a href="#String-Pool" class="headerlink" title="String Pool"></a>String Pool</h3><p>字符串常量池（String Pool）保存着所有字符串字面量（literal strings），这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程将字符串添加到 String Pool 中。</p>
+<p>当一个字符串调用 intern() 方法时，如果 String Pool 中已经存在一个字符串和该字符串值相等（使用 equals()  方法进行确定），那么就会返回 String Pool 中字符串的引用；否则，就会在 String Pool  中添加一个新的字符串，并返回这个新字符串的引用。</p>
+<p>下面示例中，s1 和 s2 采用 new String() 的方式新建了两个不同字符串，而 s3 和 s4 是通过 s1.intern() 方法取得同一个字符串引用。intern() 首先把 s1 引用的字符串放到 String Pool 中，然后返回这个字符串引用。因此 s3 和 s4 引用的是同一个字符串。</p>
+<pre class="line-numbers language-java"><code class="language-java">String s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"aaa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+String s2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"aaa"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1 <span class="token operator">==</span> s2<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// false</span>
+String s3 <span class="token operator">=</span> s1<span class="token punctuation">.</span><span class="token function">intern</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+String s4 <span class="token operator">=</span> s1<span class="token punctuation">.</span><span class="token function">intern</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s3 <span class="token operator">==</span> s4<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果是采用 “bbb” 这种字面量的形式创建字符串，会自动地将字符串放入 String Pool 中。</p>
+<pre class="line-numbers language-java"><code class="language-java">String s5 <span class="token operator">=</span> <span class="token string">"bbb"</span><span class="token punctuation">;</span>
+String s6 <span class="token operator">=</span> <span class="token string">"bbb"</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s5 <span class="token operator">==</span> s6<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>在 Java 7 之前，String Pool 被放在运行时常量池中，它属于永久代。而在 Java 7，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
+<h3 id="new-String-“abc”"><a href="#new-String-“abc”" class="headerlink" title="new String(“abc”)"></a>new String(“abc”)</h3><p>使用这种方式一共会创建两个字符串对象（前提是 String Pool 中还没有 “abc” 字符串对象）。</p>
+<ul>
+<li>“abc” 属于字符串字面量，因此编译时期会在 String Pool 中创建一个字符串对象，指向这个 “abc” 字符串字面量；</li>
+<li>而使用 new 的方式会在堆中创建一个字符串对象。</li>
+</ul>
+<p>创建一个测试类，其 main 方法中使用这种方式来创建字符串对象。</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NewStringTest</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        String s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用 javap -verbose 进行反编译，得到以下内容：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// ...</span>
+Constant pool<span class="token operator">:</span>
+<span class="token comment" spellcheck="true">// ...</span>
+   #<span class="token number">2</span> <span class="token operator">=</span> Class              #<span class="token number">18</span>            <span class="token comment" spellcheck="true">// java/lang/String</span>
+   #<span class="token number">3</span> <span class="token operator">=</span> String             #<span class="token number">19</span>            <span class="token comment" spellcheck="true">// abc</span>
+<span class="token comment" spellcheck="true">// ...</span>
+  #<span class="token number">18</span> <span class="token operator">=</span> Utf8               java<span class="token operator">/</span>lang<span class="token operator">/</span>String
+  #<span class="token number">19</span> <span class="token operator">=</span> Utf8               abc
+<span class="token comment" spellcheck="true">// ...</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span><span class="token punctuation">)</span>V
+    flags<span class="token operator">:</span> ACC_PUBLIC<span class="token punctuation">,</span> ACC_STATIC
+    Code<span class="token operator">:</span>
+      stack<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> locals<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> args_size<span class="token operator">=</span><span class="token number">1</span>
+         <span class="token number">0</span><span class="token operator">:</span> <span class="token keyword">new</span>           #<span class="token number">2</span>                  <span class="token comment" spellcheck="true">// class java/lang/String</span>
+         <span class="token number">3</span><span class="token operator">:</span> dup
+         <span class="token number">4</span><span class="token operator">:</span> ldc           #<span class="token number">3</span>                  <span class="token comment" spellcheck="true">// String abc</span>
+         <span class="token number">6</span><span class="token operator">:</span> invokespecial #<span class="token number">4</span>                  <span class="token comment" spellcheck="true">// Method java/lang/String."&lt;init>":(Ljava/lang/String;)V</span>
+         <span class="token number">9</span><span class="token operator">:</span> astore_1
+<span class="token comment" spellcheck="true">// ...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在 Constant Pool 中，#19 存储这字符串字面量 “abc”，#3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中，0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String  Pool 中的字符串对象作为 String 构造函数的参数。</p>
+<p>以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token function">String</span><span class="token punctuation">(</span>String original<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> original<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>hash <span class="token operator">=</span> original<span class="token punctuation">.</span>hash<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="五、修改目录样式（没试过）"><a href="#五、修改目录样式（没试过）" class="headerlink" title="五、修改目录样式（没试过）"></a>五、修改目录样式（没试过）</h5><p>在<code>themes\Matery\layout\_partial\post-detail-toc.ejs</code>，在这里修改:</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.toc-widget</span> </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">345</span>px<span class="token punctuation">;</span>
-    <span class="token property">padding-left</span><span class="token punctuation">:</span> <span class="token number">20</span>px<span class="token punctuation">;</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">255</span>, <span class="token number">255</span>,<span class="token number">0.7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">10</span>px<span class="token punctuation">;</span>
-    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">10</span>px <span class="token number">35</span>px <span class="token number">2</span>px <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">.15</span><span class="token punctuation">)</span>, <span class="token number">0</span> <span class="token number">5</span>px <span class="token number">15</span>px <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">.07</span><span class="token punctuation">)</span>, <span class="token number">0</span> <span class="token number">2</span>px <span class="token number">5</span>px -<span class="token number">5</span>px <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">.1</span><span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<hr>
-<p>公众号：小码之光<br><a href="https://index.maliaoblog.cn/" target="_blank" rel="noopener">个人站点</a>  <a href="https://index.maliaoblog.cn" target="_blank" rel="noopener">https://index.maliaoblog.cn</a></p>
+<h3 id="BigDecimal"><a href="#BigDecimal" class="headerlink" title="BigDecimal"></a>BigDecimal</h3><p>Java在java.math包中提供的API类BigDecimal，用来对超过16位有效位的数进行精确的运算。双精度浮点型变量double可以处理16位有效数。在实际应用中，需要对更大或者更小的数进行运算和处理。float和double只能用来做科学计算或者是工程计算，在商业计算中要用java.math.BigDecimal。BigDecimal所创建的是对象，我们不能使用传统的+、-、*、/等算术运算符直接对其对象进行数学运算，而必须调用其相对应的方法。方法中的参数也必须是BigDecimal的对象。构造器是类的特殊方法，专门用来创建对象，特别是带有参数的对象。</p>
+<p>BigDecimal一共有4个构造方法:</p>
+<blockquote>
+<p>BigDecimal(int) 创建一个具有参数所指定整数值的对象。</p>
+<p>BigDecimal(double) 创建一个具有参数所指定双精度值的对象。（不建议采用）</p>
+<p>BigDecimal(long) 创建一个具有参数所指定长整数值的对象。</p>
+<p>BigDecimal(String) 创建一个具有参数所指定以字符串表示的数值的对象</p>
+</blockquote>
+<p>这里不建议采用第二种，原因：</p>
+<p>1、参数类型为double的构造方法的结果有一定的不可预知性。有人可能认为在Java中写入 newBigDecimal(0.1)所创建的BigDecimal正好等于 0.1，但是它实际上等于0.1000000000000000055511151。这是因为0.1无法准确地表示为 double（或者说对于该情况，不能表示为任何有限长度的二进制小数）。这样，传入到构造方法的值不会正好等于  0.1（虽然表面上等于该值）。</p>
+<p>2、另一方面，String 构造方法是完全可预知的：写入 newBigDecimal(“0.1”) 将创建一个  BigDecimal，它正好等于预期的 0.1。因此，比较而言，通常建议优先使用String构造方法 。</p>
+<pre class="line-numbers language-java"><code class="language-java">BigDecimal a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"2.3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>当double必须用作BigDecimal的源时，请使用Double.toString(double)转成String，然后使用String构造方法，或使用BigDecimal的静态方法valueOf，如下：</p>
+<pre class="line-numbers language-java"><code class="language-java">BigDecimal a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal<span class="token punctuation">.</span>valueOf</span><span class="token punctuation">(</span>Double<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">2.3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>对于常用的加，减，乘，除，BigDecimal类提供了相应的成员方法 </p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> BigDecimal <span class="token function">add</span><span class="token punctuation">(</span>BigDecimal value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//加法</span>
+<span class="token keyword">public</span> BigDecimal <span class="token function">subtract</span><span class="token punctuation">(</span>BigDecimal value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//减法 </span>
+<span class="token keyword">public</span> BigDecimal <span class="token function">multiply</span><span class="token punctuation">(</span>BigDecimal value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//乘法</span>
+<span class="token keyword">public</span> BigDecimal <span class="token function">divide</span><span class="token punctuation">(</span>BigDecimal value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//除法</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h4><ol>
+<li>在需要精确的小数计算时再使用BigDecimal，BigDecimal的性能比double和float差，在处理庞大，复杂的运算时尤为明显。故一般精度的计算没必要使用BigDecimal。</li>
+<li>尽量使用参数类型为String的构造函数。</li>
+<li>BigDecimal都是不可变的（immutable）的， 在进行每一次四则运算时，都会产生一个新的对象 ，所以在做加减乘除运算时要记得要保存操作后的值。</li>
+</ol>
 
             </div>
             <hr/>
@@ -536,7 +576,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">coderxm</a>
+                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">流浪舟</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -546,7 +586,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn/2020/0819/">https://www.maliaoblog.cn/2020/0819/</a>
+                    <a href="https://www.maliaoblog.cn/2020/0916/">https://www.maliaoblog.cn/2020/0916/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -559,7 +599,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://www.maliaoblog.cn" target="_blank">coderxm</a>
+                    <a href="https://www.maliaoblog.cn" target="_blank">流浪舟</a>
                     !
                 </span>
             </div>
@@ -584,12 +624,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/matery/">
-                                    <span class="chip bg-color">matery</span>
+                                <a href="/tags/String/">
+                                    <span class="chip bg-color">String</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BE%8E%E5%8C%96/">
-                                    <span class="chip bg-color">美化</span>
+                                <a href="/tags/BigDecimal/">
+                                    <span class="chip bg-color">BigDecimal</span>
                                 </a>
                             
                         </div>
@@ -1020,54 +1060,57 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/0822/">
+                <a href="/2020/0916/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="Hexo-matery主题代码高亮和部署问题">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="String与BigDecimal基础类">
                         
-                        <span class="card-title">Hexo-matery主题代码高亮和部署问题</span>
+                        <span class="card-title">String与BigDecimal基础类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            作者：流浪舟(原coderxm,这个名字更好一点)
+                            String与BigDecimalString, StringBuffer and StringBuilderstring有11种构造方法
+1. 可变性
 
-本篇的内容很简单，就是说说这个主题的两个问题。一个是代码高亮失效的问题，另一个是hexo deploy部署问题。
+String不可变
+StringBuffer 和 StringBuilder 可变
 
-代码高亮失效如果大家用的是hexo-prism-plugin代码高亮插
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E7%AB%99%E8%BF%90%E7%BB%B4/" class="post-category">
-                                    网站运维
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo-inject/">
-                        <span class="chip bg-color">hexo-inject</span>
+                    <a href="/tags/String/">
+                        <span class="chip bg-color">String</span>
                     </a>
                     
-                    <a href="/tags/git/">
-                        <span class="chip bg-color">git</span>
+                    <a href="/tags/BigDecimal/">
+                        <span class="chip bg-color">BigDecimal</span>
                     </a>
                     
                 </div>
@@ -1081,37 +1124,33 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/0814/">
+                <a href="/2020/0907/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="新sakura博客园皮肤配置,NewSakura">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="Java的异常、多态要点及抽象类和接口">
                         
-                        <span class="card-title">新sakura博客园皮肤配置,NewSakura</span>
+                        <span class="card-title">Java的异常、多态要点及抽象类和接口</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CNblogs-Theme-NewSakura
-基于Sakura美化方案改造的博客园样式：NewSakura
-如使用了本样式，请给个Star。
-
-项目结构CNblogs-Theme-NewSakura
-|
-├─ CNblogs-Theme-
+                            作者：流浪舟
+个人站点  https://index.maliaoblog.cn
+一、java异常如下图，异常分为两类，错误和异常；异常分为运行异常和可查异常。这里主要掌握异常，因为平时会见的比较多。Exception类在java.lang
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E7%AB%99%E8%BF%90%E7%BB%B4/" class="post-category">
-                                    网站运维
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
@@ -1121,12 +1160,20 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/sakura/">
-                        <span class="chip bg-color">sakura</span>
+                    <a href="/tags/Java%E5%BC%82%E5%B8%B8/">
+                        <span class="chip bg-color">Java异常</span>
                     </a>
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%9B%AD/">
-                        <span class="chip bg-color">博客园</span>
+                    <a href="/tags/%E5%A4%9A%E6%80%81/">
+                        <span class="chip bg-color">多态</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%BD%E8%B1%A1/">
+                        <span class="chip bg-color">抽象</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A5%E5%8F%A3/">
+                        <span class="chip bg-color">接口</span>
                     </a>
                     
                 </div>
