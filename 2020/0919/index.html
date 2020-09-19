@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="IDEA,语法错误">
+    <meta name="keywords" content="变量分类,包装类,自动装拆箱,类型转换">
     <meta name="description" content="生活是变强的理由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>IDEA报错稀有问题 | 流浪舟</title>
+    <title>变量分类和运行机制及自动装拆箱 | 流浪舟</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">IDEA报错稀有问题</h1>
+                    <h1 class="description center-align post-title">变量分类和运行机制及自动装拆箱</h1>
                 </div>
             </div>
         </div>
@@ -401,12 +401,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/IDEA/">
-                                <span class="chip bg-color">IDEA</span>
+                            <a href="/tags/%E5%8F%98%E9%87%8F%E5%88%86%E7%B1%BB/">
+                                <span class="chip bg-color">变量分类</span>
                             </a>
                         
-                            <a href="/tags/%E8%AF%AD%E6%B3%95/">
-                                <span class="chip bg-color">语法</span>
+                            <a href="/tags/%E8%87%AA%E5%8A%A8%E8%A3%85%E6%8B%86%E7%AE%B1/">
+                                <span class="chip bg-color">自动装拆箱</span>
                             </a>
                         
                     </div>
@@ -417,8 +417,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%97%AE%E9%A2%98/" class="post-category">
-                                问题
+                            <a href="/categories/java/" class="post-category">
+                                java
                             </a>
                         
                     </div>
@@ -430,7 +430,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-26
+                    2020-09-19
                 </div>
                 
 
@@ -439,14 +439,14 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    529
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -462,24 +462,108 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="IDEA报错稀有语法问题"><a href="#IDEA报错稀有语法问题" class="headerlink" title="IDEA报错稀有语法问题"></a><strong>IDEA报错稀有语法问题</strong></h3><hr>
+                <h3 id="成员变量和局部变量及运行机制"><a href="#成员变量和局部变量及运行机制" class="headerlink" title="成员变量和局部变量及运行机制"></a>成员变量和局部变量及运行机制</h3><p>两者的区别在于定义变量的位置不同，运行的机制也有差异。成员变量定义在类中，局部变量定义在定义在方法中。</p>
+<p>成员变量分为类变量和实例变量两种，局部变量分为形参(方法内)、方法局部变量和代码块内局部变量，比如循环内的。<br><img src="https://img-blog.csdnimg.cn/20200919203837599.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="变量分类"><br>类变量的生命周期和类一样，从类准备阶段开始，到完全销毁这个类，作用域则与类的生存范围相同。而实例变量从实例被创建起开始存在，直到实例被销毁，作用域对应实例作用域。可以发现，成员变量之所以称为<code>成员变量</code>，是因为其与所在的整体共存亡的。</p>
 <blockquote>
-<p>Error:java: Compilation failed: internal java compiler error;</p>
-<p>Error:java需要”;”<br><img src="https://img-blog.csdnimg.cn/20200626115209953.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="报错"></p>
+<p>注意：类变量是属于类的，通过<code>实例.类变量</code>访问的依然是类变量，如果该实例修改了变量值，则其他实例访问时也将使用修改过的变量值。即访问了同一片内存区！</p>
 </blockquote>
-<p>这种报错不知道大家见过没有，可能一般人不会出现这种编译错误。实际上它的错误是红色的那个”Erroe:java:需要”;” “,但是仔细检查正在编辑的代码，一点语法错误都没有，IDEA也没说哪里出问题了。于是又陷入了长久以来的僵局——百度！</p>
+<p>与成员变量不同，局部变量除了形参外，都必须显式初始化；而上面的成员变量可以进行默认初始化，赋值规则与数组动态初始化时赋值规则相同。</p>
+<p>当通过类或对象调用某个方法时，系统1会在调用该方法栈区内为所有形参分配内存，并将实参值赋值给对应形参，即完成形参初始化。</p>
+<p>Java允许局部变量和成员变量同名，如果需要在方法内引用被覆盖的成员变量(局部变量和成员变量同名)，可以使用<code>this</code>关键字。</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> String name <span class="token operator">=</span> <span class="token string">"猴子"</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">outPut</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        String name <span class="token operator">=</span> <span class="token string">"悟空"</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//"悟空"</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//"猴子"</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">double</span> age <span class="token operator">=</span> <span class="token number">100000.0</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//100000.0</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Test<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//500</span>
+        <span class="token keyword">new</span> <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">outPut</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="成员、局部变量初始化及运行机制"><a href="#成员、局部变量初始化及运行机制" class="headerlink" title="成员、局部变量初始化及运行机制"></a>成员、局部变量初始化及运行机制</h4><p>在类初始化或对象初始化时，系统会为成员变量分配内存空间，并指定默认初始值。需要关注的是，在创建一个对象时，不需要给类变量分配内存空间，只是为实例变量分配内存空间，因为类初始化时已经分配好了。在创建多个对象时，同样如此，也需要为实例变量分配内存空间，而且，实例变量是单个实例的，与类或其他实例无关。</p>
+<p>局部变量定义后，必须经过显式初始化后才能使用，系统不会为局部变量执行初始化，就不会为变量分配内存空间，直到变量被初始化。与成员变量不同，局部变量不属于任何实例或类，因此它被保存在所在的方法栈中。如果变量是基本类型的变量，则会把值直接保存在对应内存中；但是变量是<code>引用类型</code>，则它存放的是地址，地址是所引用的对象或数组的地址。</p>
+<p>局部变量的生命周期是和方法或代码块一致，但所在栈内存无需垃圾回收，因为局部变量只保存基本类型的值或引用，所以所占内存比较小。</p>
+<h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h3><p>基本数据类型不具备对象特性：无成员变量，方法被调用。但有些时候显得不那么好，比如方法需要<code>object</code>类型的参数，并且需要提供实际值，像2，3，4，这就麻烦了。Java提供了包装类概念，并为8种基本数据类型定义了引用类型(基本数据类型的包装类)。</p>
+<table>
+<thead>
+<tr>
+<th align="center">基本数据类型</th>
+<th align="center">包装类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">byte</td>
+<td align="center">Byte</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">Short</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">Integer</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">Long</td>
+</tr>
+<tr>
+<td align="center">char</td>
+<td align="center">Character</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">Float</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">Double</td>
+</tr>
+<tr>
+<td align="center">boolean</td>
+<td align="center">Boolean</td>
+</tr>
+</tbody></table>
+<p>上述除<code>Character</code>外，其他包装类可传入参数创建一个包装类对象，</p>
+<p>由于基本数据类型和包装类对象之间转换麻烦，JDK1.5提供了自动装箱和拆箱功能，去解决该问题。</p>
+<p><strong>自动装箱</strong>：基本类型变量赋值给包装类(或者Object变量)；<strong>自动拆箱</strong>：包装类对象赋值给基本类型变量</p>
+<pre class="line-numbers language-java"><code class="language-java">Integer a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//基本类型赋值给Integer对象</span>
+Object b <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//把布尔类型赋值给Object对象</span>
+<span class="token keyword">int</span> c <span class="token operator">=</span> a<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//Integer对象拆箱赋值给基本类型</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>虽然包装类是引用类型，但是实例是可以与数值比较的，比较时直接取出包装类的值进行比较。而包装类对象之间比较，只有指向同一对象时返回true。</p>
+<pre class="line-numbers language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//false</span>
+Integer a <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+Integer b <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a <span class="token operator">==</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//true,待会解释</span>
+<span class="token comment" spellcheck="true">//注意，Integer数据范围在-128~127之间，若不在会重新创建实例</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>从上面来看，系统将整数装箱成实例，会放入一个<code>cache</code>数组(长度为256，Java就是这样设计的)中缓存起来，以后如需自动装箱则直接指向数组元素(若在-128~127之间)，即引用同一个实例对象。这样的缓存设计有利程序的运行性能，节省开销。</p>
+<h4 id="字符串与基本类型的转换"><a href="#字符串与基本类型的转换" class="headerlink" title="字符串与基本类型的转换"></a>字符串与基本类型的转换</h4><p>字符串转基本类型有两种方式：</p>
+<ol>
+<li>包装类的parseXxx(String s)方法(除了Character包装类外)</li>
+<li>对应的构造器方法，Xxx(String s)</li>
+</ol>
+<p>基本类型转字符串则使用<code>String</code>的多个重载<code>valueOf</code>方法。上述代码示例：</p>
+<pre class="line-numbers language-java"><code class="language-java">String str <span class="token operator">=</span> <span class="token string">"123"</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> a <span class="token operator">=</span> Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//第一种方法</span>
+<span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//构造器创建对象，之后拆箱赋值给变量b</span>
+<span class="token comment" spellcheck="true">//基本数据类型转字符串</span>
+String str1 <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">3.14159f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+String str2 <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Java7、8增强包装类"><a href="#Java7、8增强包装类" class="headerlink" title="Java7、8增强包装类"></a>Java7、8增强包装类</h4><p>Java7开始为所有包装类提供静态的<code>compare(v1,v2)</code>方法，则可以通过该方法比较基本值的大小。比如：</p>
+<pre class="line-numbers language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Boolean<span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//1</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Boolean<span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//0</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Boolean<span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//-1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Java8再次增强，开始支持无符号算术运算。如为Integer、Long增强了静态的toUnsignedString(int/long v)整型转化成无符号整数对应的字符串、toUnsignedString(int/long v，int radix)转化成指定进制无符号整数对应的字符串。</p>
+<blockquote>
+<p>无符号整数的二进制最高位不再当作符号位看，即最小值为0。例如-2，对应的无符号整数为252</p>
+</blockquote>
 <hr>
-<h3 id="百度的结果"><a href="#百度的结果" class="headerlink" title="百度的结果"></a>百度的结果</h3><p>结果说是jdk版本没配置好，我信了，又屁颠屁颠的改版本，原来是jdk8呀，现在也是。步骤如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200626115249713.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="module"><br><img src="https://img-blog.csdnimg.cn/20200626115312144.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="project"><br><img src="https://img-blog.csdnimg.cn/20200626115342760.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="java compiler"></p>
-<hr>
-<h5 id="百度结果的特点就是，搜出来一大堆相类似的东西，而你要的却是另外一个东西"><a href="#百度结果的特点就是，搜出来一大堆相类似的东西，而你要的却是另外一个东西" class="headerlink" title="百度结果的特点就是，搜出来一大堆相类似的东西，而你要的却是另外一个东西"></a>百度结果的特点就是，搜出来一大堆相类似的东西，而你要的却是另外一个东西</h5><p>所以我放弃百度的搜索，改用经典的eclipse进行编辑，在导入文件夹时，没运行就发现了语法错误，然而eclipse给我报错是这样的：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200626115425299.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="eclipse报错"></p>
-<p>很清楚的给我错的地方！但是反过来看，IDEA自称最智能的编辑器，有时候还是像智障编辑器，eclipse虽然皮肤不好看，但是依旧经典。ok，我回到IDEA智障编辑器里了，这里的问题应该就不难弄懂了，还是过不去的语法问题，出错在另一个文件里。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200626115516956.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="修改错误"><br>改回来之后就行了，就能运行程序了。</p>
-<hr>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>IDEA报错有时让人摸不着头脑，还告诉你错在何处，接着错上加错，虚度光阴，罪恶之极！总结下来的原因就是，像IDEA编辑文件都是以项目文件进行编辑的，如果一个文件出语法错误，另一个文件(整个项目源码文件)都会受牵连，就会编译不过去。尽管这样，IDEA还是不告诉哪里有语法错误，建议在实际项目用eclipse进行编辑。管他香不香，用的舒服就好！</p>
-<hr>
-<p>更多问题关注我的公众号：小码之光，<strong>文章将在公众号首发</strong>！<br>最后附上：<br><a href="https://blog.csdn.net/Gobullin" target="_blank" rel="noopener">小码CSDN</a><br><a href="https://www.cnblogs.com/coderma/" target="_blank" rel="noopener">博客园</a><br>微信公众号：小码之光<br><img src="https://img-blog.csdnimg.cn/20200626115852678.jpg#pic_center" alt="小码之光"></p>
+<p>公众号: 菜鸡干Java<br><a href="https://index.maliaoblog.cn/" target="_blank" rel="noopener">流浪舟</a> <a href="https://index.maliaoblog.cn" target="_blank" rel="noopener">https://index.maliaoblog.cn</a></p>
 
             </div>
             <hr/>
@@ -495,7 +579,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">coderxm</a>
+                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">流浪舟</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -505,7 +589,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn/2020/0626/">https://www.maliaoblog.cn/2020/0626/</a>
+                    <a href="https://www.maliaoblog.cn/2020/0919/">https://www.maliaoblog.cn/2020/0919/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -518,7 +602,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://www.maliaoblog.cn" target="_blank">coderxm</a>
+                    <a href="https://www.maliaoblog.cn" target="_blank">流浪舟</a>
                     !
                 </span>
             </div>
@@ -543,12 +627,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/IDEA/">
-                                    <span class="chip bg-color">IDEA</span>
+                                <a href="/tags/%E5%8F%98%E9%87%8F%E5%88%86%E7%B1%BB/">
+                                    <span class="chip bg-color">变量分类</span>
                                 </a>
                             
-                                <a href="/tags/%E8%AF%AD%E6%B3%95/">
-                                    <span class="chip bg-color">语法</span>
+                                <a href="/tags/%E8%87%AA%E5%8A%A8%E8%A3%85%E6%8B%86%E7%AE%B1/">
+                                    <span class="chip bg-color">自动装拆箱</span>
                                 </a>
                             
                         </div>
@@ -979,52 +1063,53 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/0702/">
+                <a href="/2020/0919/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="halo开源博客">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="变量分类和运行机制及自动装拆箱">
                         
-                        <span class="card-title">halo开源博客</span>
+                        <span class="card-title">变量分类和运行机制及自动装拆箱</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Halo开源博客项目配置README简介Halo [ˈheɪloʊ]，意为光环。Halo 是一款现代化的个人独立博客系统，给习惯写博客的同学多一个选择。当然，你也可以当成拼音读(哈喽)。
-声明
-本项目旨在创造一个好的产品以供人们使用（虽然现
+                            成员变量和局部变量及运行机制两者的区别在于定义变量的位置不同，运行的机制也有差异。成员变量定义在类中，局部变量定义在定义在方法中。
+成员变量分为类变量和实例变量两种，局部变量分为形参(方法内)、方法局部变量和代码块内局部变量，比如循环内的。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    项目
+                            <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%BC%80%E6%BA%90/">
-                        <span class="chip bg-color">开源</span>
+                    <a href="/tags/%E5%8F%98%E9%87%8F%E5%88%86%E7%B1%BB/">
+                        <span class="chip bg-color">变量分类</span>
                     </a>
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/%E8%87%AA%E5%8A%A8%E8%A3%85%E6%8B%86%E7%AE%B1/">
+                        <span class="chip bg-color">自动装拆箱</span>
                     </a>
                     
                 </div>
@@ -1038,32 +1123,31 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/0531/">
+                <a href="/2020/0917/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="带你跑一个开源项目">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="继承和组合、单例类及不可变类">
                         
-                        <span class="card-title">带你跑一个开源项目</span>
+                        <span class="card-title">继承和组合、单例类及不可变类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            带你跑ELADMIN后台管理系统开源项目
-前言：最近开始稍微接触了点框架，本来是想学点开源项目什么的，但学起来耗得时间长，所以公众号和博客的文章都慢慢的停更了许久。之前的java多线程和反射都还没弄透，更别说java源码和JVM了，学习这件
+                            继承和组合、单例类及不可变类继承 inheritance：继承是实现类复用的重要手段，所谓复用，就是可以多次使用，或者再次利用，不用继续重写成员变量和方法。但不代表没有缺点，最不好的地方：破坏封装。子类拓展父类时，若访问权限允许，则可直接访
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    项目
+                            <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                             
                             
@@ -1073,12 +1157,20 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/eladmin/">
-                        <span class="chip bg-color">eladmin</span>
+                    <a href="/tags/%E7%BB%A7%E6%89%BF/">
+                        <span class="chip bg-color">继承</span>
                     </a>
                     
-                    <a href="/tags/%E9%A1%B9%E7%9B%AE/">
-                        <span class="chip bg-color">项目</span>
+                    <a href="/tags/%E7%BB%84%E5%90%88/">
+                        <span class="chip bg-color">组合</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8D%95%E4%BE%8B%E7%B1%BB/">
+                        <span class="chip bg-color">单例类</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB/">
+                        <span class="chip bg-color">不可变类</span>
                     </a>
                     
                 </div>
