@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="继承,组合,单例类,不可变类">
+    <meta name="keywords" content="集合类,接口,集合的遍历">
     <meta name="description" content="生活是变强的理由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>继承和组合、单例类及不可变类 | 流浪舟</title>
+    <title>Java集合类-开篇 | 流浪舟</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://images.cnblogs.com/cnblogs_com/coderma/1820129/t_20080704303013.jpg?a=1601378997546')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">继承和组合、单例类及不可变类</h1>
+                    <h1 class="description center-align post-title">Java集合类-开篇</h1>
                 </div>
             </div>
         </div>
@@ -401,20 +401,16 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BB%A7%E6%89%BF/">
-                                <span class="chip bg-color">继承</span>
+                            <a href="/tags/%E9%9B%86%E5%90%88%E7%B1%BB/">
+                                <span class="chip bg-color">集合类</span>
                             </a>
                         
-                            <a href="/tags/%E7%BB%84%E5%90%88/">
-                                <span class="chip bg-color">组合</span>
+                            <a href="/tags/%E6%8E%A5%E5%8F%A3/">
+                                <span class="chip bg-color">接口</span>
                             </a>
                         
-                            <a href="/tags/%E5%8D%95%E4%BE%8B%E7%B1%BB/">
-                                <span class="chip bg-color">单例类</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB/">
-                                <span class="chip bg-color">不可变类</span>
+                            <a href="/tags/%E9%81%8D%E5%8E%86%E9%9B%86%E5%90%88/">
+                                <span class="chip bg-color">遍历集合</span>
                             </a>
                         
                     </div>
@@ -438,7 +434,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-17
+                    2020-09-29
                 </div>
                 
 
@@ -447,14 +443,14 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -470,82 +466,112 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="继承和组合、单例类及不可变类"><a href="#继承和组合、单例类及不可变类" class="headerlink" title="继承和组合、单例类及不可变类"></a>继承和组合、单例类及不可变类</h3><h4 id="继承-inheritance："><a href="#继承-inheritance：" class="headerlink" title="继承 inheritance："></a>继承 inheritance：</h4><p>继承是实现类复用的重要手段，所谓<code>复用</code>，就是可以多次使用，或者再次利用，不用继续重写成员变量和方法。但不代表没有缺点，最不好的地方：破坏封装。子类拓展父类时，若访问权限允许，则可直接访问父类的成员变量和方法，破坏了良好的<code>封装性</code>(Encapsulation) ，造成子类与父类的耦合。</p>
-<p>因而，设计父类时应注意以下几点：</p>
-<ul>
-<li>尽量隐藏内部数据</li>
-<li>不要让子类随意访问</li>
-<li>不要在父类的构造器中调用将被子类重写的方法</li>
-</ul>
-<h4 id="组合-combination"><a href="#组合-combination" class="headerlink" title="组合 combination"></a>组合 combination</h4><p>对于继承而言，子类可以获取父类的public方法，使用子类时，可以访问子类从父类继承的方法；组合则是把旧类对象作为成员变量组合进来。我们不需要看到被组合进来的对象的方法，所以通常用<code>private</code>修饰。在功能上，两者没什么区别。</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">animal</span><span class="token punctuation">{</span>
-    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">beat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"心跳！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">breath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"呼吸！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">class</span> <span class="token class-name">bird</span><span class="token punctuation">{</span>
-    <span class="token keyword">private</span> animal a<span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token function">bird</span><span class="token punctuation">(</span>animal<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>a <span class="token operator">=</span> a<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">breath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        a<span class="token punctuation">.</span><span class="token function">breath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//复用animal的方法</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"芜湖起飞！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>注意</strong>：</p>
-<blockquote>
-<p>使用组合关系实现复用，需要创建两个animal对象，是否意味着开销更大？</p>
-<p>当创建一个子类对象时，系统不仅需要为该子类定义实例变量分配内存空间，而且需要为它父类所定义的实例变量分配内存。采用继承的方式，假设父类定义了两个实例的变量，子类定义了3个变量。创建子类实例时需要为子类分配5块内存空间。当采用组合设计时，先创建父类实例，此时需要分配2快内存，再创建整体类实例，也需要分配3块内存，只是多了一个引用变量来引用所组合的对象。因此，组合和继承设计开销不会有太大差别。</p>
+                <blockquote>
+<p>公众号：菜鸡干Java 站点：<a href="https://www.maliaoblog.cn">https://www.maliaoblog.cn</a></p>
 </blockquote>
-<h4 id="单例类"><a href="#单例类" class="headerlink" title="单例类"></a>单例类</h4><p>这种类不像其他类，某些时候允许其他类自由创建该类对象没有什么意义，所以要降低对它的访问权限，让这样的类只能创建一个实例。</p>
-<p>方法是把该类的构造方法用<code>private</code>修饰起来，但又需要创建一个对象，所以需要提供一个public方法去用于创建该类的对象，但是不是通过对象来创建对象，而是用类本身去创建，因此方法要用<code>static</code>修饰。</p>
-<p>除此之外，该类还必须缓存对象，记录已创建的对象。同时让该静态方法能访问到，保存对象的成员变量也需要<code>static</code>修饰。</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">person</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//静态成员变量来保存对象</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> person OnlyPerson<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//对构造器隐藏</span>
-    <span class="token keyword">private</span> <span class="token function">person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">//公共方法</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> person <span class="token function">getPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>OnlyPerson<span class="token operator">==</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            OnlyPerson <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> OnlyPerson<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="不可变类-immutable"><a href="#不可变类-immutable" class="headerlink" title="不可变类 immutable"></a>不可变类 immutable</h4><p>不可变类意思是创建该类的实例后，该实例的变量不可变。Java提供的8个包装类和String类都是不可变类！</p>
-<pre class="line-numbers language-java"><code class="language-java">Double d <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Double</span><span class="token punctuation">(</span><span class="token number">5.6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-String s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>上面创建了一个Double和String对象，并传入两个值，但程序无法继续修改该值，所以Double和String类没有修改值的方法。</p>
-<p>如果要创建一个不可变类，需要遵守如下规则：</p>
-<ol>
-<li>使用<code>private</code>和<code>final</code>修饰符来修饰该类成员</li>
-<li>提供带参构造器，用于初始化成员</li>
-<li>仅提供get方法</li>
-<li>确保引用的对象不会被修改</li>
-<li>重写hashCode()方法和equals()方法</li>
-</ol>
-<p>与此对应的是可变类，比如JavaBean，提供了getter()和setter方法。</p>
-<h5 id="缓存实例的不可变类"><a href="#缓存实例的不可变类" class="headerlink" title="缓存实例的不可变类"></a>缓存实例的不可变类</h5><p>不可变类的实例状态不可改变，可以方便被多个对象共享，主要是为了减小开销。不同的缓存方式有着不同的性能，可以用数组、集合等来缓存。</p>
-<p>以Java的<code>java.lang.Integer</code>类为例，new一个构造器，每次返回新的<code>Integer</code>对象；如果用valueOf()方法来创建<code>Integer</code>对象，则会缓存该对象。</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">IntegerCacheTest</span><span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//new一个对象</span>
-        Integer a1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//生成新对象，并缓存该对象</span>
-        Inreger a2 <span class="token operator">=</span> Integer<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Integer a3 <span class="token operator">=</span> Integer<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a1 <span class="token operator">==</span> a2<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//false</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a2 <span class="token operator">==</span> a3<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//true</span>
-        <span class="token comment" spellcheck="true">//注意：缓存的数只能在-128~127之间</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="集合介绍"><a href="#集合介绍" class="headerlink" title="集合介绍"></a>集合介绍</h4><p>Java集合类是一种特别的工具类，可以储存对象，并实现了常用的数据结构，另外还能保存具有映射关系的关联数组。集合大致分为<code>Set</code>,<code>List</code>,<code>Queue</code>,<code>Map</code>四种，其中<code>Set</code>代表无序、不可重复，<code>List</code>代表有序、重复，<code>Map</code>则代表具有映射关系，Java5增加了<code>Queue</code>集合，代表一种队列集合实现。Java集合就像一种容器，把多个对象放到容器中。Java5之前，J集合会丢失对象的数据类型，把所有对象都当成<code>Object</code>类型，从Java5开始增加了泛型，集合可以记住容器中对象的数据类型，从而能编写更简洁的代码。</p>
+<p>所有的集合类都位于<code>java.util</code>包下，后来在<code>java.util.concurrent</code>包下提供了多线程集合类。集合类和数组不太一样，数组元素可以是基本数据类型，也可以是对象；而集合只能保存对象(实际保存的是对象的引用变量)。集合类主要由两个接口来实现，<code>Collection</code>和<code>Map</code>，两个<strong>根接口</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0d67f82f0773ddcd5ba284fe0108e62a.png" alt=""></p>
+<p>上图有<code>Map</code>接口的众多实现类，这些类在功能、用法上存在一定的差异，但它们都有一个功能特征，保存的每项数据是<code>Key-value</code>键值对。<code>Map</code>的<code>Key</code>是不可重复的，<code>key</code>用于标识集合集合里的每项数据，如果要查数据，根据<code>Key</code>来获取。添加一个对象到集合中，<code>Set</code>集合无法记住这个元素的顺序，系统无法识别，所以<code>Set</code>里的元素不能重复。</p>
+<p>对于这四种集合，其中常用的有：HashSet、TreeSet、ArrayList、ArrayDeque、LinkedList、HashMap和TreeMap等实现类。</p>
+<h4 id="Collection和Iterator接口"><a href="#Collection和Iterator接口" class="headerlink" title="Collection和Iterator接口"></a>Collection和Iterator接口</h4><p>Collection接口是<code>List</code>,<code>Set</code>,<code>Queue</code>接口的父接口，如果接口没弄明白，可以看看之前的文章<a href="https://blog.csdn.net/gobullin/article/details/108434921" target="_blank" rel="noopener">Java的异常、多态要点及抽象类和接口</a>。Collection接口定义了如下方法：</p>
+<table>
+<thead>
+<tr>
+<th>boolean add(Object o)</th>
+<th>向集合里添加一个元素，如果添加成功则返回true</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean addAll(Collection c)</td>
+<td>把集合内元素添加到指定集合，成功返回true</td>
+</tr>
+<tr>
+<td>void clear()</td>
+<td>清除集合内所有元素，将集合长度变为0</td>
+</tr>
+<tr>
+<td>boolean contains(Object o)</td>
+<td>返回集合是否包含指定元素</td>
+</tr>
+<tr>
+<td>boolean containsAll(Collection c)</td>
+<td>返回集合是否包含集合c所有元素</td>
+</tr>
+<tr>
+<td>boolean isEmpty()</td>
+<td>返回集合是否为空，长度为0返回true</td>
+</tr>
+<tr>
+<td>Iterator <strong>iterator()</strong></td>
+<td>返回一个Iterator对象用于遍历</td>
+</tr>
+<tr>
+<td>boolean remove(Object o)</td>
+<td>删除指定元素o，如果有多个删除第一个</td>
+</tr>
+<tr>
+<td>boolean retainAll(Collection c)</td>
+<td>从集合中删除集合c里不包含的元素，相当于求和集合c的交集</td>
+</tr>
+<tr>
+<td>int size()</td>
+<td>返回集合里元素个数</td>
+</tr>
+<tr>
+<td>Object[] toArray()</td>
+<td>将一个集合转换成数组</td>
+</tr>
+<tr>
+<td>boolean remove(Collection c)</td>
+<td>从集合中删除集合c里包含的元素</td>
+</tr>
+</tbody></table>
+<p>具体可阅读API文档，里面有详细信息。编译时可能会输出一些警告，提醒没有使用泛型来限制集合内元素类型，不过之后会提到泛型编程。当使用<code>System.out</code>的<code>println</code>方法来输出集合对象时，将输出<code>[e1,e2...]</code>形式，这是因为所有<code>Collextion</code>实现类重写了<code>toString</code>方法，该方法可一次性输出集合中所有元素。如果想依次访问集合中的每一个元素，则需要使用某种遍历方法。</p>
+<h4 id="集合的遍历"><a href="#集合的遍历" class="headerlink" title="集合的遍历"></a>集合的遍历</h4><p>一、<strong>Lambda表达式遍历</strong></p>
+<p>Java8为<code>Iterable</code>接口新增了一个<code>forEach</code>方法，参数类型是一个函数式接口，而<code>Iterable</code>接口是<code>Collection</code>接口的父接口，所以<code>Collection</code>集合类也可以调用该方法。当调用<code>Iterable</code>的<code>forEach(Consumer a)</code>方法时，程序将集合元素传给<code>Consumer</code>的<code>accept(T t)</code>抽象方法，然后用<code>Lambda</code>表达式遍历。</p>
+<pre class="line-numbers language-java"><code class="language-java">Collection names <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"李四"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>obj <span class="token operator">-</span><span class="token operator">></span>System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token operator">+</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>二、<strong>Java8增强<code>Iterator</code>遍历集合</strong></p>
+<p><code>Iterator</code>接口也是<code>Java</code>集合框架的成员，但它与<code>Collection</code>、<code>Map</code>不一样，它们是用来放对象的，而<code>Iterator</code>则用于遍历<code>Collecton</code>集合中的元素，<code>Iterator</code>对象也被称为<code>迭代器</code>。</p>
+<p><code>Iterator</code>接口定义了如下4种方法：</p>
+<ul>
+<li>boolean hasNext()：如果没有遍历完，则返回<code>true</code></li>
+<li>Object next()：返回集合的下一个元素，注意是<code>Object</code>对象</li>
+<li>void remove()：删除集合上一次next方法返回的元素</li>
+<li>void forEachRemaining(Consumer a):Java8新增的方法，该方法可使用<code>Lambda</code>表达式遍历集合</li>
+</ul>
+<pre class="line-numbers language-java"><code class="language-java">Collection names <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"李四"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Iterator it <span class="token operator">=</span> names<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>it<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    String name <span class="token operator">=</span> <span class="token punctuation">(</span>String<span class="token punctuation">)</span>it<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>name<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        it<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//names.remove(name);将报错</span>
+    <span class="token punctuation">}</span><span class="token comment" spellcheck="true">//迭代时不能改变集合元素的值</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>Iterator</code>仅用于遍历集合，本身不提供装载对象的能力。如果要创建一个<code>Iterator</code>对象，则必须要有一个被遍历的集合，没有集合那要<code>Iterator</code>何用。迭代器采用<code>快速报错fail-fast</code>机制，一旦检测到集合已被修改，抽象立即发出<code>ConcurrentModificationException</code>异常，而不是显示修改后的结果，这样可以避免在共享资源时而引发异常问题。</p>
+<p>三、<strong>用<code>foreach</code>循环遍历集合</strong></p>
+<p>除了可以使用<code>Iterator</code>接口迭代访问<code>Collection</code>集合里元素之外，使用Java5提供的<code>foreach</code>循环迭代访问更简单。</p>
+<pre class="line-numbers language-java"><code class="language-java">Collection names <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"李四"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>Objection obj <span class="token operator">:</span> names<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    String name <span class="token operator">=</span> <span class="token punctuation">(</span>String<span class="token punctuation">)</span>obj<span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>与<code>Iterator</code>接口迭代集合元素类似，<code>foreach</code>循环中的迭代变量也不是集合元素本身，系统只是把值赋给变量，同样集合也不能改变。</p>
+<h4 id="使用Lambda表达式遍历Iterator"><a href="#使用Lambda表达式遍历Iterator" class="headerlink" title="使用Lambda表达式遍历Iterator"></a>使用<code>Lambda</code>表达式遍历<code>Iterator</code></h4><p>Java8为<code>Iterator</code>新增<code>forEachRemaining()</code>方法，该方法所需参数同样也是函数式接口，原理类似，调用时将集合元素传给<code>Consumer</code>的accept(T t)方法。</p>
+<pre class="line-numbers language-java"><code class="language-java">Collection names <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"李四"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Iterator it <span class="token operator">=</span> names<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+it<span class="token punctuation">.</span><span class="token function">forEachRemaining</span><span class="token punctuation">(</span>obj <span class="token operator">-</span><span class="token operator">></span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token operator">+</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/d0f679eb042bc432a439c3028ca2295e.png" alt=""><br>本质上还是遍历集合<code>names</code>，所有上面的方法也可以归为遍历集合方法的一种，利用<code>Iterator</code>的<code>forEachRemaining</code>方法和<code>Lambda</code>表达式遍历，又比<code>Iterator</code>自己提供的方法遍历简洁了一点。</p>
 
             </div>
             <hr/>
@@ -571,7 +597,7 @@ String s <span class="token operator">=</span> <span class="token keyword">new</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn/2020/0917/">https://www.maliaoblog.cn/2020/0917/</a>
+                    <a href="https://www.maliaoblog.cn/2020/0929/">https://www.maliaoblog.cn/2020/0929/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -609,20 +635,16 @@ String s <span class="token operator">=</span> <span class="token keyword">new</
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BB%A7%E6%89%BF/">
-                                    <span class="chip bg-color">继承</span>
+                                <a href="/tags/%E9%9B%86%E5%90%88%E7%B1%BB/">
+                                    <span class="chip bg-color">集合类</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BB%84%E5%90%88/">
-                                    <span class="chip bg-color">组合</span>
+                                <a href="/tags/%E6%8E%A5%E5%8F%A3/">
+                                    <span class="chip bg-color">接口</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8D%95%E4%BE%8B%E7%B1%BB/">
-                                    <span class="chip bg-color">单例类</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB/">
-                                    <span class="chip bg-color">不可变类</span>
+                                <a href="/tags/%E9%81%8D%E5%8E%86%E9%9B%86%E5%90%88/">
+                                    <span class="chip bg-color">遍历集合</span>
                                 </a>
                             
                         </div>
@@ -1057,30 +1079,93 @@ String s <span class="token operator">=</span> <span class="token keyword">new</
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/0919/">
+                <a href="/2020/0929/">
                     <div class="card-image">
                         
+                        <img src="https://images.cnblogs.com/cnblogs_com/coderma/1820129/t_20080704303013.jpg?a=1601378997546" class="responsive-img" alt="Java集合类-开篇">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="变量分类和运行机制及自动装拆箱">
-                        
-                        <span class="card-title">变量分类和运行机制及自动装拆箱</span>
+                        <span class="card-title">Java集合类-开篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            成员变量和局部变量及运行机制两者的区别在于定义变量的位置不同，运行的机制也有差异。成员变量定义在类中，局部变量定义在定义在方法中。
-成员变量分为类变量和实例变量两种，局部变量分为形参(方法内)、方法局部变量和代码块内局部变量，比如循环内的。
+                            
+公众号：菜鸡干Java 站点：https://www.maliaoblog.cn
+
+集合介绍Java集合类是一种特别的工具类，可以储存对象，并实现了常用的数据结构，另外还能保存具有映射关系的关联数组。集合大致分为Set,List,Queu
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-19
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9B%86%E5%90%88%E7%B1%BB/">
+                        <span class="chip bg-color">集合类</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A5%E5%8F%A3/">
+                        <span class="chip bg-color">接口</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%81%8D%E5%8E%86%E9%9B%86%E5%90%88/">
+                        <span class="chip bg-color">遍历集合</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/0924/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/15.jpg" class="responsive-img" alt="Java构造器和初始化块">
+                        
+                        <span class="card-title">Java构造器和初始化块</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Java构造器和初始化块构造器是一个特殊的方法，但定义构造器和普通方法没什么太大区别，该有的都有。不过为了区分还是看看不一样的地方。
+
+方法名：构造器方法名需要和类名一样
+返回值：构造器不定义返回值，也不用返回void，但是它会返回一个对象
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1096,70 +1181,16 @@ String s <span class="token operator">=</span> <span class="token keyword">new</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8F%98%E9%87%8F%E5%88%86%E7%B1%BB/">
-                        <span class="chip bg-color">变量分类</span>
+                    <a href="/tags/%E6%9E%84%E9%80%A0%E5%99%A8%E9%87%8D%E8%BD%BD/">
+                        <span class="chip bg-color">构造器重载</span>
                     </a>
                     
-                    <a href="/tags/%E8%87%AA%E5%8A%A8%E8%A3%85%E6%8B%86%E7%AE%B1/">
-                        <span class="chip bg-color">自动装拆箱</span>
+                    <a href="/tags/%E5%88%9D%E5%A7%8B%E5%8C%96%E5%9D%97/">
+                        <span class="chip bg-color">初始化块</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/0916/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="String与BigDecimal基础类">
-                        
-                        <span class="card-title">String与BigDecimal基础类</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            String与BigDecimalString, StringBuffer and StringBuilderstring有11种构造方法
-1. 可变性
-
-String不可变
-StringBuffer 和 StringBuilder 可变
-
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-16
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/String/">
-                        <span class="chip bg-color">String</span>
-                    </a>
-                    
-                    <a href="/tags/BigDecimal/">
-                        <span class="chip bg-color">BigDecimal</span>
+                    <a href="/tags/%E9%9D%99%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E5%9D%97/">
+                        <span class="chip bg-color">静态初始化块</span>
                     </a>
                     
                 </div>
