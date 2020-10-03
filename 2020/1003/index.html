@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="ubantu,linux,virtualbox,虚拟机">
+    <meta name="keywords" content="hashset,TreeSet,LinkedHashSet">
     <meta name="description" content="生活是变强的理由">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>virtualbox虚拟机安装 | 流浪舟</title>
+    <title>Java集合(二)-Set集合 | 流浪舟</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/10/03/08E2cV.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">virtualbox虚拟机安装</h1>
+                    <h1 class="description center-align post-title">Java集合(二)-Set集合</h1>
                 </div>
             </div>
         </div>
@@ -401,12 +401,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ubantu/">
-                                <span class="chip bg-color">ubantu</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
-                            <a href="/tags/virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA/">
-                                <span class="chip bg-color">virtualbox虚拟机</span>
+                            <a href="/tags/Set%E9%9B%86%E5%90%88/">
+                                <span class="chip bg-color">Set集合</span>
                             </a>
                         
                     </div>
@@ -417,8 +417,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/linux/" class="post-category">
-                                linux
+                            <a href="/categories/java/" class="post-category">
+                                java
                             </a>
                         
                     </div>
@@ -430,7 +430,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-25
+                    2020-10-03
                 </div>
                 
 
@@ -439,14 +439,14 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    647
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    11 分
                 </div>
                 
 
@@ -462,41 +462,173 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="用虚拟机virtualbox安装ubantu桌面系统"><a href="#用虚拟机virtualbox安装ubantu桌面系统" class="headerlink" title="用虚拟机virtualbox安装ubantu桌面系统"></a>用虚拟机virtualbox安装ubantu桌面系统</h4><ul>
-<li>下载ubantu镜像</li>
-<li>下载安装虚拟机</li>
-<li>新建一个虚拟电脑Linux01</li>
-<li>安装ubantu镜像</li>
-<li>（网络设置）</li>
+                <h3 id="Set集合"><a href="#Set集合" class="headerlink" title="Set集合"></a>Set集合</h3><p>Set集合和Collection基本相同，没有提供额外的方法，主要是行为上的不同，Set不允许包含重复元素，否则<code>add()</code>方法会返回<code>false</code>。接下来将主要介绍四种<code>Set</code>类，<code>HashSet</code>，<code>TreeSet</code>，<code>LinkedHashSet</code>，<code>EnumSet</code>四种。</p>
+<h4 id="HashSet类"><a href="#HashSet类" class="headerlink" title="HashSet类"></a>HashSet类</h4><p>HashSet使用<code>hash算法</code>来储存集合中的元素，具有很好的查找和存取性能，它的特点如下：</p>
+<ol>
+<li>不能保证元素的顺序，可能变化</li>
+<li><code>HashSet</code>不是同步的，如果多个线程同时访问并修改一个<code>HashSet</code>，则必须保证其同步。</li>
+<li>集合的元素可以是<code>null</code></li>
+</ol>
+<p>当向<code>HashSet</code>集合中存入一个元素时，<code>HashSet</code>会调用对象的<code>hashCode()</code>方法来得到该对象的<code>hashCode</code>值，然后根据该<code>hashCode</code>值决定该对象在<code>HashSet</code>中的位置。但是如果两个元素通过<code>equals()</code>方法返回<code>true</code>，而它们的<code>hahCode()</code>方法返回值不相等，<code>HashSet</code>将会把他们储存在不同的位置，依然可以添加成功。也就是说，HashSet集合判断元素相等的标准是通过<code>equals</code>方法比较相等，并且两个对象的<code>hashCode</code>值一样。</p>
+<pre class="line-numbers language-java"><code class="language-java">Class <span class="token class-name">A</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span>Object obj<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+Class <span class="token class-name">B</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+Class <span class="token class-name">C</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span>Object obj<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> Class <span class="token class-name">HashSet</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        HashSet books <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        books<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        books<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        books<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        books<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        books<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        books<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token comment" spellcheck="true">//添加两A,B,C对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token punctuation">[</span>B<span class="token annotation punctuation">@1</span> <span class="token punctuation">,</span>B<span class="token annotation punctuation">@1</span> <span class="token punctuation">,</span>C<span class="token annotation punctuation">@2</span> <span class="token punctuation">,</span>A<span class="token annotation punctuation">@54d</span> <span class="token punctuation">,</span>A<span class="token annotation punctuation">@8773f2</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>从上面看出，即使A对象equals方法返回true，依然被当作两个对象；即使两个B对象<code>hashCode</code>方法返回值一样，但HashSet集合储存了两个hash值一样的对象。如果equals返回true，但是会放在不同的地方，不太好。如果hash值一样，但equals返回的false也麻烦了，集合会尝试保存把对象保存在同一个位置，并采用链式结构来保存多个对象，这样会导致利用哈希值查找的时候，性能下降。</p>
+<p>所以总结一句：如果需要把对象保存到HashSet集合中去，重写类的<code>equals</code>和<code>hashCode</code>方法，保证equals返回true时，hashCode返回值一样。</p>
+<p>HashSet中每个能储存元素的位置通常称为桶(bucket)，如果有多个元素的哈希值相同，但它们通过equals方法返回<code>false</code>，就需要在一个桶内放多个元素，然而这样会导致性能下降。</p>
+<h5 id="重写hashCode方法步骤"><a href="#重写hashCode方法步骤" class="headerlink" title="重写hashCode方法步骤"></a>重写hashCode方法步骤</h5><ol>
+<li>把对象内的每个参与<code>equals</code>方法比较的实例变量计算处一个<code>int</code>类型的哈希值</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>实例变量类型</th>
+<th>计算方式</th>
+<th>实例变量类型</th>
+<th>计算方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean</td>
+<td>hashCode = (f ? 0 : 1)</td>
+<td>float</td>
+<td>hashCode = Float.floatToIntBits(f)</td>
+</tr>
+<tr>
+<td>整型byte、char、short、int</td>
+<td>hashCode = (int)f</td>
+<td>double</td>
+<td>long L = Double.doubleToLongBits(f);<br/>hashCode  = (int)(L^(L&gt;&gt;&gt;32));</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>hashCode = (int)(f^(f&gt;&gt;&gt;32));</td>
+<td>引用</td>
+<td>hashCode = f.hashCode();</td>
+</tr>
+</tbody></table>
+<p>  2.用第一步计算出的多个哈希值组合计算出一个哈希值返回，例如：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">return</span> f1<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>f2<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//f1,f2为实例变量</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>为避免直接相加产生的偶然，可以为各实例变量的哈希值乘以任意质数后再相加。但还有一点需要了解的是，这样并不能完全保证之后就不会产生两个相同的对象，向HashSet中添加可变对象后，后面修改了可变对象的实例变量，可能导致它和集合中其他元素相同，甚至不能正确访问(储存在不同位置，hash值不一样)。</p>
+<h4 id="LinkedHashSet"><a href="#LinkedHashSet" class="headerlink" title="LinkedHashSet"></a>LinkedHashSet</h4><p>HashSet还有一个子类<code>LinkedHashSet</code>，同样也是根据元素的<code>hashCode</code>值来决定元素的储存位置，不同的是它使用链表维护元素的次序，这样可以以插入顺序保存元素。<code>LinkedHashSet</code>需要链表维护次序，所以性能略低于<code>HashSet</code>，但优势在于遍历集合内元素上。另外注意一点，它还是<code>Set</code>，所以依然不允许元素重复！</p>
+<pre class="line-numbers language-java"><code class="language-java">LinkedHashSet names <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedHashSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"James"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"Jodan"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>names<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//James,Jodan</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="TreeSet-SortedSet的实现类"><a href="#TreeSet-SortedSet的实现类" class="headerlink" title="TreeSet(SortedSet的实现类)"></a>TreeSet(SortedSet的实现类)</h4><p>既然是实现类，那<code>SortedSet</code>就是<code>TreeSet</code>的接口了，顾名思义，<code>TreeSet</code>可以让元素处于一定次序状态。与<code>HashSet</code>相比，TreeSet额外提供了如下方法：</p>
+<ul>
+<li>Comparator comparator()：如果TreeSet采用定制排序，则返回定制排序所使用的Comparator，如果采用自然排序，则返回<code>null</code></li>
+<li>Object first()：返回第一个元素</li>
+<li>Object last()：返回最后一个元素</li>
+<li>Object lower(Object e)：返回处于指定元素(任意元素，不需要在集合中)之前的元素</li>
+<li>Object higner(Object e)：返回处于指定元素之后(更大的元素)的元素</li>
+<li>SortedSet subSet(Object e1,Object e2)：返回从e1到e2的子集合(不包含e1,e2)</li>
+<li>SortedSet headSet(Object max)：返回子集合，元素都小于max</li>
+<li>SortedSet tailSet(Object min)：返回子集合，元素大于等于min</li>
 </ul>
-<hr>
-<h5 id="01-下载ubantu镜像"><a href="#01-下载ubantu镜像" class="headerlink" title="01 下载ubantu镜像"></a>01 下载ubantu镜像</h5><p>要想在虚拟机里玩ubantu，就要先准备好该系统的iso镜像文件，那么我们就直接到了官网去了</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425111147300.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="官网"><br>可是我们点击下载后速度又慢了，比github还慢，原因就不说了。所以当然有更快的方法啦！不一定非要去国外的官网下载，国内的各大高校和巨头都有镜像站提供免费的镜像下载，这里就给大家推荐一番。</p>
-<h6 id="阿里云开发者社区镜像站"><a href="#阿里云开发者社区镜像站" class="headerlink" title="阿里云开发者社区镜像站"></a><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener">阿里云开发者社区镜像站</a></h6><p><img src="https://img-blog.csdnimg.cn/20200425111743145.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="阿里镜像站"><br>第一个就是ubantu,这里可以下server或desktop都可以，反正又快又免费！哈哈</p>
-<h6 id="浙大镜像站"><a href="#浙大镜像站" class="headerlink" title="浙大镜像站"></a><a href="http://mirrors.zju.edu.cn/" target="_blank" rel="noopener">浙大镜像站</a></h6><p> 为什么选择浙江大学的镜像站呢？国内有很多这样的镜像站啊。。。。当然是快啦，相比较其他大学的站点，算是比较好了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425112624418.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="浙大镜像站"></p>
-<p> 我是在阿里云下的，起初弄不清server和desktop版，就先下了server版，结果就是疑惑了半天，也没出现漂亮的界面。<br> <img src="https://img-blog.csdnimg.cn/20200425112906835.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="命令行"></p>
-<hr>
-<h5 id="02-安装oracle-virtualbox虚拟机"><a href="#02-安装oracle-virtualbox虚拟机" class="headerlink" title="02 安装oracle virtualbox虚拟机"></a>02 安装oracle virtualbox虚拟机</h5><p>这个就有点难下了，我没在镜像站里找，在网盘下的。(VMware需要许可证)这里大家可以搜一搜，分享<a href="https://pan.baidu.com/s/13mubMuemzTbLApTyxJXQVQ" target="_blank" rel="noopener">VM</a></p>
-<p>提取码：vz1h</p>
-<p>下载好安装包后，打开就行了</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425115703159.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="安装完成"></p>
-<hr>
-<h5 id="03-新建虚拟电脑Linux01"><a href="#03-新建虚拟电脑Linux01" class="headerlink" title="03 新建虚拟电脑Linux01"></a>03 新建虚拟电脑Linux01</h5><p>点击新建，选择要安装的系统，之后就是一路默认。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425120535645.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="新建"><br> 内存最好配置在2G以上</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425120650265.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="内存"></p>
-<hr>
-<h5 id="04-安装ubantu镜像"><a href="#04-安装ubantu镜像" class="headerlink" title="04 安装ubantu镜像"></a>04 安装ubantu镜像</h5><p>虽然已经有一个虚拟电脑了(其实就是占用宿主机的磁盘空间)，这个时候只有硬件上的支持，还没有系统文件的调用。所以咋们进入启动Vbox界面的设置项</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425121253258.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="设置"></p>
-<p>红色箭头那点击进入，再点击注册项，即可从宿主机文件里选择下载好的ubantu镜像文件</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425121517698.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="注册"><br>ok,配置好后，再启动虚拟电脑，就进入ubantu系统安装界面了，而不是命令行。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020042512174573.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="ubantu界面"></p>
-<pre><code> 接下来就是安装了 </code></pre><p><img src="https://img-blog.csdnimg.cn/20200425122022310.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br> 这里可以选择试用或者安装ubantu，安装后启动就直接进入虚拟电脑工作界面了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200425122834737.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="ubantu"><br> 界面还是很漂亮的，不过virtualbox是小型机，界面不能全屏，如果可能还是选VMware虚拟机吧，试过，感觉就是香！哈哈！</p>
-<hr>
-<h5 id="05-网络设置"><a href="#05-网络设置" class="headerlink" title="05 网络设置"></a>05 网络设置</h5><p> 这里就不过多讲了，建好后可以配置网络，有自己的cdn节点。推荐<a href="https://www.bilibili.com/video/BV1bA411b7vs" target="_blank" rel="noopener">程序羊</a></p>
-<hr>
-<p>附：<a href="https://blog.csdn.net/Gobullin" target="_blank" rel="noopener">小码csdn</a></p>
+<p>综上，大概就是提供了访问第一个、最后一个、前一个、后一个元素的方法，并提供了三个截取子集合的方法。与此同时，<code>TreeSet</code>采用红黑树的数据结构来储存数据，默认情况下使用<code>自然排序</code>。它的排序规则有以下两种：</p>
+<h5 id="1-自然排序"><a href="#1-自然排序" class="headerlink" title="1.自然排序"></a>1.自然排序</h5><p>TreeSet调用集合元素的compareTo(Object obj)方法来比较元素之间的大小关系，然后将集合元素按升序排列，这种就是自然排序。Java提供了<code>Comparable</code>接口，该接口内定义了一个<code>compareTo(Object o)</code>方法，方法返回一个整数。实现接口就必须实现该方法。当一个对象之间进行比较时，例如：obj1.compareTo(obj2)，如果返回0，则表明这两个对象相等；如果返回一个正整数，则obj1大于obj2；如果返回一个负整数，则obj1小于obj2。</p>
+<p>下面提供了实现<code>Comparable</code>接口的类，并提供了比较大小的标准。</p>
+<ul>
+<li>BigDecimal、BigInteger以及所有数值类型对应的包装类：按数值大小比较</li>
+<li>Character：按字符的<code>Unicode</code>进行比较</li>
+<li>Boolean：true对应的包装类实例大于<code>false</code>对应的包装类实例</li>
+<li>String：按字符串中字符的<code>Unicode</code>值比较</li>
+<li>Date、Time：后面的时间、日期比前面的日期大</li>
+</ul>
+<p>所以TreeSet会自动地给集合中地大小进行排序，但前提是对象实现了<code>Comparable</code>接口，否则将不可行。还有一点需要说明，大部分类在实现compareTo(Object o)方法时，都需要将被比较对象强制类型转换成相同类型，否则无法比较。然而当添加一个对象到集合中去时，集合会调用对象<code>compareTo()</code>方法与集合中的其他元素进行比较，比较要是同一类的对象。</p>
+<p>如果向TreeSet添加对象是自定义对象，则可以向TreeSet中添加多种类型对象，但这并不表明这是最好的选择，也不推荐这样干，当取出对象时，元素之间会报<code>ClassCastException</code>异常。</p>
+<p>当把一个对象加入集合中时，集合调用对象的<code>compareTo</code>方法与容器的其他对象比较，然后根据红黑树结构找到它的储存位置。如果两个对象通过<code>compareTo(Object obj)</code>方法比较相等，新对象将无法添加到集合中。总之，如果要不报错，TreeSet中只能添加同一种类型的对象。</p>
+<p>对于TreeSet集合而言，判断两个对象相等的唯一标准是：两个对象通过<code>compareTo(Object obj)</code>方法比较相等，返回0，则相等。所以它的添加元素的规则和<code>HashSet</code>一样，假如通过<code>equals</code>方法比较相等，则它们记为同一对象，因此通过<code>compareTo()</code>方法返回0，只能存放一个对象，集合不会让第二个元素进去。同样，如果添加了可变对象，并且还修改了对象的<code>实例变量</code>，将导致集合中对象的顺序变化，然而<code>TreeSet</code>不会调整顺序(甚至会导致删除对象失败，TreeSet性能降低)。</p>
+<h5 id="2-定制排序"><a href="#2-定制排序" class="headerlink" title="2.定制排序"></a>2.定制排序</h5><p>实现定制排序则可以通过<code>Comparator</code>接口，该接口内包含一个<code>int compare(T o1,T o2)</code>方法，用于比较o1、o2的大小，如果返回正整数，则o1&gt;o2；若返回0，则o1=o2；若返回负整数，则o1&lt;o2。但依然不可以添加不同类型的对象。</p>
+<p>在实现定制排序之前，需要提供一个<code>Comparator</code>对象与<code>TreeSet</code>集合关联，由该对象对集合元素进行排序。</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">M</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token function">M</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> String <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"M(age:"</span> <span class="token operator">+</span> age <span class="token operator">+</span><span class="token string">" )"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//Lambda表达式</span>
+        TreeSet t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeSet</span><span class="token punctuation">(</span><span class="token punctuation">(</span>o1<span class="token punctuation">,</span>o2<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//o1,02这里没有具体类型</span>
+            M m1 <span class="token operator">=</span> <span class="token punctuation">(</span>M<span class="token punctuation">)</span>o1<span class="token punctuation">;</span>
+            M m2 <span class="token operator">=</span> <span class="token punctuation">(</span>M<span class="token punctuation">)</span>o2<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> m1<span class="token punctuation">.</span>age<span class="token operator">></span>m2<span class="token punctuation">.</span>age <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span><span class="token operator">:</span>m1<span class="token punctuation">.</span>age<span class="token operator">&lt;</span>m2<span class="token punctuation">.</span>age <span class="token operator">?</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">M</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">M</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">M</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token comment" spellcheck="true">//Lambda表达式实现了Comparator类型的对象</span>
+<span class="token punctuation">}</span><span class="token comment" spellcheck="true">//输出[M(age:9),M(age:5),M(age:-3)]降序排列</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="EnumSet类"><a href="#EnumSet类" class="headerlink" title="EnumSet类"></a>EnumSet类</h4><p>专门为枚举类设计的集合类，<code>EnumSet</code>中所有元素必须是指定枚举类型的枚举值。值得一提的是<code>EnumSet</code>集合也是有序的，但它以枚举值在类中的定义顺序来决定集合元素的顺序。<code>EnumSet</code>在内部以位向量的形式储存元素，因此占用内存非常小，运行效率很好，特别是在批量操作时。</p>
+<p><code>EnumSet</code>不允许加入<code>null</code>元素，如果试图插入将会抛出<code>NullPointerException</code>异常。而如果只是判断集合中是否有<code>null</code>元素或删除它，将不会抛出异常，删除的话会返回<code>false</code>，因为没有<code>null</code>元素。</p>
+<p><code>EnumSet</code>集合没有给出任何构造器来创建对象，但还是提供了一些方法去创建的对象的。如下：</p>
+<ul>
+<li>EnumSet allOf(Class elementType)：创建一个包含指定枚举类所有枚举值的集合</li>
+<li>EnumSet complementOf(EnumSet s)：创建一个其元素类型与指定EnumSet里元素类型相同的EnumSet集合，新集合包含原集合不包含的、此枚举类剩下的枚举值</li>
+<li>EnumSet copyOf(Collection c)：使用一个普通集合来创建<code>EnumSet</code>类</li>
+<li>EnumSet copyOf(EnumSet e)：创建一个与指定<code>EnumSet</code>具有相同类型、相同元素的EnumSet集合</li>
+<li>EnumSet noneOf(Class elementType)：创建一个元素类型为指定枚举类型的空EnumSet</li>
+<li>EnumSet range(E from ,E to)：创建一个包含从from枚举值到to枚举值范围内枚举值的EnumSet集合</li>
+<li>EnumSet of(E first…E rest )：创建一个包含一个或多个枚举值的EnumSet集合(传入的枚举值必须属于同一个枚举类)</li>
+</ul>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">enum</span> Colors<span class="token punctuation">{</span>WHITE<span class="token punctuation">,</span>YELLOW<span class="token punctuation">,</span>RED<span class="token punctuation">,</span>GREEN<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        EnumSet e1 <span class="token operator">=</span> EnumSet<span class="token punctuation">.</span><span class="token function">allOf</span><span class="token punctuation">(</span>Colors<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        EnumSet e2 <span class="token operator">=</span> EnumSet<span class="token punctuation">.</span><span class="token function">noneOf</span><span class="token punctuation">(</span>Colors<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里为[]</span>
+        e2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>Colors<span class="token punctuation">.</span>WHITE<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里为[WHITE]</span>
+        EnumSet e3 <span class="token operator">=</span> EnumSet<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>Colors<span class="token punctuation">.</span>RED<span class="token punctuation">,</span>Colors<span class="token punctuation">.</span>GREEN<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e3<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出[RED,GREEN]</span>
+        EnumSet e4 <span class="token operator">=</span> EnumSet<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span>Colors<span class="token punctuation">.</span>YELLOW<span class="token punctuation">,</span>Colors<span class="token punctuation">.</span>GREEN<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//[YELLOW,RED,GREEN]</span>
+        EnumSet e5 <span class="token operator">=</span> EnumSet<span class="token punctuation">.</span><span class="token function">complementOf</span><span class="token punctuation">(</span>e4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//这里为[WHITE]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>此外还可以复制另一个<code>EnumSet</code>集合中的元素来创建新集合，或者复制一个<code>Collection</code>集合元素来创建新的EnumSet集合。当复制<code>Collection</code>集合元素创建时，要求元素都来自<strong>同一个枚举类</strong>，否则抛出<code>ClassCastException</code>异常。</p>
+<pre class="line-numbers language-java"><code class="language-java">Collection c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+c<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+c<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>Colors<span class="token punctuation">.</span>RED<span class="token punctuation">)</span><span class="token punctuation">;</span>
+c<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>Colors<span class="token punctuation">.</span>YELLOW<span class="token punctuation">)</span><span class="token punctuation">;</span>
+EnumSet e <span class="token operator">=</span> EnumSet<span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//[RED,YELLOW]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="各Set实现类的性能分析"><a href="#各Set实现类的性能分析" class="headerlink" title="各Set实现类的性能分析"></a>各Set实现类的性能分析</h4><p><code>HashSet</code>总是比<code>TreeSet</code>的性能好，主要体现在添加、查询元素上，因为<code>TreeSet</code>采用了红黑树来维护集合的次序。而<code>HashSet</code>的子类<code>LinkedHashSet</code>对插入、查询操作比父类要稍慢些，这是由于采用了链表维护的缘故，造成了额外开销。但这并不影响<code>LinkedHashSet</code>发挥威力，然而这恰恰是它的优势，在遍历等批量操作上，<code>LinkedHashSet</code>更快。</p>
+<p><code>EnumSet</code>是所有Set类中性能最好的，缺点是只能保存一个枚举类的枚举值。总的说，Set的这三个实现类都是线程不安全的，即当有多个线程访问时，如果修改了Set集合，将不能同步，必须手动保证同步。方法是在创建Set集合时，通过<code>Collections</code>工具类的<code>sychronizedXxx()</code>方法来包装该集合(之后会提到)。</p>
 
             </div>
             <hr/>
@@ -512,7 +644,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">小码</a>
+                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">流浪舟</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -522,7 +654,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.maliaoblog.cn/2020/0425/">https://www.maliaoblog.cn/2020/0425/</a>
+                    <a href="https://www.maliaoblog.cn/2020/1003/">https://www.maliaoblog.cn/2020/1003/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -535,7 +667,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="https://www.maliaoblog.cn" target="_blank">小码</a>
+                    <a href="https://www.maliaoblog.cn" target="_blank">流浪舟</a>
                     !
                 </span>
             </div>
@@ -560,12 +692,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ubantu/">
-                                    <span class="chip bg-color">ubantu</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
-                                <a href="/tags/virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA/">
-                                    <span class="chip bg-color">virtualbox虚拟机</span>
+                                <a href="/tags/Set%E9%9B%86%E5%90%88/">
+                                    <span class="chip bg-color">Set集合</span>
                                 </a>
                             
                         </div>
@@ -1000,48 +1132,51 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/0427/">
+                <a href="/2020/1003/">
                     <div class="card-image">
                         
+                        <img src="https://s1.ax1x.com/2020/10/03/08E2cV.jpg" class="responsive-img" alt="Java集合(二)-Set集合">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="还要翻墙？试试这个">
-                        
-                        <span class="card-title">还要翻墙？试试这个</span>
+                        <span class="card-title">Java集合(二)-Set集合</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            想看看国外的风光吗？疫情期间就像挂在家的咸鱼一样，快发酵了！点开浏览器，可是只能在国内的网站上静静地划过，没有一点新鲜事。可是想上外网又被墙，怎么办？
-
-  哈哈!客官别着急，我这就给您上‘菜’。咱们开了浏览器，最好是火狐的，在设置里的附加
+                            Set集合Set集合和Collection基本相同，没有提供额外的方法，主要是行为上的不同，Set不允许包含重复元素，否则add()方法会返回false。接下来将主要介绍四种Set类，HashSet，TreeSet，LinkedHashSe
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="post-category">
-                                    碎碎念
+                            <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ghelper/">
-                        <span class="chip bg-color">ghelper</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Set%E9%9B%86%E5%90%88/">
+                        <span class="chip bg-color">Set集合</span>
                     </a>
                     
                 </div>
@@ -1055,37 +1190,33 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/0421/">
+                <a href="/2020/0929/">
                     <div class="card-image">
                         
+                        <img src="https://s1.ax1x.com/2020/10/01/0MDe6U.jpg" class="responsive-img" alt="Java集合类-开篇">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="gitpage CDN加速配置与深入">
-                        
-                        <span class="card-title">gitpage CDN加速配置与深入</span>
+                        <span class="card-title">Java集合类-开篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            github page cdn加速服务深入了解
-CDN介绍
-CDN提供商
-github page cdn加速服务配置
-CDN加速服务深入
+                            
+公众号：菜鸡干Java 站点：https://www.maliaoblog.cn
 
-CDN介绍CDN的全称是Content Delivery Network，即内容分发网络。CDN是构
+集合介绍Java集合类是一种特别的工具类，可以储存对象，并实现了常用的数据结构，另外还能保存具有映射关系的关联数组。集合大致分为Set,List,Queu
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BD%91%E7%AB%99%E8%BF%90%E7%BB%B4/" class="post-category">
-                                    网站运维
+                            <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                             
                             
@@ -1095,8 +1226,16 @@ CDN介绍CDN的全称是Content Delivery Network，即内容分发网络。CDN�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/github-page/">
-                        <span class="chip bg-color">github page</span>
+                    <a href="/tags/%E6%8E%A5%E5%8F%A3/">
+                        <span class="chip bg-color">接口</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9B%86%E5%90%88%E7%B1%BB/">
+                        <span class="chip bg-color">集合类</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%81%8D%E5%8E%86%E9%9B%86%E5%90%88/">
+                        <span class="chip bg-color">遍历集合</span>
                     </a>
                     
                 </div>
