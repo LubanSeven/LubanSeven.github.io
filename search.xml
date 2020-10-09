@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Java集合(三)-List和Queue集合</title>
+      <link href="/2020/1009/"/>
+      <url>/2020/1009/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>公众号： 菜鸡干Java  欢迎关注</p></blockquote><h3 id="Java集合—List集合"><a href="#Java集合—List集合" class="headerlink" title="Java集合—List集合"></a>Java集合—List集合</h3><p>与Set集合不同，List集合是有序，可重复的，而且默认以添加顺序设置索引。<code>List</code>子接口是继承了<code>Collection</code>接口，则可以使用其中的方法。</p><p>特别的是<code>List</code>增加了根据索引插入、替换、删除集合元素的方法，此外，Java8为<code>List</code>接口添加了两个默认方法：</p><ul><li>void replaceAll()：根据指定规则重新设置List集合的所有元素</li><li>void sort(Comparator c)：根据参数对List集合的元素排序</li></ul><pre class="line-numbers language-java"><code class="language-java">List books <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>books<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"ledon"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>books<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"Android"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>books<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span>o1<span class="token punctuation">,</span>o2<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">(</span>String<span class="token punctuation">)</span>o1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token punctuation">(</span><span class="token punctuation">(</span>String<span class="token punctuation">)</span>o2<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//字符串将由短到长排序</span>System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>books<span class="token punctuation">)</span><span class="token punctuation">;</span>books<span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span>e<span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">(</span>String<span class="token punctuation">)</span>e<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//[5,7]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>值得注意的是</strong>：<code>List</code>判断两个对象相等，只要通过<code>equals</code>方法比较返回true即可，不像<code>Set</code>集合，还需要判断哈希值是否相等来避免重复。</p><p>删除元素时，<code>List</code>会调用对象的<code>equals</code>方法依次与集合元素比较，如果返回true，则会删除该元素。如果重写了<code>equals</code>方法，使它总是返回true，则List总会删除第一个元素。在使用<code>set(index,object)</code>方法时，index不能超过集合的长度，也不能改变长度。</p><p>List不仅有<code>iterator()</code>方法，还有<code>listIterator()</code>方法，该方法返回一个<code>ListIterator</code>对象，<code>ListIterator</code>接口继承了<code>Iterator</code>接口，提供了专门的方法操作<code>List</code>，增加了如下方法(类似Iterator的方法)：</p><ul><li>boolean hasPrevious()：返回该集合是否还有上一个元素</li><li>Object previous()：返回上一个元素</li><li>void add(Object o)：在指定位置插入一个元素</li></ul><p>不难发现该接口还能向前迭代，不止能删除元素，并且还能通过<code>add()</code>方法，添加元素。</p><h4 id="ArrayList和Vector"><a href="#ArrayList和Vector" class="headerlink" title="ArrayList和Vector"></a>ArrayList和Vector</h4><p>它们两个封装了 一个动态的Object[ ]数组，允许再分配。<code>ArrayList</code>及<code>Vector</code>对象使用<code>initialCapacity</code>参数来设置数组的长度，当超出数组容量时，<code>initialCapacity</code>会自动增加，可使用<code>ensureCapacity(int minCapacity)</code>方法一次性增加<code>initialCapacity</code>。如果事先知道元素的个数，可指定初始大小；如果没有指定初始容量，默认为10。</p><p><code>ArrayList</code>和<code>Vector</code>提供了两个方法重新分配<code>Object[]</code>数组：</p><ul><li>void ensureCapacity(int minCapacity)：将<code>ArrayList</code>和<code>Vector</code>集合的<code>Object[]</code>数组长度增加到大于或等于minCapacity值</li><li>void trimToSize()：调整<code>ArrayList</code>及<code>Vector</code>的数组长度为当前元素个数，减少占用空间</li></ul><p><code>ArrayList</code>和<code>Vector</code>的用法几乎完全相同，<code>Vector</code>也是实现了<code>List</code>接口，从<code>JDK1.0</code>就有了，很古老！此外，<code>ArrayList</code>是线程不安全的，原理一样；但<code>Vector</code>是线程安全的，即无需保证线程的同步性，因而<code>Vector</code>的性能比<code>ArrayList</code>低。但是还是用<code>ArrayList</code>更多，要想线程安全，也可以把<code>ArrayList</code>变成线程安全。</p><h4 id="Stack类-Vector的子类"><a href="#Stack类-Vector的子类" class="headerlink" title="Stack类(Vector的子类)"></a>Stack类(Vector的子类)</h4><p>翻译过来就是“栈”，模拟进栈<code>push</code>，出栈<code>pop</code>等操作。作为集合的一种，它也是储存对象(Object)的，有如下方法：</p><ul><li>Object peek()：返回栈顶元素，但并不弹出该元素，元素还会在栈内</li><li>Object pop()：返回栈顶元素，并弹出栈</li><li>void push(Object item)：推元素进栈</li></ul><p><code>Stack</code>继承了<code>Vector</code>，所以它也非常古老，线程安全、性能较差。后面还会介绍一种“栈”结构——ArrayDeque，它不仅实现了<code>List</code>接口，还实现了<code>Deque</code>接口，如果需要栈结构，可以使用它而不是<code>Stack</code>。</p><h4 id="固定长度的List"><a href="#固定长度的List" class="headerlink" title="固定长度的List"></a>固定长度的List</h4><p>有一种操作数组的工具类<code>Arrays</code>，该工具类提供了<code>asList()</code>方法，该方法把一个数组或指定个数的对象换成一个<code>List</code>集合，这个集合不是以上所介绍的集合类的实例，不是<code>ArrayList</code>的，不是<code>Vector</code>的，而是<code>Arrays</code>的内部类<code>ArrayList</code>的实例。<code>Arrays.ArrayList</code>是一个固定长度的<code>List</code>集合，不允许添加、删除操作，只能遍历访问，否则程序将出现<code>UnsupportedOperationException</code>异常。</p><h3 id="Java集合-Queue集合"><a href="#Java集合-Queue集合" class="headerlink" title="Java集合-Queue集合"></a>Java集合-Queue集合</h3><p>在<code>Queue</code>接口中定义了如下的方法：</p><ul><li>void add(Object e)：添加元素到队尾</li><li>boolean offer(Object e)：将指定元素加入队列的尾部，成功返回true</li><li>Object element()：获取队列头部的元素，但不是删除该元素</li><li>Object remove()：获取头部元素，并删除该元素</li><li>Object peek()：获取队列头部的元素，但不是删除，如果为空返回null</li><li>Object poll()：获取并删除头部元素，为空，返回null</li></ul><p>Queue有一个<code>PriorityQueue</code>实现类，除此外还有一个<code>Deque</code>接口，代表双端队列，即两端可以添加删除元素。其实现类为<code>ArrayDeque</code>和<code>LinkedList</code>两个实现类。</p><h4 id="PriorityQueue类"><a href="#PriorityQueue类" class="headerlink" title="PriorityQueue类"></a>PriorityQueue类</h4><p>PriorityQueue并不是一个标准的队列，其保存队列的顺序是重新排序了的(按元素的大小)，显然不符合队列的规则。如果调用<code>poll</code>方法，可以看到元素从小到大移出队列。另外需要注意的是，<code>PriorityQueue</code>不允许插入null元素！</p><p>它的排序有两种，自然排序、定制排序，排序规则与<code>TreeSet</code>类似：</p><ul><li>自然排序：自然排序时，元素必须实现了<code>Comparable</code>接口，而且是同一类的实例。</li><li>定制排序：创建队列时，传入一个<code>Comparator</code>对象，该对象负责排序，但是不要求元素实现<code>Comparable</code>接口</li></ul><h4 id="Deque接口与ArrayDeque"><a href="#Deque接口与ArrayDeque" class="headerlink" title="Deque接口与ArrayDeque"></a>Deque接口与ArrayDeque</h4><p><code>Deque</code>接口是<code>Queue</code>的子接口，允许对队列两端进行操作，同时，还可以当作“栈”来使用，因为它还有<code>pop</code>、<code>push</code>方法。典型的实现类是<code>ArrayDeque</code>，一个基于数组的双端队列，在创建<code>Deque</code>时，同样可以指定一个<code>numElement</code>元素个数参数，指定Object[ ]数组的长度；如果不指定，则默认长度为16。</p><p><code>ArrayList</code>与<code>ArrayDeque</code>的实现原理差不多，底层采用一个动态的、可再分配的数组实现，初始化可指定初始长度等，当元素个数超出容量时，系统会重新分配一个<code>Object[]</code>数组储存元素。</p><h4 id="LinkedList类"><a href="#LinkedList类" class="headerlink" title="LinkedList类"></a>LinkedList类</h4><p><code>LinkedList</code>实现了<code>List</code>接口，是<code>List</code>集合，还实现了<code>Deque</code>接口，可以当双端队列使用，还能当”栈”使用。 但它的实现机制与<code>ArrayList</code>、<code>ArrayDeque</code>的不一样，它两是用数组实现，而<code>LinkedList</code>是以链表的形式来保存元素，随机访问性能较差，但插入、删除操作比较溜！</p><h3 id="线性表性能分析"><a href="#线性表性能分析" class="headerlink" title="线性表性能分析"></a>线性表性能分析</h3><p>一般来说，数组由一块连续的内存来保存数据，所以数组随机访问性能好，类似的，以数组为底层实现的类，随机访问性能都比较好；而链表的插入、删除操作性能好。综合来讲，还是用<code>ArrayList</code>比较妥。</p><ul><li><p>如果需要遍历：对于<code>ArrayList</code>，<code>Vector</code>集合，使用随机访问方法遍历即可；对于<code>LinkedList</code>集合，采用<code>Iterator</code>迭代器遍历比较好。</p></li><li><p>如果经常要执行插入、删除操作，可以使用<code>LinkedList</code>集合，而使用以数组为底层的线性表要重新分配内部数组大小，性能较差。</p></li><li><p>如果有多个线程同时访问，可以使用工具类包装成线程安全的集合。</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> List </tag>
+            
+            <tag> Queue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java集合(二)-Set集合</title>
       <link href="/2020/1003/"/>
       <url>/2020/1003/</url>
@@ -47,9 +74,9 @@
       
         <tags>
             
-            <tag> 接口 </tag>
-            
             <tag> 集合类 </tag>
+            
+            <tag> 接口 </tag>
             
             <tag> 遍历集合 </tag>
             
@@ -190,13 +217,13 @@
       
         <tags>
             
+            <tag> 接口 </tag>
+            
             <tag> Java异常 </tag>
             
             <tag> 多态 </tag>
             
             <tag> 抽象 </tag>
-            
-            <tag> 接口 </tag>
             
         </tags>
       
@@ -703,9 +730,9 @@
       
         <tags>
             
-            <tag> c </tag>
-            
             <tag> 疫情 </tag>
+            
+            <tag> c </tag>
             
         </tags>
       
