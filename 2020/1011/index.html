@@ -1,0 +1,1580 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="Java,集合">
+    <meta name="description" content="生活是变强的理由">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java集合(四)-Map集合 | 流浪舟</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<script type="text/javascript">
+WIDGET = {FID: 'hxqMR0uSsX'}
+</script>
+<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">流浪舟</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/sitemap.xml" class="waves-effect waves-light">
+      
+      <i class="fas fa-sitemap" style="zoom: 0.6;"></i>
+      
+      <span>站点地图</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">流浪舟</div>
+        <div class="logo-desc">
+            
+            生活是变强的理由
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/sitemap.xml" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-sitemap"></i>
+			
+			站点地图
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/11/08/BohQD1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java集合(四)-Map集合</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+        
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before{
+        position: fixed!important;/*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%9B%86%E5%90%88/">
+                                <span class="chip bg-color">集合</span>
+                            </a>
+                        
+                            <a href="/tags/Map%E9%9B%86%E5%90%88/">
+                                <span class="chip bg-color">Map集合</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/java/" class="post-category">
+                                java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-10-11
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h4 id="Map集合"><a href="#Map集合" class="headerlink" title="Map集合"></a>Map集合</h4><p><code>Map</code>的key不允许重复，即两个key通过<code>equals</code>方法比较总是返回<code>false</code>。如果把所以的<code>key</code>放在一起来看，它们就是一个<code>Set</code>集合，就是没有顺序，<code>key</code>之间不能重复。而实际上Map确实包含了一个<code>KeySet()</code>方法，用于返回Map集合的所有key组成的<code>Set</code>集合。另外key集与Set集合里的元素的储存形式也很像，Map子类和Set子类在名字上也很相似，比如<code>HashMap</code>与<code>HashSet</code>等接口和子类。Map和Set之间的关系非常密切，但如果把key-value中的<code>value</code>当作<code>key</code>的附庸，就可以当Set来看Map。</p>
+<p>事实上，Map提供了一个<code>Entry</code>内部类来封装<code>key-value</code>对，而储存时只考虑<code>key</code>。从源码上看，Java先实现了<code>Map</code>，然后通过包装一个所有<code>value</code>都为<code>null</code>的Map就实现了<code>Set</code>集合。如果把所有<code>value</code>放在一起，它们又类似一个<code>List</code>集合，元素与元素之间通过索引来查找，只是<code>Map</code>不是通过整数索引查找，而是用一个对象作为索引。如果需要取出元素，则需要提供元素的<code>key</code>索引。</p>
+<p><code>Map</code>接口提供了大量的实现类，典型的如：<code>HashMap</code>，<code>Hashtable</code>，<code>LinkedHashMap</code>等，其中包括一个内部类<code>Entry</code>，该类封装了一个<code>key-value</code>对，类中包含了三个方法：</p>
+<ul>
+<li>Object getKey()：返回该<code>Entry</code>里包含的<code>Key</code>值</li>
+<li>Object getValue()：返回该<code>Entry</code>里包含的value值</li>
+<li>Object setValue(V value)：返回该<code>Entry</code>里包含的value值，并返回新设置的<code>Value</code>值</li>
+</ul>
+<p><code>Map</code>集合最典型的用法就是成对添加和删除<code>key-value</code>对，判断该<code>Map</code>中是否包含指定<code>key</code>，添加新的value会覆盖原有的value。<code>HashMap</code>重写了<code>toString()</code>方法，实际上所有的实现类都重写了该方法调用方法后，总是返回：<code>{key1=balue1,key2=value2...}</code>格式。</p>
+<h4 id="Java8改进HashMap和Hashtable实现类"><a href="#Java8改进HashMap和Hashtable实现类" class="headerlink" title="Java8改进HashMap和Hashtable实现类"></a>Java8改进<code>HashMap</code>和<code>Hashtable</code>实现类</h4><p>其实这种尴尬的关系不是第一次见了，它们的关系如同<code>ArrayList</code>和<code>Vector</code>的关系一样。<code>Hashtable</code>是一个古老的<code>Map</code>实现类，从它的名字就可以看出，没有遵循单词首字母大写的命名规范。它从<code>JDK1.0</code>就已经有了，那时还没有<code>Map</code>接口，所以它包含了两个现在很少用的方法，<code>elements()</code>类似value方法，和<code>keys()</code>方法。同时，Java8改进了<code>HashMap</code>的实现，让它在哈希冲突时依然保持良好的性能。</p>
+<p>区别：</p>
+<ul>
+<li><code>Hashtable</code>是一个线程安全的实现，而<code>HashMap</code>不是，然而性能比<code>Hashtable</code>好。</li>
+<li><code>Hashtable</code>不允许<code>null</code>作为<code>key</code>和<code>value</code>，但<code>HashMap</code>可以。</li>
+</ul>
+<p>其实区别了也没太大意义，因为<code>Hashtable</code>这样古老的类现在用的并不多，如果想要获得线程安全的<code>Map</code>类，可以通过<code>Collections</code>工具类把<code>HashMap</code>转化成线程安全的。</p>
+<h5 id="内部元素储存"><a href="#内部元素储存" class="headerlink" title="内部元素储存"></a>内部元素储存</h5><p>为了成功在<code>HashMap</code>和<code>Hashtable</code>中储存获取对象，用作<code>Key</code>的对象必须实现<code>hashCode()</code>方法和<code>equals()</code>方法，道理和<code>HashSet</code>类似。与<code>HashSet</code>集合不能保证元素顺序一样，两个<code>key</code>相等的标准是通过<code>equals</code>方法返回<code>true</code>，<code>hashCode</code>值也相等。而判断两个<code>value</code>相等的标准更松一点，即<code>equals</code>返回true即可，这种标准在<code>containValue()</code>方法中可以体现。</p>
+<p>同样的，当使用自定义类作为<code>HashMap</code>,<code>Hashtable</code>的<code>key</code>时，如果重写该类的<code>equals()</code>方法，<code>hashCode()</code>方法也应该重写，另一方面讲，<code>HashMap</code>与<code>Hashtable</code>对key的要求和<code>HashSet</code>对元素的要求完全相同。同样的问题，如果<code>key</code>是可变对象，则修改了<code>key</code>将导致无法准确访问被修改的<code>key</code>，而无法访问对应的<code>value</code>值。</p>
+<h4 id="LinkedHashMap实现类-HashMap子类"><a href="#LinkedHashMap实现类-HashMap子类" class="headerlink" title="LinkedHashMap实现类(HashMap子类)"></a>LinkedHashMap实现类(HashMap子类)</h4><p><code>HashSet</code>有一个<code>LinkedHashSet</code>子类，<code>HashMap</code>也有一个<code>LinkedHashMap</code>子类。同样，也是采用链表来维护<code>Map</code>的迭代顺序的，并且迭代顺序与插入顺序一致。只需在插入时保持应有的顺序即可，而避免对其排序所带来的成本。由于要维护顺序，所以性能上稍逊<code>HashMap</code>，然而像上次讲的那样，这也是优点，就是迭代起来比较方便。</p>
+<pre class="line-numbers language-java"><code class="language-java">LinkedHashMap weights <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedHashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+weights<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"小明"</span><span class="token punctuation">,</span><span class="token number">110</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+weights<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"菜鸡一号"</span><span class="token punctuation">,</span><span class="token number">130</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+weights<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>key<span class="token operator">+</span><span class="token string">"->"</span><span class="token operator">+</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//Java8新增forEach()方法遍历Map</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Properties类-Hashtable的子类"><a href="#Properties类-Hashtable的子类" class="headerlink" title="Properties类(Hashtable的子类)"></a>Properties类(<code>Hashtable</code>的子类)</h4><p>顾名思义，该类在处理属性文件时特别方便，Properties类可以把<code>Map</code>对象中的<code>key-value</code>写入属性文件，也可以从属性文件中加载键值对到<code>Map</code>对象中去。由于属性名和属性值只能是字符串，所以其中的<code>key</code>,<code>value</code>都是字符串类型，<code>Properties</code>相当于一个<code>key</code>,<code>value</code>都是<code>String</code>类型的<code>Map</code>。该类提供了如下三个方法来修改<code>Properties</code>里的<code>key</code>,<code>value</code>值，注意是“修改”，后面会介绍几个读写方法。</p>
+<ul>
+<li>String getProperty(String key)：获取<code>Properties</code>中指定属性名对应的属性值，类似<code>get</code>方法。</li>
+<li>String getProperty(String key,String defaultValue)：功能与上一个类似，但可以指定key不存在时的默认值。</li>
+<li>Object setProperty(String key,String value)：设置属性值，类似<code>put</code>方法</li>
+</ul>
+<p>还有两个读写属性方法：</p>
+<ul>
+<li>void load(InputStream in)：从属性文件(输入流表示)中加载<code>key-value</code>对，并把对加到<code>Properties</code>里。</li>
+<li>void store(OutputStream out,String comments)：将<code>ProPerties</code>中的<code>key-value</code>对输出到指定属性文件中去。</li>
+</ul>
+<pre class="line-numbers language-java"><code class="language-java">Properties p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Properties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+p<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">,</span><span class="token string">"菜鸡二号"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+p<span class="token punctuation">.</span><span class="token function">store</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"a.ini"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">"user"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Properties p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Properties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+p1<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">"a.ini"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>程序在当前路径下生成一个<code>a.ini</code>文件，内容如下：</p>
+<pre class="line-numbers language-ini"><code class="language-ini">#user
+#Thu Oct 9
+<span class="token constant">password</span><span class="token attr-value"><span class="token punctuation">=</span>123456</span>
+<span class="token constant">username</span><span class="token attr-value"><span class="token punctuation">=</span>菜鸡一号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="SortedMap接口与TreeMap实现类"><a href="#SortedMap接口与TreeMap实现类" class="headerlink" title="SortedMap接口与TreeMap实现类"></a><code>SortedMap</code>接口与TreeMap实现类</h4><p>不难发现，该类与<code>TreeSet</code>和<code>SortedMap</code>的关系一样，<code>TreeMap</code>也是一个红黑树结构，即每个<code>key-value</code>对作为一个节点，而在储存它们时需要进行排序。所以它也有两种排序方式：</p>
+<ul>
+<li>自然排序：<code>key</code>必须实现<code>Comparable</code>接口，且为同一类的对象，否则抛出<code>ClassCastException</code>异常。</li>
+<li>定制排序：在创建<code>TreeMap</code>时，传入一个<code>Comparator</code>对象，该对象负责对<code>TreeMap</code>中的所有<code>key</code>进行排序，但是不要钱实现<code>Comparable</code>接口。</li>
+</ul>
+<p>类似<code>TreeSet</code>判断元素相等的标准一样，两个<code>key</code>通过<code>compareTo()</code>方法返回0，即为相等。如果<code>equals()</code>与<code>compareTo()</code>方法返回结果不一致，<code>TreeMap</code>与Map接口就会冲突。同样，它也有相类似的方法访问<code>key-value</code>对。由于<code>TreeMap</code>本身是有序的，所以它增加了访问第一个、最后一个、前一个和后一个的<code>key-value</code>对方法，并提供了截取几个子<code>TreeMap</code>方法。</p>
+<h4 id="WeakHashMap实现类"><a href="#WeakHashMap实现类" class="headerlink" title="WeakHashMap实现类"></a>WeakHashMap实现类</h4><p><strong>用法</strong>和<code>HashMap</code>类似，区别在于<code>HashMap</code>的<code>key</code>保留了对实际对象的强引用，这表示只要<code>HashMap</code>对象不被销毁，所有<code>key</code>所引用的对象就不会被垃圾回收。但<code>WeakHashMap</code>对象的<code>key</code>所引用的对象没有被其他强引用变量所引用，则引用的对象有可能被垃圾回收，而且<code>WeakHashMap</code>也可能自动删除这些<code>key</code>所对应的<code>key-value</code>。</p>
+<p>每个<code>key</code>只持有对实际对象的弱引用，因此，在垃圾回收该key所引用的实际对象后，集合也会自动删除该键值对。</p>
+<pre class="line-numbers language-java"><code class="language-java">WeakHashMap w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakHashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+w<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"语文"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"及格"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+w<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"数学"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"优秀"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+w<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"java"</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"优秀"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//{语文=及格,java=优秀,数学=优秀}</span>
+Syste<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token function">gc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span><span class="token function">runFinalization</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">{</span>java<span class="token operator">=</span>中等<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>从上面看出，系统进行垃圾回收时，删除了原先的两个键值对，这是由于这两个key都是匿名字符串对象，<code>WeakHashMap</code>只保留了它们的弱引用，所以垃圾回收时将自动删除这两个键值对。如果想使用key来保留对象的弱引用，则不要让key所引用的对象有任何强引用！</p>
+<h4 id="IdentityHashMap实现类"><a href="#IdentityHashMap实现类" class="headerlink" title="IdentityHashMap实现类"></a>IdentityHashMap实现类</h4><p><strong>实现机制</strong>和<code>HashMap</code>类似，但在处理两个<code>key</code>相等时比较独特。在<code>IdentityHashMap</code>中，当且仅当两个<code>key</code>严格相等时，即<code>key1 == key2</code>，<code>IdentityHashMap</code>才认为两个key相等。而对于普通<code>HashMap</code>而言，只需要通过<code>equals</code>方法比较，且它们的<code>hashCode</code>值相等即可。</p>
+<p>在提供的方法上，<code>IdentityHashMap</code>提供了与<code>HashMap</code>相类似的方法，也允许使用<code>null</code>作为<code>key</code>和<code>value</code>！同样，它也不能保证键值对之间的顺序，更不能保证它们的顺序以后不会变。</p>
+<pre class="line-numbers language-java"><code class="language-java">IdentityHashMap i <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IdentityHashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+i<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"菜鸡"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">88</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+i<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"菜鸡"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+i<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"java"</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+i<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"java"</span><span class="token punctuation">,</span><span class="token number">101</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//字符串直接量</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出结果为：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token punctuation">{</span>java<span class="token operator">=</span><span class="token number">101</span><span class="token punctuation">,</span>菜鸡<span class="token operator">=</span><span class="token number">90</span><span class="token punctuation">,</span>菜鸡<span class="token operator">=</span><span class="token number">88</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>由于前两个是字符串对象，所以==比较后返回false，后两个是字符串直接量，Java用常量池管理字符串直接量，则将会返回true，最后一次添加为最终结果。这种问题在之前就讲过，为啥直接量包装成对象==比较会返回true，应该是在包装类那里提到过。</p>
+<h4 id="EnumMap实现类"><a href="#EnumMap实现类" class="headerlink" title="EnumMap实现类"></a>EnumMap实现类</h4><p>这是一个和枚举类一起实现的<code>Map</code>，其中所有的<code>key</code>都必须是单个枚举类的枚举值。在创建<code>EnumMap</code>时，必须隐式或显示的指定它的对应的枚举类。特点有：</p>
+<ul>
+<li>在内部以数组的形式保存元素，十分高效</li>
+<li>有顺序，根据<code>key</code>的自然排序维护键值对。可以通过<code>keySet()</code>,<code>entrySet()</code>,<code>values()</code>方法遍历集合看到！</li>
+<li>不允许将<code>null</code>作为<code>key</code>，但允许作为<code>value</code>。如果只是查询或删除不会抛出异常！</li>
+</ul>
+<p>需要注意的是，在创建<code>EnumMap</code>时，<strong>必须</strong>指定一个枚举值，从而将该<code>EnumMap</code>和指定枚举类关联起来。如果不理解可以参考一下<code>EnumSet</code>集合，类似的。</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">enum</span> Names<span class="token punctuation">{</span>Jason<span class="token punctuation">,</span>Toray<span class="token punctuation">,</span>Massa<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EnumTest</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        EnumMap e <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EnumMap</span><span class="token punctuation">(</span>Names<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        e<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>Names<span class="token punctuation">.</span>Jason<span class="token punctuation">,</span><span class="token string">"就欧森"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        e<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>Names<span class="token punctuation">.</span>Toray<span class="token punctuation">,</span><span class="token string">"陀螺仪"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出为：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token punctuation">{</span>Jason<span class="token operator">=</span>就欧森<span class="token punctuation">,</span>Toray<span class="token operator">=</span>陀螺仪<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="各Map实现类性能分析"><a href="#各Map实现类性能分析" class="headerlink" title="各Map实现类性能分析"></a>各Map实现类性能分析</h4><p>在讲解Map集合类的过程中，经常性的提到对象之间的比较，<code>value</code>之间的比较及它们的标准；如果是有排序功能的集合，则还会提到实现<code>Comparable</code>接口，或者传入<code>Comparator</code>对象进行排序；而且还会提到是否能保存<code>null</code>值，或能不能把它作为<code>key</code>，<code>value</code>等。</p>
+<p>提到性能，最主要还是集中在<code>HashMap</code>,<code>Hashtable</code>,<code>TreeSet</code>,<code>TreeMap</code>,<code>LinkedHashSet</code>,<code>LinkedHashMap</code>等Map集合类的分析·。然而在分析的时候并不是太难纠结，由于要维护了啥，所以性能略低；由于实现了啥，所以性能有所下降等。在使用<code>TreeMap</code>时有一个好处，key-value总是处于有序状态，无需专门排序，在被添入键值对后，就可以使用<code>KeySet()</code>方法取得<code>key</code>所组成的Set，然后就可以直接使用<code>toArray()</code>方法生成key的数组，接下来使用<code>binarySearch()</code>方法可以在以排序的数组中二分查找对象。EnumMap性能最好，但它只能使用同一个枚举类的枚举值作为key。</p>
+<h4 id="哈希表的存储"><a href="#哈希表的存储" class="headerlink" title="哈希表的存储"></a>哈希表的存储</h4><p>哈希表里可以储存元素的位置称为桶<code>bucket</code>，通常一个桶存放一个元素，此时有最好的性能。哈希算法根据哈希值计算出桶的位置，继而从中取出元素。但发生哈希冲突的时候，一个桶会储存多个元素，这些元素会以链表的形式储存，查找时按顺序搜索，由于<code>HashMap</code>,<code>Hashtable</code>,<code>HashSet</code>都使用哈希算法来决定元素的存储，所以其哈希表包含如下属性：</p>
+<ul>
+<li>容量<code>capacity</code>：哈希表中桶的数量</li>
+<li>初始化容量<code>initial capacity</code>：创建哈希表时桶的数量。<code>HashMap</code>和<code>HashSet</code>都允许在构造器中指定初始化容量。</li>
+<li>尺寸<code>size</code>：当前哈希表的元素数量</li>
+<li>负载因子<code>load factor</code>：其等于<code>size/capacity</code>大小，若为0则表示空，0.5表示半满哈希表。</li>
+</ul>
+<p>另外哈希表还有一个<code>负载极限</code>，它是一个0~1的数，决定了哈希表的最大填满程度。当负载因子到达负载极限时，哈希表会自动成倍增加容量，也就是桶的数量，将原有对象重新分配放入桶内(rehashing)。<code>HashSet</code>,<code>HashMap</code>,<code>Hashtable</code>允许在构造器指定一个负载极限，默认为<code>0.75</code>,这表明<code>负载因子</code>当达到0.75的时候，哈希表会重新分配。</p>
+<p>那为啥是<code>0.75</code>呢？其实都是一种取舍后的办法，要时间还是要空间？哈希表是用来查询的，较高的<code>负载极限</code>可以降低内存开销，然而却增加查询数据时间开销；较低的<code>负载极限</code>可以降低时间开销，却增加的内存的开销。如果已经知道要保存大量数据，创建时指定较大的初始化容量就行了，从而可以避免<code>rehashing</code>。</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.maliaoblog.cn" rel="external nofollow noreferrer">流浪舟</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.maliaoblog.cn/2020/1011/">https://www.maliaoblog.cn/2020/1011/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://www.maliaoblog.cn" target="_blank">流浪舟</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E9%9B%86%E5%90%88/">
+                                    <span class="chip bg-color">集合</span>
+                                </a>
+                            
+                                <a href="/tags/Map%E9%9B%86%E5%90%88/">
+                                    <span class="chip bg-color">Map集合</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">我会被你感动的！</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("https://image.bestzuo.cn/images/20200708160947.gif") 100% 100% no-repeat;
+		background-size: contain;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<!-- <script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/valine/Valine.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.2.0/dist/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'NbFrnTkDX0BC9Am9fhIHo83I-MdYXbMMI',
+        appKey: 'bEFSJUTKxXbQbaMtAf0jgJBM',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'wavatar',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '留下足迹',
+        serverURLs: 'https://nbfrntkd.api.lncldglobal.com'
+    });
+</script>
+
+    
+	
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/1012/">
+                    <div class="card-image">
+                        
+                        <img src="https://s1.ax1x.com/2020/11/08/BohHGF.png" class="responsive-img" alt="Java工具类">
+                        
+                        <span class="card-title">Java工具类</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+公众号：菜鸡干Java
+
+排序操作Collections提供了如下方法用于对List集合排序：
+
+void reverse(List list)：反转顺序
+void shuffle(List list)：随机排序
+void sort(Li
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9B%86%E5%90%88/">
+                        <span class="chip bg-color">集合</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/">
+                        <span class="chip bg-color">工具类</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/1009/">
+                    <div class="card-image">
+                        
+                        <img src="https://s1.ax1x.com/2020/11/08/BoWOW4.jpg" class="responsive-img" alt="Java集合(三)-List和Queue集合">
+                        
+                        <span class="card-title">Java集合(三)-List和Queue集合</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+公众号： 菜鸡干Java  欢迎关注
+
+Java集合—List集合与Set集合不同，List集合是有序，可重复的，而且默认以添加顺序设置索引。List子接口是继承了Collection接口，则可以使用其中的方法。
+特别的是List增加了根
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/List/">
+                        <span class="chip bg-color">List</span>
+                    </a>
+                    
+                    <a href="/tags/Queue/">
+                        <span class="chip bg-color">Queue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('100')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 流浪舟<br />'
+            + '文章作者: WB<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4, h5, h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4, h5, h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #285294;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="7660234225"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#285294'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="https://www.maliaoblog.cn" target="_blank">WB</a>
+            |&nbsp;Powered by&nbsp;<a>hexo</a>
+            |&nbsp;E-Mail&nbsp;<a>admin@mail.maliaoblog.cn | 赣</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">71.6k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "3";
+                    var startDate = "25";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已走过漫长的" + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒时光";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/coderxm" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</body>
+
+</html>
