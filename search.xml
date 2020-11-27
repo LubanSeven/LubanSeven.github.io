@@ -290,9 +290,9 @@
       
         <tags>
             
-            <tag> 集合类 </tag>
-            
             <tag> 接口 </tag>
+            
+            <tag> 集合类 </tag>
             
             <tag> 遍历集合 </tag>
             
@@ -433,13 +433,13 @@
       
         <tags>
             
-            <tag> 接口 </tag>
-            
             <tag> Java异常 </tag>
             
             <tag> 多态 </tag>
             
             <tag> 抽象 </tag>
+            
+            <tag> 接口 </tag>
             
         </tags>
       
@@ -946,9 +946,9 @@
       
         <tags>
             
-            <tag> c </tag>
-            
             <tag> 疫情 </tag>
+            
+            <tag> c </tag>
             
         </tags>
       
