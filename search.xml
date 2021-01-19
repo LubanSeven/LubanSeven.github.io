@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Java多线程(一)-线程的创建</title>
+      <link href="/2021/0119/"/>
+      <url>/2021/0119/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Java多线程-一-线程的介绍和创建"><a href="#Java多线程-一-线程的介绍和创建" class="headerlink" title="Java多线程(一)-线程的介绍和创建"></a>Java多线程(一)-线程的介绍和创建</h4><h5 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h5><p>当一个程序进入内存运行，就变成一个进程，<code>进程是系统进行资源分配和调度的最小单位</code>，具有独立性，动态性和并发性。这里需要说明一点：并发性(concurrency)和并行性(parallel)两个概念，并发是指同一时间只能有一个指令被执行，多个进程指令被快速轮换执行；并行指多条执行同时在多个处理器上被执行。</p><p>多线程指一个进程同时并发处理多个任务，线程是进程的执行单元。进程被初始化后，主线程就被创建，同时还可以创建多个顺序执行流，这些执行流就是线程，线程之间相互独立。线程可以拥有堆栈，变量等，与其他线程共享该进程所有的资源，线程的调度管理由进程本身来完成。</p><h5 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h5><p>线程有五种状态，新建，就绪，运行，阻塞，死亡五种。</p><h6 id="新建和就绪"><a href="#新建和就绪" class="headerlink" title="新建和就绪"></a>新建和就绪</h6><p>使用<code>new</code>创建一个线程后，线程处于新建状态，和对象一样由虚拟机分配内存，并初始化成员变量的值。当调用了<code>start()</code>方法后，线程处于就绪状态，虚拟机为其创建方法调用栈和程序计数器，然而线程并没有开始运行，何时运行则取决于JVM的线程调度器的调度。</p><p>如果不调用<code>start()</code>方法，而是直接执行<code>run()</code>方法，则其他线程无法并发执行，相当于执行了一个普通方法，而不是线程执行体。对于新建状态的线程，只能调用<code>start()</code>方法。</p><h6 id="运行和阻塞"><a href="#运行和阻塞" class="headerlink" title="运行和阻塞"></a>运行和阻塞</h6><p>当一个线程获得CPU资源时，开始执行<code>run()</code>的线程执行体，它不可能一直处于运行状态，需要被中断让其它线程获得执行机会。线程的调度取决于底层平台所采用的策略，如抢占式策略，系统给每个线程一小段时间处理任务，之后会剥夺资源给其他线程，在选择线程时，系统会考虑线程的优先级。</p><p>当线程主动放弃了所占用的资源时，会进入阻塞状态，一般有如下情况：</p><ul><li>调用了<code>sleep()</code>主动放弃</li><li>线程调用了阻塞式IO方法，该方法返回前被阻塞</li><li>试图获得一个被其他线程拥有的同步监视器</li><li>等待通知</li><li>程序调用<code>suspend()</code>方法挂起线程(容易导致死锁)</li></ul><p>被阻塞后需要重新进入就绪状态，等待线程调度器的调用。当发生以下情况线程可重新进入就绪状态：</p><ul><li><code>sleep()</code>方法结束</li><li>阻塞式的IO方法已返回</li><li>成功获得同步监视器</li><li>等待通知时，收到其他线程的通知</li><li>被挂起后调用了<code>resume()</code>方法恢复</li></ul><p>线程进入阻塞后只能回到就绪状态，而就绪和运行状态的转换不受程序控制，由线程调度决定。</p><h6 id="线程死亡"><a href="#线程死亡" class="headerlink" title="线程死亡"></a>线程死亡</h6><p>线程会以三种方式结束：</p><ul><li>run方法或call方法执行完成</li><li>线程抛出未捕获的异常或错误</li><li>调用线程的<code>stop()</code>结束(会产生死锁)</li></ul><p>注意，主线程结束即死亡后，其他线程不受影响，它们和主线程有同样地位。要测线程死没死，可以调用线程的<code>isAlive()</code>方法，当处于<code>就绪</code>，<code>运行</code>,<code>阻塞</code>状态时，返回<code>true</code>；否则返回<code>false</code>，新建也不例外。当线程死亡后就回不来了，不能重新启动。</p><h5 id="创建线程三种方法"><a href="#创建线程三种方法" class="headerlink" title="创建线程三种方法"></a>创建线程三种方法</h5><p>线程对象必须是Thread类或其子类的实例。</p><h6 id="通过继承Thread类创建"><a href="#通过继承Thread类创建" class="headerlink" title="通过继承Thread类创建"></a>通过继承Thread类创建</h6><ol><li>定义子类，重写run方法。run方法体就代表线程需要完成的任务，也叫线程执行体。</li><li>创建Thread子类的实例，即创建了线程对象。</li><li>调用对象的<code>start()</code>方法启动。</li></ol><p>注意，程序至少创建一个主线程，其线程执行体不是run方法，而是<code>main()</code>方法。</p><p>有三个方法需要介绍：</p><ul><li><code>Thread.currentThread()</code>：Thread类的静态方法，返回正在执行的线程对象</li><li><code>getName()</code>：Thread类的实例方法，可返回线程对象的名字。</li><li><code>setName(String name)</code>：设置线程的名字。</li></ul><h6 id="通过Runnable接口创建"><a href="#通过Runnable接口创建" class="headerlink" title="通过Runnable接口创建"></a>通过<code>Runnable</code>接口创建</h6><ol><li>定义Runnable接口的实现类，并重写该接口的run方法。</li><li>创建实现类的实例，以该实例来创建线程对象。</li><li>调用<code>start()</code>方法。</li></ol><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//MyThread为实现Runnable接口的类</span>MyThread t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span><span class="token string">"runnable实现的线程"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>实现类的run方法仅作为线程执行体，线程对象则负责执行run方法。通过实现<code>Runable</code>接口，在run方法中获得线程对象，则必须使用<code>Thread.currentThread()</code>方法，而通过继承方法的线程类，直接使用this即可获得线程对象。</p><h6 id="使用Callable和Future创建"><a href="#使用Callable和Future创建" class="headerlink" title="使用Callable和Future创建"></a>使用<code>Callable</code>和<code>Future</code>创建</h6><p>Java5开始提供了一个<code>Callable</code>函数式接口，接口提供了一个<code>call()</code>方法作为线程执行体，它不像run方法，call方法有返回值，而且可以声明抛出异常。然而<code>Callable</code>接口不是<code>Runnable</code>的子接口，所以不能用来直接创建线程对象。</p><p><code>Future</code>接口代表<code>Callable</code>接口里call方法的返回值，Java为Future接口提供了<code>FutureTask</code>实现类，该类实现了<code>Future</code>接口，还实现了<code>Runnable</code>接口，可以用来创建new线程对象，接口里有几个公共方法来控制它关联的<code>Callable</code>任务。比如<code>V get()</code>方法，返回Callable任务里call方法的返回值，该方法将导致阻塞，等线程结束才返回。</p><ol><li>创建<code>Callable</code>实现类，并实现call方法，再创建实现类的实例，该call方法将作为线程执行体。</li><li>使用<code>FutureTask</code>类包装Callable对象。</li><li>使用<code>FutureTask</code>对象作为target，创建线程对象。</li><li>调用<code>FutureTask</code>对象的get方法获得子线程执行完后的返回值。</li></ol><p>使用Lambda表达式直接创建<code>Callable</code>对象，无需先创建实现类，再创建<code>Callable</code>对象。</p><h5 id="三种方式的对比"><a href="#三种方式的对比" class="headerlink" title="三种方式的对比"></a>三种方式的对比</h5><p>线程类继承了Thread类，不能再继承其他父类，并且不能共享实例变量，但访问当前线程简单；而通过接口的方式可以共享实例变量，还可以继承其他类，但是比较繁琐，访问当前线程对象需要使用<code>Thread.currentThread()</code>。以上就是线程的简单介绍和创建，希望有所帮助！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 多线程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java-IO流(三)-NIO</title>
       <link href="/2021/0114/"/>
       <url>/2021/0114/</url>
@@ -74,9 +99,9 @@
       
         <tags>
             
-            <tag> IO流 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> IO流 </tag>
             
         </tags>
       
@@ -317,9 +342,9 @@
       
         <tags>
             
-            <tag> 集合类 </tag>
-            
             <tag> 接口 </tag>
+            
+            <tag> 集合类 </tag>
             
             <tag> 遍历集合 </tag>
             
@@ -460,13 +485,13 @@
       
         <tags>
             
-            <tag> 接口 </tag>
-            
             <tag> Java异常 </tag>
             
             <tag> 多态 </tag>
             
             <tag> 抽象 </tag>
+            
+            <tag> 接口 </tag>
             
         </tags>
       
