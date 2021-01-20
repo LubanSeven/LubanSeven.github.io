@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Java多线程(二)-控制线程</title>
+      <link href="/2021/0120/"/>
+      <url>/2021/0120/</url>
+      
+        <content type="html"><![CDATA[<p>Java线程<code>Thread</code>提供一些工具方便控制线程的执行。</p><h5 id="join线程"><a href="#join线程" class="headerlink" title="join线程"></a>join线程</h5><p>Thread提供了让一个线程等待另一个线程完成的方法——join()方法，当程序调用线程的join()方法时，调用线程(比如主线程)将被阻塞，直到被join()方法加入的join线程执行完为止。</p><pre class="line-numbers language-java"><code class="language-java">JoinThread jt <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JoinThread</span><span class="token punctuation">(</span><span class="token string">"被join的线程"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>jt<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//main线程调用了子线程jt的join方法</span>jt<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//jt线程结束，主线程才会执行</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><code>join()</code>方法有三种形式：</p><ul><li><code>join()</code>：等待join的线程执行完成</li><li><code>join(long millis)</code>：等待最长<code>millis</code>毫秒时间，若join了的线程还没结束，不再等待。</li><li><code>join(long millis,int nanos)</code>：等待最长<code>millis</code>毫秒加<code>nanos</code>毫微秒时间。</li></ul><h5 id="后台线程"><a href="#后台线程" class="headerlink" title="后台线程"></a>后台线程</h5><p>顾名思义，在后台运行的线程，为其他线程提供服务，又称<code>守护线程</code>，例如JVM垃圾回收线程。如果前台的线程全部死亡，后台线程也就没有存在的必要了。</p><p>调用线程对象的<code>setDaemon(true)</code>方法可以将指定线程设置为后台线程，<code>Thread</code>类还提供了一个<code>isDaemon()</code>方法，用于判断线程是否为后台线程。主线程默认是前台线程，那子线程默认也是前台线程，后台线程创建的子线程默认是后台线程。需要注意的是，将一个线程设置为后台线程，要在线程启动前设置。</p><pre class="line-numbers language-java"><code class="language-java">DaemonThread t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DaemonThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>t<span class="token punctuation">.</span><span class="token function">setDaemon</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>t<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h5 id="线程睡眠Sleep"><a href="#线程睡眠Sleep" class="headerlink" title="线程睡眠Sleep"></a>线程睡眠Sleep</h5><p>再多线程(一)里已经提到过线程的sleep会让线程进入<code>阻塞</code>状态，线程的<code>sleep()</code>方法是Thread类的<code>静态方法</code>，它有两种重载形式：</p><ul><li><code>static void sleep(long millis)</code>：让当前线程暂停<code>millis</code>毫秒进入阻塞状态，会受系统精度的影响。</li><li><code>static void sleep(long millis,long nanos)</code>：暂停<code>millis</code>毫秒加<code>nanos</code>毫微秒进入阻塞，同样受精度影响。</li></ul><p>无论有没有其他线程，调用<code>sleep</code>方法的线程都不能得到执行。</p><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SleepTest</span><span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception<span class="token punctuation">{</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"当前时间："</span><span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//暂停1秒</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h5 id="线程让步Yield"><a href="#线程让步Yield" class="headerlink" title="线程让步Yield"></a>线程让步Yield</h5><p>与<code>sleep()</code>类似的是，线程<code>yield()</code>也是该类的静态方法，但是不同的是它不会阻塞线程，而是让线程进入<code>就绪</code>状态，等待线程调度器的重新调度(有可能下一次被重新调用)。当调用了<code>yield()</code>方法暂停后，只有优先级与当前线程相同或更高的处于就绪状态的线程才会获得执行机会，而<code>sleep()</code>方法不是，暂停之后不会理会其他线程的优先级。</p><p><code>sleep</code>方法声明抛出了<code>InterruptedException</code>异常，所以调用<code>sleep</code>方法时要么捕获该异常，要么显式声明抛出异常；而<code>yield</code>方法没有声明抛出任何异常。</p><h5 id="设置线程优先级"><a href="#设置线程优先级" class="headerlink" title="设置线程优先级"></a>设置线程优先级</h5><p>线程执行时都具有一定优先级，优先级高的获得较多执行机会。每个线程的优先级与创建它的父线程优先级相同，默认下<code>main</code>线程具有普通优先级，其子线程也具有普通优先级。</p><p><code>Thread</code>类提供了<code>setPriority(int priority)</code>、<code>getPriority()</code>方法来设置和获取线程的优先级，其中<code>setPriority()</code>中的参数可以说1~10的整数，也可以是三个静态常量：</p><ul><li><code>MAX_PRIORITY</code>：10</li><li><code>MIN_PRIORITY</code>：1</li><li><code>NORM_PRIORITY</code>：5</li></ul><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>    Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setPriority</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    MyThread low <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    low<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    low<span class="token punctuation">.</span><span class="token function">setPriority</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span>MIN_PRORITY<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>需要说明的事，不同系统的优先级范围并不一样，不一定是1~10，所以应该尽量使用静态常量进行设置。</p><blockquote><p>公众号：菜鸡干Java</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 多线程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java多线程(一)-线程的创建</title>
       <link href="/2021/0119/"/>
       <url>/2021/0119/</url>
@@ -99,9 +126,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> IO流 </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -998,9 +1025,9 @@
       
         <tags>
             
-            <tag> c </tag>
-            
             <tag> 疫情 </tag>
+            
+            <tag> c </tag>
             
         </tags>
       
