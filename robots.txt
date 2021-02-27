@@ -20,5 +20,5 @@ Disallow: /lib/
 
 
 #sitemap
-Sitemap: http://last.maliaoblog.cn/sitemap.xml
-Sitemap: http://last.maliaoblog.cn/baidusitemap.xml
+Sitemap: http://maliaoblog.cn/sitemap.xml
+Sitemap: http://maliaoblog.cn/baidusitemap.xml
