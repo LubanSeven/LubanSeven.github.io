@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Java-IO(二)输入输出流体系, 江南骚年,流浪舟,coderxm,maliaoblog,WB,骚年博客">
+    <meta name="keywords" content="博客">
     <meta name="description" content="一个不平凡的菜鸡">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java-IO(二)输入输出流体系 | 江南骚年</title>
+    <title>在服务器上安装halo博客 | 江南骚年</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/libs/awesome/css/all.css">
@@ -271,12 +271,12 @@ WIDGET = {FID: 'hxqMR0uSsX'}
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/11/08/BoI6PK.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java-IO(二)输入输出流体系</h1>
+                    <h1 class="description center-align post-title">在服务器上安装halo博客</h1>
                 </div>
             </div>
         </div>
@@ -401,12 +401,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
-                            </a>
-                        
-                            <a href="/tags/IO%E6%B5%81%E4%BD%93%E7%B3%BB/">
-                                <span class="chip bg-color">IO流体系</span>
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                <span class="chip bg-color">博客</span>
                             </a>
                         
                     </div>
@@ -417,8 +413,8 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/java/" class="post-category">
-                                java
+                            <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="post-category">
+                                碎碎念
                             </a>
                         
                     </div>
@@ -430,7 +426,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-04
+                    2021-02-28
                 </div>
                 
 
@@ -439,7 +435,7 @@ WIDGET = {FID: 'hxqMR0uSsX'}
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.4k
                 </div>
                 
 
@@ -462,117 +458,31 @@ WIDGET = {FID: 'hxqMR0uSsX'}
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="输入输出流体系"><a href="#输入输出流体系" class="headerlink" title="输入输出流体系"></a>输入输出流体系</h4><h4 id="处理流的用法"><a href="#处理流的用法" class="headerlink" title="处理流的用法"></a>处理流的用法</h4><p>使用处理流来包装节点流，程序通过处理流来执行输入输出，让节点流与底层I/O设备、文件交互。如通过<code>PrintStream</code>处理流来包装<code>OutputStream</code>，使用处理流后的输出流更加方便。</p>
-<p>输入输出流体系提供了近40个类，常用的类分成如下：</p>
-<table>
-<thead>
-<tr>
-<th>分类</th>
-<th>字节输入流</th>
-<th>字节输出流</th>
-<th>字符输入流</th>
-<th>字符输出流</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>对象流</td>
-<td><code>ObjectInputStream</code></td>
-<td><code>ObjectOutputStream</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>抽象基类</td>
-<td><code>FilterInputStream</code></td>
-<td><code>FilterOutputStream</code></td>
-<td><code>FilterReader</code></td>
-<td><code>FilterWriter</code></td>
-</tr>
-<tr>
-<td>抽象基类</td>
-<td><code>IuputStream</code></td>
-<td><code>OutputStream</code></td>
-<td><code>Reader</code></td>
-<td><code>Writer</code></td>
-</tr>
-<tr>
-<td>访问文件</td>
-<td><code>FileInputStream</code></td>
-<td><code>FileOutputStream</code></td>
-<td><code>FileReader</code></td>
-<td><code>FileWriter</code></td>
-</tr>
-<tr>
-<td>访问数组</td>
-<td><code>ByteArrayInputStream</code></td>
-<td><code>ByteArrayOutputStream</code></td>
-<td><code>CharArrayReader</code></td>
-<td><code>CharArrayWriter</code></td>
-</tr>
-<tr>
-<td>访问管道</td>
-<td><code>PipedInputStream</code></td>
-<td><code>PipedOutputStream</code></td>
-<td><code>PipedReader</code></td>
-<td><code>PipedWriter</code></td>
-</tr>
-<tr>
-<td>访问字符串</td>
-<td></td>
-<td></td>
-<td><code>StringReader</code></td>
-<td><code>StringWriter</code></td>
-</tr>
-<tr>
-<td>缓冲流</td>
-<td><code>BufferedInputStream</code></td>
-<td><code>BufferedOutputStream</code></td>
-<td><code>BufferedReader</code></td>
-<td><code>BufferedWriter</code></td>
-</tr>
-</tbody></table>
-<p>通常字节流的功能更加强大，因为计算机的数据都是二进制的，而字节流可以处理所有二进制文件；如果要处理文本文件，则应该考虑使用字符流处理。另外还有一些不在<code>java.io</code>包下的字节流，它们具有特殊的功能。表中有四个访问管道的IO流，它们用于实现进程间的通信。四个缓冲流增加了缓冲功能，提高输入输出效率，同时需要使用<code>flush()</code>才能将缓冲区内容写入<code>IO节点</code>。对象流用于实现对象的序列化。</p>
-<h4 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h4><p>有两个转换流用于实现字节流转换成字符流，其中<code>InputStreamReader</code>将字节输入流转换成字符输入流，<code>OutputStreamWriter</code>将字节输出流转换成字符输出流。Java使用<code>System.in</code>代表标准输入，它是<code>InputStream</code>类的实例，使用不是很方便，所以用<code>InputStreamReader</code>将其转换成字符输入流；再者，普通的<code>Reader</code>读取输入输入内容不方便，可以将<code>Reader</code>包装成<code>BufferedReader</code>，利用<code>readLine()</code>方法一次读取一行内容。</p>
-<pre class="line-numbers language-java"><code class="language-java">InputStreamReader reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">InputStreamReader</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
-BufferedReader br <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span>reader<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="推回输入流"><a href="#推回输入流" class="headerlink" title="推回输入流"></a>推回输入流</h4><p>在IO流体系中有两个流比较特殊，<code>PushbackInputStream</code>和<code>PushbackReader</code>,它们都提供如下三个方法：</p>
-<ul>
-<li><code>voidunread(byte[]/char[] buf)</code>：将一个字节/字符数组内容推入缓冲区，从而能重复读取刚刚读取的内容。</li>
-<li><code>void unread(byte[]/char[] b,int off,int len)</code>：将一个字节/字符数组里从off开始，长度为<code>len</code>字节/字符内容推入缓冲区，从而允许重复读取。</li>
-<li><code>void unread(int b)</code>：将一个字节/字符推入缓冲区，从而允许重复读取。</li>
-</ul>
-<p>这三个方法与<code>InputStream</code>和<code>Reader</code>中的三个方法相对应，它们各有一个推回缓冲区，当调用<code>unread()</code>方法时，系统会把指定数组内容推回缓冲区，并且每次调用<code>read()</code>方法时总是从推回缓冲区读取。当完全读取<code>缓冲区内容</code>后，但还没有装满<code>read()</code>的存放数组时才会从输入流中读取。当创建<code>PushbackInputStream</code>和<code>PushbackReader</code>时需要指定缓冲区大小，而默认大小为1。如果超出大小将会引发IO异常。</p>
-<h4 id="重定向输入输出"><a href="#重定向输入输出" class="headerlink" title="重定向输入输出"></a>重定向输入输出</h4><p>Java的标准输入/输出分别通过<code>System.in</code>和<code>System.out</code>代表，获取输入和输出，输出是输出到屏幕上。在<code>System</code>类下有如下三个重定向的方法：</p>
-<ul>
-<li><code>static void setErr(PrintStream err)</code>：重定向标准错误输出流。</li>
-<li><code>static void setIn(InputStream in)</code>：重定向标准输入流。</li>
-<li><code>static void setOut(PrintStream out)</code>：重定向标准输出流。</li>
-</ul>
-<pre class="line-numbers language-java"><code class="language-java">PrintStream p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PrintStream</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"out.txt"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-System<span class="token punctuation">.</span><span class="token function">setOut</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>以上代码重定向输出流到一个文本文件中，所以输出时将不会输出到屏幕上，而到了文件中。同样也可以重定向输入，指定从文件输入。</p>
-<h4 id="Java虚拟机读写进程数据"><a href="#Java虚拟机读写进程数据" class="headerlink" title="Java虚拟机读写进程数据"></a>Java虚拟机读写进程数据</h4><p>使用<code>Runtime</code>对象的<code>exec()</code>方法可以运行其他程序，该方法产生一个<code>Process</code>对象，代表程序启动的子进程。<code>Process</code>类提供了如下三个方法，用于让程序和其子进程进行通信。</p>
-<ul>
-<li><code>InputStream getErrorStream()</code>：获取子进程的错误流。</li>
-<li><code>InputStream getInputStream()</code>：获取子进程的输入流。</li>
-<li><code>OutputStream getOutputStream()</code>：获取子进程的输出流。</li>
-</ul>
-<p>需要注意的是，此处的输入输出流应该站在程序的角度上理解，让子进程读取程序中的数据，要用输出流而不是输出流，相当于子进程代替了文件节点一样。</p>
-<h4 id="RandomAccessFile文件随机访问类"><a href="#RandomAccessFile文件随机访问类" class="headerlink" title="RandomAccessFile文件随机访问类"></a><code>RandomAccessFile</code>文件随机访问类</h4><p>与普通的输入输出流不同，<code>RandomAccessFile</code>支持随机任意访问，程序可以直接跳到文件任意地方来读写文件。它允许自由定位文件记录指针，<code>RandomAccessFile</code>可以不从开始地方输出，所以可以在后面追加内容。同时，需要注意的是该类不能读写其他IO流节点，只能读写文件。每一个对象包含一个记录指针，用以标识当前读写处位置。</p>
-<ul>
-<li><code>long getFilePointer()</code>：返回文件记录指针的位置。</li>
-<li><code>void seek(long pos)</code>：将文件记录指针定位到<code>pos</code>位置。</li>
-</ul>
-<p><code>RandomAccessFile</code>包含类似于<code>InputStream</code>的三个<code>read()</code>方法，用法和其他<code>read()</code>方法完全一样，同样也包含类似的<code>write()</code>方法。该类有两个构造器，只是形参不同，一个是使用<code>String</code>参数指定文件名，另一个是使用<code>File</code>参数指定文件名。此外，还需要指定一个<code>mode</code>访问模式参数。</p>
-<ul>
-<li><code>r</code>：只读打开文件。</li>
-<li><code>rw</code>：读写方式打开文件，若不存在则创建文件。</li>
-<li><code>rws</code>：读写方式打开，文件和元数据的更新都同步写入底层储存设备。</li>
-<li><code>rwd</code>：读写方式打开。文件更新都同步写入底层设备。</li>
-</ul>
-<blockquote>
-<p><code>RandomAccessFile</code>依然不能向指定位置插入内容，如果移动文件指针到中间位置，则新输出的会覆盖文件中原有的内容。如果先把插入点后面的内容读入缓冲区，等新内容写入后再把缓冲区内容追加到后面便可实现。</p>
-</blockquote>
+                <h4 id="博客部署"><a href="#博客部署" class="headerlink" title="博客部署"></a>博客部署</h4><p>本来是想弄<code>Coding</code>实现和<code>Github</code>双部署博客的，所以<code>www</code>的域名停止访问，可是最后<code>Coding</code>也没能部署完成，关键就是<code>Page</code>之后的仓库域名不符合条件，最后项目也署失败，所以干脆直接放弃了，索性弄一个动态的。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210301181502657.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="coding">)<img src="https://img-blog.csdnimg.cn/20210301181521291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="bushu"><br>买了一台1核1G的云服务器，不是在阿里云买的，比较便宜些，也没便宜多少，就十几块钱吧，如果在阿里云开发者计划上购买能续费三年，主要是只买了一年的，以后续费就不好续了，优惠价买的，原价贵的要死，只能说上个云太难了。装了个CentOS系统镜像，起初准备搭建一个PHP博客，原因是<code>handsome</code>主题十分美观简洁，但是要付费(建议购买正版，有配套服务，我没钱所以用盗版)，选好了后台用的<code>typecho</code>，前端主题准备用<code>handsome(盗版)</code>。等到安装好<code>LAMP</code>之后，发现这个博客后台框架并不咋滴，虽然有很多人用，本身硬件就不行，运行起来特别慢，要下载好多插件，还要动手改源码，对于一个不懂<code>php</code>的新手来说很不友好。过了几天直接换成<code>halo</code>框架，操作很简单，如果选择这种的，根本不需要安装<code>LAMP</code>，<code>halo</code>是一个Java动态开源的博客项目，所以直接到官网下载一个项目<code>JAR</code>包就行，放到服务器上，只需要配置好Java环境，一道<code>nohup java -jar halo-1.4.2.jar &amp;</code>命令就运行起来了，速度快，  特别方便！而且<code>halo</code>的后台页面比较美观，功能齐全，不像<code>typecho</code>还要弄一个插件美化一下，一个有几十<code>KB</code>的，有几十<code>M</code>的，明显增加了服务器运行负担。</p>
+<h4 id="备案"><a href="#备案" class="headerlink" title="备案"></a>备案</h4><p>另外服务器在<code>ICP备案</code>之后才能进行域名解析，一般要十天左右完成！所以买了服务器和域名就尽早备案，别耽误博客上线时间。可以把博客放到服务器上运行，之后就是安装博客，和前端博客的美化，<code>halo</code>主题有不少，可以到主题仓库挑选，下载压缩包或者远程拉取都行。</p>
+<h4 id="handsome主题"><a href="#handsome主题" class="headerlink" title="handsome主题"></a>handsome主题</h4><p>如果你选择安装<code>typecho</code>购买<code>handsome</code>主题的话，建议直接让他给你买好服务器安装好，一条龙服务嘛，毕竟花了钱的！但如果你只是买主题的话，安装操作会比较麻烦一点，首先配置好环境，需要<code>LAMP</code>或者<code>LNMP</code>，反正<code>Mysql</code>和<code>php</code>是一定要安装的，<code>Php</code>和<code>Mysql</code>服务要一直开启，若遇到<code>yum</code>没用相应的安装包，安装包版本低的情况，可以更换<code>yum</code>包管理器的安装源。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">cd /etc/yum.repos.d/ # 进入yum源配置文件夹,根据centos版本下载对应的新源
+# 如果wget命令不生效，说明还没有安装wget工具
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 
+curl -O http://mirrors.aliyun.com/repo/Centos-7.repo 
+yum clean all #清除缓存
+yum makecache #生成缓存，会把新下载CentOS-Base.repo源生效
+yum -y update #更新<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>很多软件包在yum官方源里面没有的，也可以使用epel源,也就是安装epel-release软件包。EPEL (Extra Packages for Enterprise  Linux)是基于Fedora的一个项目，为“红帽系”的操作系统提供额外的软件包，适用于RHEL、CentOS等系统。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">yum install epel-release #安装epel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="Mysql注意事项"><a href="#Mysql注意事项" class="headerlink" title="Mysql注意事项"></a>Mysql注意事项</h4><p>在安装<code>Mysql</code>时，注意CentOS7放弃了<code>MySQL</code>，而改使用MariaDB，MariaDB数据库管理系统是<code>MySQL</code>的一个分支，主要由开源社区在维护 。开发这个分支的原因之一是甲骨文公司收购了<code>MySQL</code>后，有将<code>MySQL</code>闭源的潜在风险， 因此社区采用分支的方式来避开这个风险。MariaDB的目的是完全兼容<code>MySQL</code>，包括API和命令行，使之可以成为<code>MySQL</code>的代替品。 在存储引擎上，从10.0.9版起使用<code>XtraDB</code>来代替<code>MySQL</code>的<code>InnoDB</code>。 MariaDB由<code>MySQL</code>的创始人麦克尔主导开发，他早前曾将自己创建的公司MySQL AB卖给了SUN公司，此后，随着SUN被甲骨文收购。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">yum list | grep mariadb #查看yum源中mariadb安装包列表
+yum install mariadb-5.5.56-2.el7.x86_64 #安装相应版本
+rpm -qa | grep MariaDB  #查看mariadb安装包
+systemctl enable mysqld #开机启动mysql服务
+systemctl start mysqld.service #开启服务(systemctl status查看服务)
+#然后创建typecho博客需要的数据库typecho(默认)和用户名、密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h4><p>由于<code>halo</code>项目的默认端口为<code>8090</code>，所以需要进行服务器端口的映射，不然访问不到，将<code>80</code>端口映射到<code>8090</code>，如下：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8090 #映射端口80到8090
+iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 8090 #映射端口443到8090
+service iptables restart #重启防火墙<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>备案之后可以进行域名解析就完事了，通过域名能访问就正常。 另外你也可以深入了解一下<code>halo</code>框架的具体实现，学习学习，确实是一个不错的Java项目。 另外你也可以深入了解一下<code>halo</code>框架的具体实现，学习学习，确实是一个不错的Java项目。</p>
 
             </div>
             <hr/>
@@ -598,7 +508,7 @@ System<span class="token punctuation">.</span><span class="token function">setOu
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://maliaoblog.cn/2020/1104/">https://maliaoblog.cn/2020/1104/</a>
+                    <a href="https://maliaoblog.cn/2021/0228/">https://maliaoblog.cn/2021/0228/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -636,12 +546,8 @@ System<span class="token punctuation">.</span><span class="token function">setOu
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
-                                </a>
-                            
-                                <a href="/tags/IO%E6%B5%81%E4%BD%93%E7%B3%BB/">
-                                    <span class="chip bg-color">IO流体系</span>
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                                    <span class="chip bg-color">博客</span>
                                 </a>
                             
                         </div>
@@ -1076,46 +982,49 @@ System<span class="token punctuation">.</span><span class="token function">setOu
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/0119/">
+                <a href="/2021/0228/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="Java多线程(一)-线程的创建">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="在服务器上安装halo博客">
                         
-                        <span class="card-title">Java多线程(一)-线程的创建</span>
+                        <span class="card-title">在服务器上安装halo博客</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java多线程(一)-线程的介绍和创建进程和线程的区别当一个程序进入内存运行，就变成一个进程，进程是系统进行资源分配和调度的最小单位，具有独立性，动态性和并发性。这里需要说明一点：并发性(concurrency)和并行性(parallel)
+                            博客部署本来是想弄Coding实现和Github双部署博客的，所以www的域名停止访问，可是最后Coding也没能部署完成，关键就是Page之后的仓库域名不符合条件，最后项目也署失败，所以干脆直接放弃了，索性弄一个动态的。
+)买了一台1核1
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java/" class="post-category">
-                                    java
+                            <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="post-category">
+                                    碎碎念
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                        <span class="chip bg-color">多线程</span>
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
                     </a>
                     
                 </div>
@@ -1129,24 +1038,24 @@ System<span class="token punctuation">.</span><span class="token function">setOu
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/1101/">
+                <a href="/2021/0127/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="Java-IO流">
+                        <img src="https://cdn.jsdelivr.net/gh/LubanSeven/LubanSeven.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="Java多线程(五)-线程池">
                         
-                        <span class="card-title">Java-IO流</span>
+                        <span class="card-title">Java多线程(五)-线程池</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java-IO流(一)java的IO通过java.io包下的类和接口来支持，在该包下主要有输入、输出两种IO流，每种输出、输入流又可分为字节流和字符流。此外，Java的IO流使用了一种装饰器设计模式，将IO流分成底层节点流和上层处理流，其中
+                            线程池-前言系统启动一个线程的成本较高，而使用线程池可以提高性能，尤其在菜鸡大量短期线程时。与数据库连接池类似，线程池在系统启动时创建大量空闲线程，程序将一个Runnable对象或Callable对象传给线程池，线程池就会执行他们的run(
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-27
                             </span>
                         <span class="publish-author">
                             
@@ -1163,12 +1072,8 @@ System<span class="token punctuation">.</span><span class="token function">setOu
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/IO%E6%B5%81/">
-                        <span class="chip bg-color">IO流</span>
-                    </a>
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+                        <span class="chip bg-color">线程池</span>
                     </a>
                     
                 </div>

@@ -1,6 +1,5 @@
 # hexo robots.txt
-
-User-agent: *
+User-agent:SomeBot 
 
 Allow:/
 Allow: /archives/
@@ -17,8 +16,6 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /lib/
 
-
-
 #sitemap
-Sitemap: http://maliaoblog.cn/sitemap.xml
-Sitemap: http://maliaoblog.cn/baidusitemap.xml
+Sitemap: https://maliaoblog.cn/sitemap.xml
+Sitemap: https://maliaoblog.cn/baidusitemap.xml

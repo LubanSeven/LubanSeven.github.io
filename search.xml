@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>在服务器上安装halo博客</title>
+      <link href="/2021/0228/"/>
+      <url>/2021/0228/</url>
+      
+        <content type="html"><![CDATA[<h4 id="博客部署"><a href="#博客部署" class="headerlink" title="博客部署"></a>博客部署</h4><p>本来是想弄<code>Coding</code>实现和<code>Github</code>双部署博客的，所以<code>www</code>的域名停止访问，可是最后<code>Coding</code>也没能部署完成，关键就是<code>Page</code>之后的仓库域名不符合条件，最后项目也署失败，所以干脆直接放弃了，索性弄一个动态的。</p><p><img src="https://img-blog.csdnimg.cn/20210301181502657.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="coding">)<img src="https://img-blog.csdnimg.cn/20210301181521291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dvYnVsbGlu,size_16,color_FFFFFF,t_70#pic_center" alt="bushu"><br>买了一台1核1G的云服务器，不是在阿里云买的，比较便宜些，也没便宜多少，就十几块钱吧，如果在阿里云开发者计划上购买能续费三年，主要是只买了一年的，以后续费就不好续了，优惠价买的，原价贵的要死，只能说上个云太难了。装了个CentOS系统镜像，起初准备搭建一个PHP博客，原因是<code>handsome</code>主题十分美观简洁，但是要付费(建议购买正版，有配套服务，我没钱所以用盗版)，选好了后台用的<code>typecho</code>，前端主题准备用<code>handsome(盗版)</code>。等到安装好<code>LAMP</code>之后，发现这个博客后台框架并不咋滴，虽然有很多人用，本身硬件就不行，运行起来特别慢，要下载好多插件，还要动手改源码，对于一个不懂<code>php</code>的新手来说很不友好。过了几天直接换成<code>halo</code>框架，操作很简单，如果选择这种的，根本不需要安装<code>LAMP</code>，<code>halo</code>是一个Java动态开源的博客项目，所以直接到官网下载一个项目<code>JAR</code>包就行，放到服务器上，只需要配置好Java环境，一道<code>nohup java -jar halo-1.4.2.jar &amp;</code>命令就运行起来了，速度快，  特别方便！而且<code>halo</code>的后台页面比较美观，功能齐全，不像<code>typecho</code>还要弄一个插件美化一下，一个有几十<code>KB</code>的，有几十<code>M</code>的，明显增加了服务器运行负担。</p><h4 id="备案"><a href="#备案" class="headerlink" title="备案"></a>备案</h4><p>另外服务器在<code>ICP备案</code>之后才能进行域名解析，一般要十天左右完成！所以买了服务器和域名就尽早备案，别耽误博客上线时间。可以把博客放到服务器上运行，之后就是安装博客，和前端博客的美化，<code>halo</code>主题有不少，可以到主题仓库挑选，下载压缩包或者远程拉取都行。</p><h4 id="handsome主题"><a href="#handsome主题" class="headerlink" title="handsome主题"></a>handsome主题</h4><p>如果你选择安装<code>typecho</code>购买<code>handsome</code>主题的话，建议直接让他给你买好服务器安装好，一条龙服务嘛，毕竟花了钱的！但如果你只是买主题的话，安装操作会比较麻烦一点，首先配置好环境，需要<code>LAMP</code>或者<code>LNMP</code>，反正<code>Mysql</code>和<code>php</code>是一定要安装的，<code>Php</code>和<code>Mysql</code>服务要一直开启，若遇到<code>yum</code>没用相应的安装包，安装包版本低的情况，可以更换<code>yum</code>包管理器的安装源。</p><pre class="line-numbers language-shell"><code class="language-shell">cd /etc/yum.repos.d/ # 进入yum源配置文件夹,根据centos版本下载对应的新源# 如果wget命令不生效，说明还没有安装wget工具wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo curl -O http://mirrors.aliyun.com/repo/Centos-7.repo yum clean all #清除缓存yum makecache #生成缓存，会把新下载CentOS-Base.repo源生效yum -y update #更新<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>很多软件包在yum官方源里面没有的，也可以使用epel源,也就是安装epel-release软件包。EPEL (Extra Packages for Enterprise  Linux)是基于Fedora的一个项目，为“红帽系”的操作系统提供额外的软件包，适用于RHEL、CentOS等系统。</p><pre class="line-numbers language-shell"><code class="language-shell">yum install epel-release #安装epel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="Mysql注意事项"><a href="#Mysql注意事项" class="headerlink" title="Mysql注意事项"></a>Mysql注意事项</h4><p>在安装<code>Mysql</code>时，注意CentOS7放弃了<code>MySQL</code>，而改使用MariaDB，MariaDB数据库管理系统是<code>MySQL</code>的一个分支，主要由开源社区在维护 。开发这个分支的原因之一是甲骨文公司收购了<code>MySQL</code>后，有将<code>MySQL</code>闭源的潜在风险， 因此社区采用分支的方式来避开这个风险。MariaDB的目的是完全兼容<code>MySQL</code>，包括API和命令行，使之可以成为<code>MySQL</code>的代替品。 在存储引擎上，从10.0.9版起使用<code>XtraDB</code>来代替<code>MySQL</code>的<code>InnoDB</code>。 MariaDB由<code>MySQL</code>的创始人麦克尔主导开发，他早前曾将自己创建的公司MySQL AB卖给了SUN公司，此后，随着SUN被甲骨文收购。</p><pre class="line-numbers language-shell"><code class="language-shell">yum list | grep mariadb #查看yum源中mariadb安装包列表yum install mariadb-5.5.56-2.el7.x86_64 #安装相应版本rpm -qa | grep MariaDB  #查看mariadb安装包systemctl enable mysqld #开机启动mysql服务systemctl start mysqld.service #开启服务(systemctl status查看服务)#然后创建typecho博客需要的数据库typecho(默认)和用户名、密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h4><p>由于<code>halo</code>项目的默认端口为<code>8090</code>，所以需要进行服务器端口的映射，不然访问不到，将<code>80</code>端口映射到<code>8090</code>，如下：</p><pre class="line-numbers language-shell"><code class="language-shell">iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8090 #映射端口80到8090iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 8090 #映射端口443到8090service iptables restart #重启防火墙<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>备案之后可以进行域名解析就完事了，通过域名能访问就正常。 另外你也可以深入了解一下<code>halo</code>框架的具体实现，学习学习，确实是一个不错的Java项目。 另外你也可以深入了解一下<code>halo</code>框架的具体实现，学习学习，确实是一个不错的Java项目。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 碎碎念 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java多线程(五)-线程池</title>
       <link href="/2021/0127/"/>
       <url>/2021/0127/</url>
