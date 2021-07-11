@@ -1,17 +1,16 @@
-# hexo robots.txt
-User-agent:SomeBot 
+#hexo robots.txt
+User-agent: * 
+#Crawl-delay:100
 
-Allow:/
+Allow: /page
 Allow: /archives/
-Allow: /tags/
 Allow: /categorioes/
-Allow:/about/
-Allow:/index/
+Allow: /about/
 Allow:/friends/
 Allow:/sitemap/
 Allow:/contact/
  
-Disallow: /vendors/
+Disallow: /medias/
 Disallow: /js/
 Disallow: /css/
 Disallow: /lib/
